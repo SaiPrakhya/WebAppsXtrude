@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Canvas Demo</title>
+
+    <script src="./js/dynamic.js"></script>
+    <link rel="stylesheet" href="./css/styles.css" />
+
+    <!-- Correct script tag for Model Viewer -->
+    <script
+      type="module"
+      src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
+    ></script>
+  </head>
+  <body>
+    <model-viewer
+      src="./Models/BenchyOnBenches.glb"
+      alt="3D model"
+      auto-rotate
+      camera-controls
+      background-color="#ffffff"
+      style="width: 600px; height: 400px"
+    >
+    </model-viewer>
+
+    <!--<model-viewer
+      src="./Models/BenchyOnBenches.glb"
+      alt="3D model"
+      id="modelview"
+      auto-rotate
+      camera-controls
+      background-color="#ffffff"
+      style="width: 600px; height: 400px"
+    >
+    </model-viewer>-->
+  </body>
+</html>
