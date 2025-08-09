@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>XtrudeInc</title>
+    <script src="./js/header.js"></script>
+    <link rel="stylesheet" href="./css/header.css" />
+    <link rel="stylesheet" href="./css/herocontent.css" />
+    <link rel="stylesheet" href="./css/modelview.css" />
+    <link rel="stylesheet" href="./css/aboutSection.css" />
+    <!--File path for the 3D model in the Hero section-->
+    <script
+      type="module"
+      src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
+    ></script>
+  </head>
+  <body>
+    <model-viewer
+      src="./Models/BenchyOnBenches.glb"
+      alt="3D model"
+      id="modelview"
+      auto-rotate
+      disable-zoom
+      camera-controls
+      background-color="#ffffff"
+      style="width: 700px; height: 500px"
+      shadow-intensity="1"
+      shadow-softness="0.9"
+    >
+    </model-viewer>
+
+    <section id="header">
+      <header class="site-header">
+        <div class="header-container">
+          <a href="#" class="logo">
+            <img
+              src="./img/XtrudeIncLogoTagline.png"
+              alt="XtrudeInc Logo Tagline"
+              title="About XtrudeInc"
+            />
+          </a>
+          <nav class="main-nav">
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#AboutXtrudeInc">About Us</a></li>
+              <li class="active"><a href="#">Products</a></li>
+              <li><a href="#">Gallery</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+    </section>
+    <article>
+      <div class="hero-container">
+        <div class="heroContent">
+          <h1 class="heroText">
+            Designing your Vision and Building our Future
+            <span id="highlightedText">One Layer at a Time</span>
+          </h1>
+          <hr id="horizontalLine" />
+          <h2 id="LearnMoreBtn">Learn More</h2>
+        </div>
+      </div>
+      <div class="AboutXtrudeInc"></div>
+    </article>
+  </body>
+</html>

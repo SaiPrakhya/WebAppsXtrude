@@ -1,0 +1,24 @@
+#modelview {
+  position: absolute;
+  left: 52%;
+  top: 20%;
+  border-radius: 50px;
+}
+
+model-viewer {
+  animation: float 4s ease-in-out infinite;
+}
+
+model-viewer {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
