@@ -1,0 +1,22 @@
+.ProductsXtrudeInc {
+  background: linear-gradient(#ffffff, #fff7eb);
+  height: 110vh;
+}
+
+.productsContent {
+  position: relative;
+  top: 13%;
+  left: 11%;
+  width: 82%;
+}
+
+.productHeading {
+  user-select: none;
+  font-size: 45px;
+  color: #0c064e;
+  font-weight: 700;
+  transition: 0.3s ease;
+  border-bottom: 5px solid #00000045;
+  width: 25%;
+  transition: 0.3s ease;
+}
