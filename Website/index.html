@@ -19,8 +19,22 @@
   <body>
     <model-viewer
       src="./Models/BenchyOnBenches.glb"
-      alt="3D model"
-      id="modelview"
+      alt="barrelsNtreeModel"
+      id="modelview1"
+      auto-rotate
+      disable-zoom
+      camera-controls
+      background-color="#ffffff"
+      style="width: 700px; height: 500px"
+      shadow-intensity="1"
+      shadow-softness="0.9"
+    >
+    </model-viewer>
+
+    <model-viewer
+      src="./Models/3DPrinterMoveableModel.glb"
+      alt="3DPrinterModel"
+      id="modelview2"
       auto-rotate
       disable-zoom
       camera-controls
@@ -106,11 +120,16 @@
       <div class="ProductsXtrudeInc">
         <div class="productsContent">
           <div class="productHeading">Our Products</div>
+          <br />
+          <br />
+          <br />
           <div class="productImgCollage">
-            <img src="./img/ProductImg1.jpg" id="Productimg1" />
-            <img src="./img/ProductImg2.jpg" id="Productimg2" />
-            <img src="./img/ProductImg3.jpg" id="Productimg3" />
+            <img src="./img/ProductImg1.jpg" id="Productimgs" />
+            <img src="./img/ProductImg2.jpg" id="Productimgs" />
+            <img src="./img/ProductImg3.jpg" id="Productimgs" />
           </div>
+          <br />
+          <br />
         </div>
       </div>
     </article>
