@@ -1,6 +1,6 @@
 .ProductsXtrudeInc {
   background: linear-gradient(#ffffff, #fff7eb);
-  height: 110vh;
+  height: 210vh;
 }
 
 .productsContent {
@@ -19,4 +19,73 @@
   border-bottom: 5px solid #00000045;
   width: 25%;
   transition: 0.3s ease;
+}
+
+.productHeading:hover {
+  cursor: pointer;
+  margin-left: 10px;
+  box-shadow: 16px 0 0 #ffbd44, 32px 0 0 #ff3732, 64px 0 0 #0099ff;
+}
+
+#Productimgs {
+  display: flexbox;
+  height: 300px;
+  opacity: 0.9;
+  box-shadow: 0 16px 0 #ffbd44, 0 32px 0 #ff3732, 0 64px 0 #0099ff;
+}
+
+.productDescription {
+  margin-top: 100px;
+  color: #00000094;
+  line-height: 3rem;
+  font-size: 45px;
+  width: 60%;
+}
+
+.listItem {
+  margin-bottom: 5px;
+  transition: 0.3s ease;
+  /* For smooth description transition */
+  position: relative;
+}
+
+#productTextDescription {
+  display: block;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+}
+
+.productName {
+  background-color: #0c064e;
+  color: #fff7eb;
+  width: 65%;
+  text-shadow: -2px 0 0 #ffbd44, -6px 0 8px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  padding-bottom: 20px;
+  font-size: 38px;
+  transition: 0.3s ease;
+}
+
+#ProductDescription {
+  display: none;
+  padding: 10px;
+  font-size: 22px;
+  color: white;
+  border: none;
+  text-shadow: none;
+  margin-top: 15px;
+}
+
+.productName:hover {
+  box-shadow: 0 16px 0 #ffbd44, 0 32px 0 #ff3732, 0 64px 0 #0099ff;
+  margin-bottom: 100px;
+  cursor: pointer;
+}
+
+.productName:hover #ProductDescription {
+  display: block;
+  max-height: 100px;
+  opacity: 1;
 }
