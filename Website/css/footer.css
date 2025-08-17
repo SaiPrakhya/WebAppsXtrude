@@ -1,0 +1,26 @@
+footer {
+  height: 100vh;
+  background-color: #fff7eb;
+}
+
+.copyright {
+  background-color: #0c064e;
+  text-align: center;
+  font-size: 14px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  color: #fff7eb;
+  text-shadow: -1px 0 0 #ffbd44, -6px 0 8px rgba(0, 0, 0, 0.2);
+}
+
+footer {
+  position: relative;
+}
+
+.footerLogo {
+  width: 400px;
+  height: auto;
+  margin-left: 50px;
+  margin-top: 30px;
+}

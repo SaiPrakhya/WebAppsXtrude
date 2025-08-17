@@ -48,6 +48,36 @@
   transition: 0.3s ease;
 }
 
+.ObjectivesHeading {
+  user-select: none;
+  font-size: 38px;
+  color: #0c064e;
+  font-weight: 700;
+  transition: 0.3s ease;
+  border-bottom: 5px solid #00000045;
+  width: 18%;
+  transition: 0.3s ease;
+}
+
+.ObjectivesDescription {
+  background-color: #0c064e;
+  color: #fff7eb;
+  padding: 4px;
+  font-size: 30px;
+  text-shadow: -2px 0 0 #ffbd44, -6px 0 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 0 #ffbd44, 0 16px 0 #ff3732, 0 32px 0 #0099ff;
+}
+
+.ObjectivesDescription:hover {
+  cursor: pointer;
+}
+
+.ObjectivesHeading:hover {
+  cursor: pointer;
+  margin-left: 10px;
+  box-shadow: 16px 0 0 #ffbd44, 32px 0 0 #ff3732, 64px 0 0 #0099ff;
+}
+
 #spannedText:hover {
   cursor: pointer;
 }

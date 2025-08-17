@@ -1,11 +1,11 @@
 .ProductsXtrudeInc {
-  background: linear-gradient(#ffffff, #fff7eb);
-  height: 210vh;
+  background: #ffffff;
+  height: 310vh;
 }
 
 .productsContent {
   position: relative;
-  top: 13%;
+  top: 20%;
   left: 11%;
   width: 82%;
 }

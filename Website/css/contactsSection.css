@@ -1,0 +1,176 @@
+.contactsContent {
+  position: relative;
+  height: 500vh;
+  left: 11%;
+  width: 82%;
+}
+
+.NameFounder {
+  font-size: 38px;
+  color: #0c064e;
+}
+
+.NameFounder:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+#DesignationFounder {
+  color: #000000;
+}
+
+.founderIcon {
+  height: 210px;
+  transition: 0.3s ease;
+}
+
+.founderIcon:hover {
+  cursor: pointer;
+  box-shadow: 16px 0 0 #ffbd44, 32px 0 0 #ff3732, 64px 0 0 #0099ff;
+  margin-left: 10px;
+}
+
+.FounderDescription {
+  float: right;
+  color: #5d5d5d;
+  padding: 4px;
+  font-size: 26px;
+  border-radius: 3px;
+  transition: 0.3s ease;
+  width: 62%;
+  transition: 0.3s ease;
+}
+
+.FounderDescription:hover {
+  cursor: pointer;
+  background-color: #0c064e;
+  color: #fff7eb;
+  text-shadow: -2px 0 0 #ffbd44, -6px 0 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 0 #ffbd44, 0 16px 0 #ff3732, 0 32px 0 #0099ff;
+}
+
+.MissionHeading {
+  user-select: none;
+  font-size: 38px;
+  color: #0c064e;
+  font-weight: 700;
+  transition: 0.3s ease;
+  border-bottom: 5px solid #00000045;
+}
+
+.MissionDescription {
+  color: #00000094;
+  line-height: 3rem;
+  font-size: 30px;
+  transition: 0.3s ease;
+  width: 45%;
+}
+
+#MissionImg {
+  position: relative;
+  float: right;
+  height: 482px;
+  margin-right: 100px;
+  box-shadow: 0 16px 0 #ffbd44, 0 32px 0 #ff3732, 0 64px 0 #0099ff;
+}
+
+#MissionImg:hover {
+  cursor: pointer;
+}
+
+.MissionDescription:hover {
+  cursor: pointer;
+  background-color: #0c064e;
+  color: #fff7eb;
+  padding: 20px;
+  font-size: 30px;
+  text-shadow: -2px 0 0 #ffbd44, -6px 0 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 16px 0 #ffbd44, 0 32px 0 #ff3732, 0 64px 0 #0099ff;
+}
+
+.VisionHeading {
+  user-select: none;
+  font-size: 38px;
+  color: #0c064e;
+  font-weight: 700;
+  transition: 0.3s ease;
+  border-bottom: 5px solid #00000045;
+}
+
+.VisionDescription {
+  color: #00000094;
+  line-height: 3rem;
+  font-size: 30px;
+  transition: 0.3s ease;
+  width: 45%;
+}
+
+.VisionDescription:hover {
+  cursor: pointer;
+  background-color: #0c064e;
+  color: #fff7eb;
+  padding: 20px;
+  font-size: 30px;
+  text-shadow: -2px 0 0 #ffbd44, -6px 0 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 16px 0 #ffbd44, 0 32px 0 #ff3732, 0 64px 0 #0099ff;
+}
+
+#VisionImg {
+  position: relative;
+  float: right;
+  height: 422px;
+  margin-left: 100px;
+  box-shadow: 0 16px 0 #ffbd44, 0 32px 0 #ff3732, 0 64px 0 #0099ff;
+}
+
+#VisionImg:hover {
+  cursor: pointer;
+}
+
+.ContactUs {
+  margin-top: 150px;
+}
+
+.ContactUsHeading {
+  user-select: none;
+  font-size: 38px;
+  color: #0c064e;
+  font-weight: 700;
+  transition: 0.3s ease;
+  border-bottom: 5px solid #00000045;
+}
+
+.ContactUsDescription {
+  color: #5d5d5d;
+  width: 72%;
+}
+
+.Socials {
+  margin-top: 50px;
+  font-size: 25px;
+  font-family: sans-serif;
+  display: grid;
+  gap: 20px;
+  padding: 20px;
+  transition: 0.3s ease;
+}
+
+.socialIcons {
+  width: 30%;
+}
+
+.emailandcontact {
+  transition: 0.3s ease;
+  padding: 20px;
+}
+
+.emailandcontact:hover {
+  cursor: pointer;
+  background-color: #0c064e;
+  color: #fff7eb;
+  padding: 20px;
+  font-size: 30px;
+  text-shadow: -2px 0 0 #ffbd44, -6px 0 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 16px 0 #ffbd44, 0 32px 0 #ff3732, 0 64px 0 #0099ff;
+  margin-bottom: 72px;
+}
