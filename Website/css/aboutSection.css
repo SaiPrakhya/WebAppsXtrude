@@ -1,4 +1,4 @@
-.AboutXtrudeInc {
+/*.AboutXtrudeInc {
   background-color: #ffffff;
   height: 210vh;
 }
@@ -6,31 +6,27 @@
 .aboutContent {
   position: relative;
   top: 12%;
-  left: 11%;
   width: 82%;
 }
 
 .AboutHeading {
   user-select: none;
   font-size: 45px;
-  color: #0c064e;
-  font-weight: 700;
+  color: #01204e;
   transition: 0.3s ease;
   border-bottom: 5px solid #00000045;
-  width: 25%;
+  width: 30%;
   transition: 0.3s ease;
 }
 
 .AboutHeading:hover {
   cursor: pointer;
-  margin-left: 10px;
-  box-shadow: 16px 0 0 #ffbd44, 32px 0 0 #ff3732, 64px 0 0 #0099ff;
 }
 
 .AboutDescription {
-  color: #00000094;
-  line-height: 3rem;
-  font-size: 25px;
+  color: #000000;
+  line-height: 2.2rem;
+  font-size: 18px;
   width: 45%;
 }
 
@@ -38,20 +34,34 @@
   cursor: pointer;
 }
 
-#spannedText {
+.aboutsubContent {
+  width: 100%;
+  background-color: red;
+}
+
+/*#spannedText {
   background-color: #0c064e;
   color: #fff7eb;
+  color: #00000094;
   text-shadow: -2px 0 0 #ffbd44, -6px 0 8px rgba(0, 0, 0, 0.2);
   padding: 4px;
-  font-size: 30px;
+  font-size: 20px;
   border-radius: 3px;
   transition: 0.3s ease;
+}
+
+#spannedText:hover {
+  text-shadow: -2px 0 0 #faaa68, -6px 0 8px rgba(0, 0, 0, 0.2);
+  background-color: #01204e;
+  color: #fff7eb;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 .ObjectivesHeading {
   user-select: none;
   font-size: 38px;
-  color: #0c064e;
+  color: #01204e;
   font-weight: 700;
   transition: 0.3s ease;
   border-bottom: 5px solid #00000045;
@@ -91,4 +101,218 @@
 
 .aboutimgs:hover {
   cursor: pointer;
+}*/
+
+.AboutXtrudeInc {
+  background-color: white;
+  height: 600vh;
+  margin-top: 350px;
+}
+
+.aboutHeading {
+  font-size: 30px;
+  font-weight: 500;
+  transition: 0.3s ease;
+  width: 18%;
+}
+
+.aboutHeading:hover {
+  margin-left: 10px;
+}
+
+.aboutSectionContent {
+  background-color: #fff7eb;
+  width: 100%;
+  padding-left: 200px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#aboutSectionImg {
+  float: right;
+  height: 350px;
+  margin-right: 200px;
+  box-shadow: 16px 16px 0 #000000e1;
+  transition: 0.3s ease;
+}
+
+#aboutSectionImg:hover {
+  height: 400px;
+}
+
+.aboutDescription {
+  font-style: italic;
+  width: 30%;
+  font-size: 20px;
+  transition: 0.3s ease;
+}
+
+.aboutDescription:hover {
+  cursor: pointer;
+  padding-top: 10px;
+}
+
+.servicesSectionContainer {
+  margin-top: 350px;
+}
+
+.servicesSectionContent {
+  float: right;
+  background-color: #fff7eb;
+  width: 45%;
+  padding-left: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.servicesHeading {
+  font-size: 30px;
+  font-weight: 500;
+  transition: 0.3s ease;
+  width: 18%;
+}
+
+.servicesHeading:hover {
+  margin-left: 10px;
+}
+
+.servicesDescription {
+  font-style: italic;
+  font-size: 20px;
+  width: 70%;
+  transition: 0.3s ease;
+}
+
+.servicesDescription:hover {
+  cursor: pointer;
+  padding-top: 10px;
+}
+
+/***********/
+
+.moreServicesContainer {
+  margin-top: 1000px;
+}
+
+.moreServicesContent {
+  background-color: #f3f3f3;
+  width: 50%;
+  padding-left: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.moreServicesHeading {
+  font-size: 30px;
+  font-weight: 500;
+  transition: 0.3s ease;
+  width: 30%;
+}
+
+.moreServicesHeading:hover {
+  margin-left: 10px;
+}
+
+.moreServicesDescription {
+  font-style: italic;
+  font-size: 20px;
+  width: 80%;
+  transition: 0.3s ease;
+}
+
+.moreServicesDescription:hover {
+  cursor: pointer;
+  padding-top: 10px;
+}
+
+.MissionContent {
+  background-color: #f3f3f3;
+  width: 100%;
+  padding-left: 200px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 400px;
+}
+
+.missionHeading {
+  font-size: 30px;
+  font-weight: 500;
+  transition: 0.3s ease;
+  width: 18%;
+  transition: 0.3s ease;
+}
+
+.missionHeading:hover {
+  margin-left: 10px;
+}
+
+.missionDescription {
+  font-style: italic;
+  width: 30%;
+  font-size: 20px;
+  transition: 0.3s ease;
+}
+
+.missionDescription:hover {
+  cursor: pointer;
+  padding-top: 10px;
+}
+
+#missionImg {
+  float: right;
+  height: 450px;
+  margin-right: 200px;
+  box-shadow: 16px 16px 0 #000000e1;
+  transition: 0.3s ease;
+}
+
+#missionImg:hover {
+  height: 500px;
+}
+
+.VisionContent {
+  background-color: #f3f3f3;
+  width: 100%;
+  padding-left: 200px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 400px;
+}
+
+.visionHeading {
+  font-size: 30px;
+  font-weight: 500;
+  transition: 0.3s ease;
+  width: 18%;
+  margin-left: 750px;
+  transition: 0.3s ease;
+}
+
+.visionHeading:hover {
+  margin-left: 760px;
+}
+
+.visionDescription {
+  font-style: italic;
+  width: 30%;
+  font-size: 20px;
+  transition: 0.3s ease;
+  margin-left: 750px;
+}
+
+.visionDescription:hover {
+  cursor: pointer;
+  padding-top: 10px;
+}
+
+#visionImg {
+  float: left;
+  height: 400px;
+  margin-right: 200px;
+  box-shadow: 16px 16px 0 #000000e1;
+  transition: 0.3s ease;
+}
+
+#visionImg:hover {
+  height: 450px;
 }

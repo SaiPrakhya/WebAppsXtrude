@@ -34,7 +34,7 @@ ul {
 
 .site-header.scrolled {
   background-color: #ffffff;
-  padding: 0px;
+  padding-bottom: 10px;
 }
 
 .header-container {
@@ -52,6 +52,7 @@ ul {
   display: block;
   transition: 0.3s ease;
   user-select: none;
+  margin-top: 5px;
 }
 
 .logo img:hover {
@@ -69,7 +70,7 @@ ul {
   user-select: none;
   font-size: 17.5px;
   font-weight: 700;
-  color: #0c064e;
+  color: #01204e;
   padding: 10px;
   border-bottom: 4px solid #00000045;
   transition: 0.3s ease;
@@ -82,12 +83,12 @@ ul {
 }
 
 .main-nav .active a {
-  background-color: #0c064e;
+  background-color: #01204e;
   color: #fff7eb;
   font-weight: 600;
   border-radius: 15px;
   padding: 14px;
-  border-bottom: 4px solid #ffbd44;
+  border-bottom: 4px solid #faaa68;
 }
 
 .main-nav .active a:hover {
