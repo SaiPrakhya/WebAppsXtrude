@@ -8,15 +8,7 @@
 #modelview2 {
   position: absolute;
   left: 52%;
-  top: 150%;
-  border-radius: 50px;
-  z-index: 1000;
-}
-
-#enclosurelithophaneModel2 {
-  position: absolute;
-  left: 1%;
-  top: 450%;
+  top: 130%;
   border-radius: 50px;
   z-index: 1000;
 }

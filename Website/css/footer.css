@@ -4,14 +4,14 @@ footer {
 }
 
 .copyright {
-  background-color: #0c064e;
+  background-color: #01204e;
   text-align: center;
   font-size: 14px;
   position: absolute;
   bottom: 0;
   width: 100%;
   color: #fff7eb;
-  text-shadow: -1px 0 0 #ffbd44, -6px 0 8px rgba(0, 0, 0, 0.2);
+  text-shadow: -1px 0 0 #faaa68, -6px 0 8px rgba(0, 0, 0, 0.2);
 }
 
 footer {
@@ -19,8 +19,233 @@ footer {
 }
 
 .footerLogo {
+  user-select: none;
   width: 400px;
   height: auto;
   margin-left: 50px;
   margin-top: 30px;
+}
+
+.footerNavigationContainer {
+  margin-top: 6%;
+  margin-left: 8%;
+}
+
+.footerNavigationHeader {
+  font-size: 30px;
+  user-select: none;
+  font-weight: 500;
+  transition: 0.3s ease;
+  width: 23%;
+}
+
+.footerNavigationHeader:hover {
+  user-select: none;
+  margin-left: 5px;
+}
+
+.footernavbtn {
+  margin-bottom: 18px;
+  transition: 0.3s ease;
+  width: 10%;
+}
+
+.footernavbtn:hover {
+  text-decoration: underline;
+  padding-top: 5px;
+  color: #01204e;
+}
+
+.footer-nav {
+  font-size: 25px;
+}
+
+.contactUsTab {
+  width: 35%;
+  padding: 5px;
+}
+
+#contactUsHeading {
+  font-size: 25px;
+}
+
+.footerSocialIcons {
+  display: flex;
+  gap: 10px;
+  margin-left: 120px;
+}
+
+.footerSocialIconsHeading {
+  margin-left: 8%;
+  margin-top: 60px;
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.socialIcon {
+  height: 25px;
+  transition: 0.3s ease;
+}
+
+#instagramIcon:hover {
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+#facebookIcon:hover {
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+#twitterIcon:hover {
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+#linkedinIcon:hover {
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+.footerContacts {
+  position: absolute;
+  left: 38%;
+  margin-top: 38px;
+}
+
+.footerMoreContactsHeading {
+  font-size: 25px;
+  font-weight: 300;
+  text-decoration: underline;
+  transition: 0.3s ease;
+}
+
+.footerMoreContactsHeading:hover {
+  margin-left: 10px;
+}
+
+.footerPhoneNumber {
+  display: flex;
+  gap: 10px;
+  transition: 0.3s ease;
+}
+
+.footerPhoneNumber:hover {
+  cursor: pointer;
+  font-size: 18px;
+}
+
+#Phone {
+  font-weight: 500;
+}
+
+.footerEmail {
+  display: flex;
+  gap: 10px;
+  transition: 0.3s ease;
+}
+
+.footerEmail:hover {
+  cursor: pointer;
+  font-size: 18px;
+}
+
+#Email {
+  font-weight: 500;
+}
+
+.footerServicesContainer {
+  position: absolute;
+  margin-top: 97px;
+  left: 38%;
+}
+
+.footerServicesHeading {
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.footerServicesLinks {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  font-size: 18px;
+}
+
+#ThreeDPrinting {
+  transition: 0.3s ease;
+}
+
+#ModellingAndDesign {
+  transition: 0.3s ease;
+}
+
+#Products {
+  transition: 0.3s ease;
+}
+
+#CustomOrders {
+  transition: 0.3s ease;
+}
+
+#ThreeDPrinting:hover {
+  padding-top: 5px;
+  text-decoration: underline;
+}
+
+#ModellingAndDesign:hover {
+  padding-top: 5px;
+  text-decoration: underline;
+}
+
+#Products:hover {
+  padding-top: 5px;
+  text-decoration: underline;
+}
+
+#CustomOrders:hover {
+  padding-top: 5px;
+  text-decoration: underline;
+}
+
+.MoreLinks {
+  position: absolute;
+  left: 72%;
+  margin-top: 100px;
+}
+
+.morelinksHeading {
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.morelinksContainer {
+  font-size: 20px;
+}
+
+#BlogsAndNews {
+  transition: 0.3s ease;
+}
+
+#Resources {
+  transition: 0.3s ease;
+}
+
+#OrderPlacing {
+  transition: 0.3s ease;
+}
+
+#BlogsAndNews:hover {
+  padding-top: 5px;
+  cursor: not-allowed;
+}
+
+#Resources:hover {
+  padding-top: 5px;
+  cursor: not-allowed;
+}
+
+#OrderPlacing:hover {
+  padding-top: 5px;
+  cursor: not-allowed;
 }

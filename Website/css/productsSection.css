@@ -1,4 +1,4 @@
-.ProductsXtrudeInc {
+/*.ProductsXtrudeInc {
   background: #ffffff;
   height: 310vh;
 }
@@ -45,7 +45,7 @@
 .listItem {
   margin-bottom: 5px;
   transition: 0.3s ease;
-  /* For smooth description transition */
+  For smooth description transition
   position: relative;
 }
 
@@ -88,4 +88,97 @@
   display: block;
   max-height: 100px;
   opacity: 1;
+}*/
+
+.productsXtrudeInc {
+  height: 300vh;
+}
+
+.productsHeading {
+  font-size: 30px;
+  font-weight: 500;
+  transition: 0.3s ease;
+  width: 18%;
+}
+
+.productsHeading:hover {
+  margin-left: 10px;
+}
+
+.productsSectionContent {
+  background-color: #fff7eb;
+  width: 100%;
+  padding-left: 200px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.productsDescription {
+  font-style: italic;
+  width: 45%;
+  font-size: 20px;
+  transition: 0.3s ease;
+}
+
+.productsDescription:hover {
+  cursor: pointer;
+  padding-top: 10px;
+}
+
+#productsImg {
+  float: right;
+  height: 350px;
+  margin-right: 200px;
+  box-shadow: 16px 16px 0 #000000e1;
+  transition: 0.3s ease;
+}
+
+#productsImg:hover {
+  height: 400px;
+}
+
+#viewinthreeDLink {
+  color: #0c064e;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+#viewinthreeDLink:hover {
+  text-decoration: underline;
+}
+
+#knowMoreLink {
+  color: #0c064e;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+#knowMoreLink:hover {
+  text-decoration: underline;
+}
+
+#viewinthreeDLink:hover {
+  text-decoration: underline;
+}
+
+.productShowcaseContainer {
+  margin-top: 200px;
+}
+
+.showcaseHeading {
+  font-size: 30px;
+  font-weight: 500;
+  transition: 0.3s ease;
+  width: 22%;
+}
+
+.showcaseHeading:hover {
+  cursor: pointer;
+}
+
+.showcaseContent {
+  width: 100%;
+  padding-left: 200px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }

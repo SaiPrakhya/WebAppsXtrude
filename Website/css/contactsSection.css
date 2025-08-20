@@ -1,4 +1,4 @@
-.contactsContent {
+/*.contactsContent {
   position: relative;
   height: 500vh;
   left: 11%;
@@ -173,4 +173,62 @@
   text-shadow: -2px 0 0 #ffbd44, -6px 0 8px rgba(0, 0, 0, 0.2);
   box-shadow: 0 16px 0 #ffbd44, 0 32px 0 #ff3732, 0 64px 0 #0099ff;
   margin-bottom: 72px;
+}*/
+
+.contactsXtrudeInc {
+  height: 150vh;
+}
+
+.contactsHeading {
+  font-size: 30px;
+  font-weight: 500;
+  transition: 0.3s ease;
+  width: 15%;
+}
+
+.contactsHeading:hover {
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.contactsSectionContent {
+  background-color: #fff7eb;
+  width: 100%;
+  padding-left: 200px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#placeOrders {
+  font-weight: 400;
+}
+
+.contactsDescription {
+  font-style: italic;
+  width: 40%;
+  font-size: 20px;
+  transition: 0.3s ease;
+}
+
+.contactsDescription:hover {
+  cursor: pointer;
+  padding-top: 10px;
+}
+
+.promptSelector {
+  margin-top: 50px;
+  margin-bottom: 25px;
+}
+
+#promptselectionBtn {
+  font-weight: 300;
+  transition: 0.3s ease;
+  width: 30%;
+}
+
+#promptselectionBtn:hover {
+  cursor: pointer;
+  color: #01204e;
+  text-decoration: underline;
+  font-size: 30px;
 }

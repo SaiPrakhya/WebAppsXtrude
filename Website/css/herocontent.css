@@ -13,9 +13,9 @@
 .heroText {
   user-select: none;
   font-size: 52px;
-  color: #0c064e;
+  color: #01204e;
   font-weight: 700;
-  text-shadow: -3px 0 0 #ffbd44, -6px 0 8px rgba(0, 0, 0, 0.2);
+  text-shadow: -3px 0 0 #faaa68, -6px 0 8px rgba(0, 0, 0, 0.2);
   transition: 0.3s ease;
 }
 
@@ -26,11 +26,11 @@
 #highlightedText {
   user-select: none;
   color: #fff7eb;
-  text-shadow: -3px 0 0 #ffbd44, -6px 0 8px rgba(0, 0, 0, 0.2);
-  background-color: #0c064e;
+  text-shadow: -3px 0 0 #faaa68, -6px 0 8px rgba(0, 0, 0, 0.2);
+  background-color: #01204e;
   padding-left: 10px;
   padding-right: 10px;
-  box-shadow: 0 8px 0 #ffbd44, 0 16px 0 #ff3732, 0 32px 0 #0099ff;
+  box-shadow: 0 8px 0 #028393, 0 16px 0 #f65625, 0 32px 0 #faaa68;
   transition: 0.3s ease;
 }
 

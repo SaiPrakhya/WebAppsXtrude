@@ -5,13 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>XtrudeInc</title>
     <script src="./js/header.js"></script>
-    <link rel="stylesheet" href="./css/header.css" />
+
+  <!--CSS stylesheet relative paths - Commented temporarily for AI code bootstrap code gen-->
+
+    <!--<link rel="stylesheet" href="./css/header.css" />
     <link rel="stylesheet" href="./css/herocontent.css" />
     <link rel="stylesheet" href="./css/modelview.css" />
     <link rel="stylesheet" href="./css/aboutSection.css" />
     <link rel="stylesheet" href="./css/productsSection.css" />
     <link rel="stylesheet" href="./css/contactsSection.css" />
     <link rel="stylesheet" href="./css/footer.css" />
+    <link rel="stylesheet" href="./css/contactsprompt.css" />-->
     <!--File path for the 3D model in the Hero section-->
     <script
       type="module"
@@ -33,26 +37,12 @@
     >
     </model-viewer>
 
-    <model-viewer
-      src="./Models/3DPrinterMoveableModel.glb"
-      alt="3DPrinterModel"
-      id="modelview2"
-      auto-rotate
-      disable-zoom
-      camera-controls
-      background-color="#ffffff"
-      style="width: 700px; height: 500px"
-      shadow-intensity="1"
-      shadow-softness="0.9"
-    >
-    </model-viewer>
-
     <section id="header">
       <header class="site-header">
         <div class="header-container">
           <a href="#" class="logo">
             <img
-              src="./img/XtrudeIncLogoTagline.png"
+              src="./img/XtrudeIncLogoUpdated.png"
               alt="XtrudeInc Logo Tagline"
               title="About XtrudeInc"
             />
@@ -72,7 +62,7 @@
       <div class="hero-container">
         <div class="heroContent">
           <h1 class="heroText">
-            Designing your Vision and Building our Future
+            Designing your Vision and Building the Future
             <span id="highlightedText">One Layer at a Time</span>
           </h1>
           <hr id="horizontalLine" />
@@ -80,213 +70,250 @@
         </div>
       </div>
       <div class="AboutXtrudeInc">
-        <div class="aboutContent">
-          <h1 class="AboutHeading">About XtrudeInc</h1>
-          <h2 class="AboutDescription">
-            XtrudeInc is a
-            <span id="spannedText"
-              >startup specializing in the domain of 3D printing and 3D
-              design.</span
-            >
-            We are dedicated to offering unique Products catered to a range of
-            customers in various domains, including home decor, lifestyle
-            accessories, and more.
-            <span id="spannedText"
-              >We also specialize in providing custom 3D-Product rendering
-              services for businesses or individuals looking to bring their
-              ideas to life.</span
-            >
+        <div class="aboutSectionContent">
+          <h2 class="aboutHeading">About XtrudeInc</h2>
+          <img
+            src="./img/XtrudeIncAboutPageImg (1).jpg"
+            id="aboutSectionImg"
+            title="black and white image of a benchy boat with filaments in the background"
+          />
+          <p class="aboutDescription">
+            XtrudeInc is a startup associated with 3D Printing and Design.
+            Focused on the production of 3D printed customizable products and
+            providing innovative solutions to individuals and businesses alike.
             <br />
-          </h2>
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <div class="imagecollage">
-            <img
-              src="./img/XtrudeIncAboutPageImg (1).jpg"
-              id="AboutImg1"
-              class="aboutimgs"
-            />
-            <img
-              src="./img/XtrudeIncAboutPageImg2.jpg"
-              id="Aboutimg2"
-              class="aboutimgs"
-            />
-            <img
-              src="./img/XtrudeAboutPageImg3.jpg"
-              id="Aboutimg3"
-              class="aboutimgs"
-            />
+            <br />
+            From concept to creation, we are dedicated towards delivering
+            high-quality 3D printed products that cater to our customers'
+            lifestyle and accessory needs.
+          </p>
+        </div>
+        <div class="servicesSectionContainer">
+          <div class="servicesSectionContent">
+            <h2 class="servicesHeading">Our Services</h2>
+            <p class="servicesDescription">
+              The services we provide at XtrudeInc include 3D product rendering,
+              visual prototyping as well as physical product prototyping and,
+              rapid prototyping services for businesses and individuals who are
+              looking to transition their abstract ideas into visual and real
+              life models.
+            </p>
           </div>
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <h2 class="ObjectivesHeading">Objectives</h2>
-          <h2 class="ObjectivesDescription">
-            As our objectives expand over time, initially, we aim to expand our
-            operations towards provision offull-fledged 3D printing services for
-            customers looking to explore the 3D printing space in manufacturing
-            or for rapid-prototyping.
-          </h2>
+        </div>
+        <div class="moreServicesContainer">
+          <div class="moreServicesContent">
+            <h2 class="moreServicesHeading">Custom orders</h2>
+            <p class="moreServicesDescription">
+              As a startup that understands the value of uniqueness in every
+              design and product, we offer our customers the option to place
+              customized order preferences in order to meet with their style and
+              preferences of an ideal product in their vision. All you have to
+              do is send us an email or simply reach out to us on the available
+              platforms and detail your product requirements with us.
+            </p>
+          </div>
+        </div>
+        <div class="MissionContainer">
+          <div class="MissionContent">
+            <h2 class="missionHeading">Our Mission</h2>
+            <img
+            src="./img/MissionImage.jpg"
+            id="missionImg"
+            title="black and white image of a benchy boat with filaments in the background"
+          />
+            <p class="missionDescription">
+              At XtrudeInc, our mission is to provide high quality 3D printed products that cater to the unique needs and preferences of our customers. On top of that, we also aim to deliver quality prototyping services as well as 3D visual product rendering services for our beloved clientele who are looking to explore the opportunity of bringing their ideas to life.<br><br> In the long run, we wish to expand our services towards exploring several other use cases in the current rising trend of manufacturing.
+            </p>
+          </div>
+        </div>
+        <div class="VisionContainer">
+          <div class="VisionContent">
+            <h2 class="visionHeading">Our Vision</h2>
+            <img
+            src="./img/XtrudeIncAboutPageImg2.jpg"
+            id="visionImg"
+            title="black and white image of a benchy boat with filaments in the background"
+          />
+            <p class="visionDescription">
+              Our vision is to become one of the leading providers of 3D printing & design, prototyping & small-scale manufacturing, as well as providing innovative 3D solutions for our clients in various industries, specifically in the domain of medtech and education.<br><br> As an extension to our product line, we wish to explore new possibilities in the field of 3D software solutions for businesses.
+            </p>
+          </div>
         </div>
       </div>
-      <div class="ProductsXtrudeInc">
-        <div class="productsContent">
-          <div class="productHeading">Our Products</div>
-          <br />
-          <br />
-          <br />
-          <div class="productImgCollage">
-            <img src="./img/ProductImg1.jpg" id="Productimgs" />
-            <img src="./img/ProductImg2.jpg" id="Productimgs" />
-            <img src="./img/ProductImg3.jpg" id="Productimgs" />
+      <div class="productsXtrudeInc">
+        <div class="productsSectionContent">
+          <h2 class="productsHeading">Our Products</h2>
+          <img src="./img/ProductImg2.jpg" id="productsImg" />
+          <p class="productsDescription">
+            Our initial product offerings include framed and enclosure
+            lithophanes. These two product types have been classified under 3
+            different variants allowing you to customize them according to your
+            preferences and requirements.
+            <br /><br />
+            These variants are allowed to be viewed in 3D down below.
+            <br /><br /><a href="#"
+              ><span id="viewinthreeDLink">Click here to view in 3D</span></a
+            >
+            <br /><a href="#"
+              ><span id="knowMoreLink"
+                >Click here to know more about our products</span
+              ></a
+            >
+          </p>
+        </div>
+        <div class="productShowcaseContainer">
+          <div class="showcaseContent">
+            <h2 class="showcaseHeading">Our Products in 3D</h2>
           </div>
-          <br />
-          <br />
         </div>
       </div>
-      <div class="contactsContent">
-        <div class="Founders">
-          <h2>
-            <span class="NameFounder" title="click to know more"
-              >Sai Prakhya</span
-            ><br /><span class="DesignationFounder"
-              >Co-Founder and CEO of XtrudeInc</span
-            >
-          </h2>
-          <h2 class="FounderDescription">
-            Sai Prakhya is the Co-Founder and CEO of XtrudeInc, leading the
-            company's vision and strategy of manufacturing products and
-            providing services in the domain of 3D printing and designing. He
-            also oversees the technical aspect behind the operations at
-            XtrudeInc.
-          </h2>
-          <img src="./img/Duck.png" id="FounderImg1" class="founderIcon" />
-          <br />
-          <br />
-          <br />
-          <h2>
-            <span class="NameFounder" title="click to know more"
-              >Surya Sudhanshu</span
-            ><br /><span class="DesignationFounder"
-              >Co-Founder and CMO of XtrudeInc</span
-            >
-          </h2>
-          <h2 class="FounderDescription">
-            Sudhanshu is the Co-Founder and CMO of XtrudeInc, leading the
-            company's marketing efforts and overseeing all promotional
-            activities that aim to bring visibility and awareness to the brand.
-          </h2>
-          <img src="./img/Duck.png" id="FounderImg2" class="founderIcon" />
-        </div>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <div class="Mission">
-          <h2 class="MissionHeading">Our Mission</h2>
-          <img src="./img/MissionImage.jpg" id="MissionImg" />
-          <h2 class="MissionDescription">
-            Our mission is to introduce unique products into
-            consumer-marketplaces that cater to lifestyle needs of our beloved
-            customers. At the same time, we aim to provide an opportunity for
-            businesses and individuals to explore the 3D-design and additive
-            manufacturing landscape in order to align with their goals and
-            aspirations.
-          </h2>
-        </div>
-        <br />
-        <br />
-        <br />
-        <br />
-        <div class="Vision">
-          <h2 class="VisionHeading">Our Vision</h2>
-          <img src="./img/VisionImg.jpg" id="VisionImg" />
-          <h2 class="VisionDescription">
-            Many more years down the line, we envision XtrudeInc to be a leading
-            name in the 3D-designing and additive manufacturing industry, known
-            for its strategy to combine technology with 3D-design and provision
-            of exceptional services as well as innovative products that enhances
-            the quality of operations in several domains and equally enhances
-            the lives of it's customers.
-          </h2>
-        </div>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <div class="ContactUs">
-          <h2 class="ContactUsHeading">Contact Us</h2>
-          <h2 class="ContactUsDescription">
-            If you would like to join us in bringing your ideas to life or if
-            you have any queries regarding our products or services<br />
-            <br />
-            Feel free to reach out to us
-          </h2>
-          <div class="Socials">
-            <div class="emailandcontact">
-              <h3 id="socialsEmailandContact">
-                Support email: xtrudeinc.support@xtrudeinc.com<br /><br />
-                Customer email: xtrudeinc.customers@xtrude.com
-                <br /><br />
-                Phone: +91 89044 24961
-              </h3>
+      <div class="contactsXtrudeInc">
+        <div class="contactsSectionContent">
+          <h2 class="contactsHeading">Contact Us &<br> <span id="placeOrders">Place Orders</span></h2>
+          <div class="contactsPrompt">
+            <div class="CustomOrderPromptContent">
+              <h2 class="customorderHeading">Custom Order<br><span class="customorderSubHeading">Please enter the necessary details</span></h2>
+              <form id="customorderform">
+                <label for="customOrderName" id="promptCustomOrderName">Name</label><br>
+                <input type="text" id="customOrderName" name="customOrderName" required />
+                <br><br>
+                <label for="customOrderEmail" id="promptCustomOrderEmail">Email</label><br>
+                <input type="email" id="customOrderEmail" name="customOrderEmail" required />
+                <br><br>
+                <label for="customOrderDetails" id="promptCustomOrderDetails">Order details</label><br>
+                <textarea id="customOrderDetails" name="customOrderDetails" rows="4" required></textarea><br><br>
+                <button type="submit" id="sendbtn">Send Message</button>
+              </form>
             </div>
-            <a
-              href="https://www.facebook.com/XtrudeInc"
-              id="facebookIcon"
-              class="socialIcons"
-              target="_blank"
-              >Facebook: XtrudeInc_official</a
-            >
-            <a
-              href="https://www.twitter.com/XtrudeInc"
-              id="twitterIcon"
-              class="socialIcons"
-              target="_blank"
-              >Twitter: XtrudeInc_official</a
-            >
-            <a
-              href="https://www.instagram.com/XtrudeInc"
-              id="instagramIcon"
-              class="socialIcons"
-              target="_blank"
-              >Instagram: XtrudeInc_official</a
-            >
-            <a
-              href="https://www.linkedin.com/XtrudeInc"
-              id="linkedInIcon"
-              class="socialIcons"
-              target="_blank"
-              >LinkedIn: XtrudeInc</a
-            >
+
+            <div class="queryPromptContent">
+              <h2 class="queryHeading">Ask a Question<br><span class="querySubHeading">We'd love to hear from you</span></h2>
+              <form id="queryForm">
+                <label for="queryName" id="promptQueryName">Name</label><br>
+                <input type="text" id="queryName" name="queryName" required />
+                <br><br>
+                <label for="queryEmail" id="promptQueryEmail">Email</label><br>
+                <input type="email" id="queryEmail" name="queryEmail" required />
+                <br><br>
+                <label for="query" id="promptQuery">Query</label><br>
+                <textarea id="query" name="query" rows="4" required></textarea><br><br>
+                <button type="submit" id="sendbtn">Send Message</button>
+              </form>
+            </div>
+
+            <div class="OrderPlacepromptContent">
+              <h2 class="placeOrderHeading">Place Order<br><span class="placeOrderSubHeading">Please enter the necessary details</span></h2>
+              <form id="orderForm">
+                <label for="name" id="promptName">Name</label><br>
+                <input type="text" id="name" name="name" required />
+                <br><br>
+                <label for="email" id="promptEmail">Email</label><br>
+                <input type="email" id="email" name="email" required />
+                <br><br>
+                <label for="phone" id="promptPhone">Phone</label><br>
+                <input type="tel" id="phone" name="phone" required />
+                <br><br>
+                <label for="query" id="promptQuery">Order details</label><br>
+                <textarea id="query" name="query" rows="4" required></textarea><br><br>
+                <button type="submit" id="sendbtn">Send Message</button>
+            </div>
+          </div>
+          <p class="contactsDescription">
+            If you have any queries regarding our products and services, would like to place a custom order of our products or would like to use our services for your business or prototype, please feel free to reach out to us via our customer services prompt.<br><br> Please enter your details as well as your query in the prompt before sending us a message!<br><br>You may select any one prompt from the options below.
+          </p>
+          <div class="promptSelector">
+            <h2 class="placeOrderBtn" id="promptselectionBtn">Place Order for a Product</h2>
+            <h2 class="raiseQueryBtn" id="promptselectionBtn">Raise a Query</h2>
+            <h2 class="customOrderBtn" id="promptselectionBtn">Custom Order</h2>
           </div>
         </div>
-      </div>
     </article>
     <footer>
       <div class="footerContent">
-        <div>
-          <img src="./img/XtrudeIncLogoTagline.png" class="footerLogo" />
+        <div class="footerLogoContainer">
+          <img src="./img/XtrudeIncLogoUpdated.png" class="footerLogo" />
+        </div>
+        <div class="footerContacts">
+          <p class="footerMoreContactsHeading">More of our contacts</p>
+          <div class="footerPhoneNumber">
+            <p id="Phone">Phone:</p>
+            <p id="Number">+91 89044 24961</p>
+          </div>
+          <div class="footerEmail">
+            <p id="Email">Email:</p>
+            <p id="EmailAddress">info@xtrudeinc.com</p>
+          </div>
+        </div>
+        <p class="footerSocialIconsHeading">Reach out to us on</p>
+        <div class="footerSocialIcons">
+          <img
+            src="./img/icons/instagram.png"
+            id="instagramIcon"
+            class="socialIcon"
+            title="xtrudeinc_official on instagram"
+          />
+          <img
+            src="./img/icons/facebook.png"
+            id="facebookIcon"
+            class="socialIcon"
+            title="xtrudeinc_official on facebook"
+          />
+          <img
+            src="./img/icons/twitter.png"
+            id="twitterIcon"
+            class="socialIcon"
+            title="xtrudeinc_official on X"
+          />
+          <img
+            src="./img/icons/linkedin.png"
+            id="linkedinIcon"
+            class="socialIcon"
+            title="xtrudeinc_official on linkedin"
+          />
+        </div>
+        <div class="MoreLinks">
+          <div class="morelinksHeading">
+            <p id="morelinks">More links</p>
+          </div>
+          <div class="morelinksContainer">
+            <a href="#"
+              ><p id="BlogsAndNews" title="work in progress">
+                Blogs and Newsletters
+              </p></a
+            >
+            <a href="#"
+              ><p id="Resources" title="work in progress">Resources</p></a
+            >
+            <a href="#"
+              ><p id="OrderPlacing" title="work in progress">Place orders</p></a
+            >
+          </div>
+        </div>
+        <div class="footerServicesContainer">
+          <div class="footerServicesHeading">
+            <p id="Services">Services</p>
+          </div>
+          <div class="footerServicesLinks">
+            <a href="#"><p id="ThreeDPrinting">3D Printing</p></a>
+            <a href="#"><p id="ModellingAndDesign">Modelling & Design</p></a>
+            <a href="#"><p id="Products">Our Products</p></a>
+            <a href="#"><p id="CustomOrders">Custom Orders</p></a>
+          </div>
+        </div>
+        <div class="footerNavigationContainer">
+          <p class="footerNavigationHeader">Navigation quick links</p>
+          <nav class="footer-nav">
+            <ul>
+              <li id="HomeNav" class="footernavbtn"><a href="#">Home</a></li>
+              <li id="AboutNav" class="footernavbtn">
+                <a href="#">About Us</a>
+              </li>
+              <li id="ProductsNav" class="footernavbtn">
+                <a href="#">Products</a>
+              </li>
+            </ul>
+          </nav>
+          <div class="contactUsTab"></div>
         </div>
       </div>
       <div class="copyright">
