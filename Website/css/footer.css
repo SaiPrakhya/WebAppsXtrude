@@ -51,6 +51,7 @@ footer {
 }
 
 .footernavbtn:hover {
+  cursor: pointer;
   text-decoration: underline;
   padding-top: 5px;
   color: #01204e;
@@ -189,21 +190,25 @@ footer {
 }
 
 #ThreeDPrinting:hover {
+  cursor: pointer;
   padding-top: 5px;
   text-decoration: underline;
 }
 
 #ModellingAndDesign:hover {
+  cursor: pointer;
   padding-top: 5px;
   text-decoration: underline;
 }
 
 #Products:hover {
+  cursor: pointer;
   padding-top: 5px;
   text-decoration: underline;
 }
 
 #CustomOrders:hover {
+  cursor: pointer;
   padding-top: 5px;
   text-decoration: underline;
 }

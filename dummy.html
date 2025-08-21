@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Tailwind Conversion</title>
+  </head>
+  <body class="font-sans text-gray-800">
+    <!-- HEADER -->
+    <header
+      class="fixed top-0 left-0 w-full bg-white shadow-md z-50 transition-all"
+    >
+      <nav class="max-w-7xl mx-auto flex items-center justify-between p-4">
+        <!-- Logo -->
+        <a href="#" class="text-2xl font-bold text-blue-600">MySite</a>
+
+        <!-- Menu (Desktop) -->
+        <ul class="hidden md:flex space-x-6 text-gray-700 font-medium">
+          <li><a href="#home" class="hover:text-blue-600">Home</a></li>
+          <li><a href="#about" class="hover:text-blue-600">About</a></li>
+          <li><a href="#services" class="hover:text-blue-600">Services</a></li>
+          <li><a href="#contact" class="hover:text-blue-600">Contact</a></li>
+        </ul>
+
+        <!-- Hamburger (Mobile) -->
+        <div class="md:hidden">
+          <button id="menu-btn" class="text-gray-700 focus:outline-none">
+            <!-- simple icon -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-7 h-7"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+        </div>
+      </nav>
+
+      <!-- Mobile Menu -->
+      <div id="menu" class="hidden md:hidden bg-white shadow-lg">
+        <ul class="flex flex-col space-y-4 p-4 text-gray-700 font-medium">
+          <li><a href="#home" class="hover:text-blue-600">Home</a></li>
+          <li><a href="#about" class="hover:text-blue-600">About</a></li>
+          <li><a href="#services" class="hover:text-blue-600">Services</a></li>
+          <li><a href="#contact" class="hover:text-blue-600">Contact</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section
+      id="home"
+      class="min-h-screen flex flex-col md:flex-row items-center justify-center px-6 md:px-12 bg-gray-50"
+    >
+      <!-- Text -->
+      <div class="md:w-1/2 text-center md:text-left space-y-6">
+        <h1 class="text-4xl md:text-6xl font-bold text-gray-800">
+          Welcome to MySite
+        </h1>
+        <p class="text-lg md:text-xl text-gray-600">
+          Building responsive designs faster with Tailwind CSS.
+        </p>
+        <a
+          href="#about"
+          class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition"
+          >Get Started</a
+        >
+      </div>
+
+      <!-- Image -->
+      <div class="md:w-1/2 mt-10 md:mt-0">
+        <img
+          src="https://via.placeholder.com/500"
+          alt="Hero Image"
+          class="w-full max-w-md mx-auto rounded-lg shadow-lg"
+        />
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="py-20 px-6 md:px-12 bg-white">
+      <div
+        class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10"
+      >
+        <!-- Image -->
+        <div class="md:w-1/2">
+          <img
+            src="https://via.placeholder.com/450"
+            alt="About Image"
+            class="w-full rounded-lg shadow-lg"
+          />
+        </div>
+
+        <!-- Content -->
+        <div class="md:w-1/2 text-center md:text-left space-y-6">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-800">About Us</h2>
+          <p class="text-lg text-gray-600 leading-relaxed">
+            We create scalable and responsive web layouts using Tailwind CSS.
+            This section stacks on smaller screens and stays side-by-side on
+            desktops.
+          </p>
+          <a
+            href="#services"
+            class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition"
+            >Learn More</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // Toggle Mobile Menu
+      const menuBtn = document.getElementById("menu-btn");
+      const menu = document.getElementById("menu");
+      menuBtn.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+      });
+    </script>
+  </body>
+</html>
