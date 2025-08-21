@@ -4,19 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>XtrudeInc</title>
+
     <script src="./js/header.js"></script>
 
-  <!--CSS stylesheet relative paths - Commented temporarily for AI code bootstrap code gen-->
-
-    <!--<link rel="stylesheet" href="./css/header.css" />
+    <link rel="stylesheet" href="./css/header.css" />
     <link rel="stylesheet" href="./css/herocontent.css" />
     <link rel="stylesheet" href="./css/modelview.css" />
     <link rel="stylesheet" href="./css/aboutSection.css" />
     <link rel="stylesheet" href="./css/productsSection.css" />
     <link rel="stylesheet" href="./css/contactsSection.css" />
     <link rel="stylesheet" href="./css/footer.css" />
-    <link rel="stylesheet" href="./css/contactsprompt.css" />-->
-    <!--File path for the 3D model in the Hero section-->
+    <link rel="stylesheet" href="./css/contactsprompt.css" />
+    <link rel="stylesheet" href="./css/Founder.css">
+
     <script
       type="module"
       src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
@@ -49,27 +49,27 @@
           </a>
           <nav class="main-nav">
             <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About Us</a></li>
-              <li class="active"><a href="#">Products</a></li>
-              <li><a href="#">Contact Us</a></li>
+              <li><a href="#heroContainer">Home</a></li>
+              <li><a href="#aboutContainer">About Us</a></li>
+              <li class="active"><a href="#productsContainer">Products</a></li>
+              <li><a href="#contactsContainer">Contact Us</a></li>
             </ul>
           </nav>
         </div>
       </header>
     </section>
     <article>
-      <div class="hero-container">
+      <div class="hero-container" id="heroContainer">
         <div class="heroContent">
           <h1 class="heroText">
             Designing your Vision and Building the Future
-            <span id="highlightedText">One Layer at a Time</span>
+            <span id="highlightedText" class="highlightedText">One Layer at a Time</span>
           </h1>
-          <hr id="horizontalLine" />
+          <br>
           <h2 id="LearnMoreBtn">Learn More</h2>
         </div>
       </div>
-      <div class="AboutXtrudeInc">
+      <div class="AboutXtrudeInc" id="aboutContainer">
         <div class="aboutSectionContent">
           <h2 class="aboutHeading">About XtrudeInc</h2>
           <img
@@ -90,6 +90,19 @@
         </div>
         <div class="servicesSectionContainer">
           <div class="servicesSectionContent">
+            <model-viewer
+              src="./Models/mini3DBenchy.glb"
+              alt="barrelsNtreeModel"
+              id="modelview2"
+              auto-rotate
+              disable-zoom
+              camera-controls
+              background-color="#ffffff"
+              style="width: 700px; height: 500px"
+              shadow-intensity="1"
+              shadow-softness="0.9"
+              >
+            </model-viewer>
             <h2 class="servicesHeading">Our Services</h2>
             <p class="servicesDescription">
               The services we provide at XtrudeInc include 3D product rendering,
@@ -102,6 +115,19 @@
         </div>
         <div class="moreServicesContainer">
           <div class="moreServicesContent">
+            <model-viewer
+              src="./Models/mini3DBenchy.glb"
+              alt="barrelsNtreeModel"
+              id="modelview3"
+              auto-rotate
+              disable-zoom
+              camera-controls
+              background-color="#ffffff"
+              style="width: 700px; height: 500px"
+              shadow-intensity="1"
+              shadow-softness="0.9"
+              >
+            </model-viewer>
             <h2 class="moreServicesHeading">Custom orders</h2>
             <p class="moreServicesDescription">
               As a startup that understands the value of uniqueness in every
@@ -140,7 +166,7 @@
           </div>
         </div>
       </div>
-      <div class="productsXtrudeInc">
+      <div class="productsXtrudeInc" id="productsContainer">
         <div class="productsSectionContent">
           <h2 class="productsHeading">Our Products</h2>
           <img src="./img/ProductImg2.jpg" id="productsImg" />
@@ -164,10 +190,118 @@
         <div class="productShowcaseContainer">
           <div class="showcaseContent">
             <h2 class="showcaseHeading">Our Products in 3D</h2>
+            <p class="productsShowcaseDescription">Take a look at our products in 3D.</p>
+            <div class="modelContainers">
+              <div class="boxOneDiv">
+                <div class="modelbox" id="boxOne">
+                  <model-viewer
+              src="./Models/mini3DBenchy.glb"
+              alt="barrelsNtreeModel"
+              id="productviewOne"
+              auto-rotate
+              disable-zoom
+              camera-controls
+              background-color="#ffffff"
+              style="width: 600px; height: 400px"
+              shadow-intensity="1"
+              shadow-softness="0.9"
+              >
+            </model-viewer>
+            <div class="customizeandplaceOrderBtns">
+              <button type="button" class="ModelBtn" id="customizeBtn">Customize</button>
+              <button type="button" class="ModelBtn" id="placeorderBtn">Place Order</button>
+            </div>
+                </div>
+                <p class="boxdescription"><span id="descriptionHeading">Single framed lithophane</span><br>This product consists of a 3D printed single photo frame lithophane.<br><br>Upon illuminating it against a backlight of any source, the caricature will light up to display a beautiful projection of the image engraved on the surface.<br><br>This product variant under lithophanes comes with limited customization benefits and the light source for this product must be arranged by the customer for usage.</p>
+              </div>
+              <div class="boxTwoDiv">
+                <div class="modelbox" id="boxTwo">
+                  <model-viewer
+              src="./Models/mini3DBenchy.glb"
+              alt="barrelsNtreeModel"
+              id="productviewTwo"
+              auto-rotate
+              disable-zoom
+              camera-controls
+              background-color="#ffffff"
+              style="width: 600px; height: 400px"
+              shadow-intensity="1"
+              shadow-softness="0.9"
+              >
+            </model-viewer>
+            <div class="customizeandplaceOrderBtns">
+              <button type="button" class="ModelBtn" id="customizeBtn">Customize</button>
+              <button type="button" class="ModelBtn" id="placeorderBtn">Place Order</button>
+            </div>
+                </div>
+                <p class="boxdescription"><span id="descriptionHeading">Basic enclosure lithophane</span><br>This variant offers 4 frames allowing the customer to choose upto 4 pictures for their product.<br><br> When it comes to customization, the color of the base of the enclosure can be chosen by the user within a series of several available colors.<br><br>A light source with batteries will be provided along with the product during delivery.</p>
+              </div>
+              <div class="boxThreeDiv">
+                <div class="modelbox" id="boxThree">
+                  <model-viewer
+              src="./Models/mini3DBenchy.glb"
+              alt="barrelsNtreeModel"
+              id="productviewThree"
+              auto-rotate
+              disable-zoom
+              camera-controls
+              background-color="#ffffff"
+              style="width: 600px; height: 400px"
+              shadow-intensity="1"
+              shadow-softness="0.9"
+              >
+            </model-viewer>
+            <div class="customizeandplaceOrderBtns">
+              <button type="button" class="ModelBtn" id="customizeBtn">Customize</button>
+              <button type="button" class="ModelBtn" id="placeorderBtn">Place Order</button>
+            </div>
+                </div>
+                <p class="boxdescription"><span id="descriptionHeading">Named enclosure lithophane</span><br>Similar to the basic version of the enclosure lithophane product, this variant allows you to customize the base of the enclosure as well as engraving your name or any text on top of its surface.<br><br>However, the text can be engraved only on one side of the enclosure while keeping all the other sides of the base empty.<br><br>A light source with batteries will be provided along with the product during delivery</p>
+              </div>
+              <div class="boxFourDiv">
+                <div class="modelbox" id="boxFour">
+                  <model-viewer
+              src="./Models/mini3DBenchy.glb"
+              alt="barrelsNtreeModel"
+              id="productviewFour"
+              auto-rotate
+              disable-zoom
+              camera-controls
+              background-color="#ffffff"
+              style="width: 600px; height: 400px"
+              shadow-intensity="1"
+              shadow-softness="0.9"
+              >
+            </model-viewer>
+            <div class="customizeandplaceOrderBtns">
+              <button type="button" class="ModelBtn" id="customizeBtn">Customize</button>
+              <button type="button" class="ModelBtn" id="placeorderBtn">Place Order</button>
+            </div>
+                </div>
+                <p class="boxdescription"><span id="descriptionHeading">Named enclosure lithophane</span><br>This product is similar to the previous named lithophane product.<br><br>Similar to the previous named lithophane product, this version lets you have your name or any text engraved on all sides of the base of the enclosure.<br><br>Along with that, customizable options are available, you can choose the color of the base within a series of available colors as well as the color of text and the text itself.<br><br>Just like all the other enclosure variants, you can choose upto 4 images for the enclosure.<br><br>A light source along with batteries will be provided to you during delivery of the product.</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="contactsXtrudeInc">
+      <div class="foundersContainer">
+        <div class="foundersContent">
+          <h2 class="foundersHeading">
+            The Founders
+          </h2>
+          <div class="FounderimgDiv">
+            <div class="CEOImgDiv">
+              <img src="./img/PrakhyaImg.png" id="CEOImg" class="founderImg">
+              <p class="CEODescription">Sai Prakhya is the Co-Founder & CEO of XtrudeInc.<br>As a kid who grew up with the idea of doing things differently, He was lucky enough to experience the several pleasures of life that his childhood could offer. As an observant kid, he drew most of his abstract ideas by inspiring them from movies and video games, It was fun. From this mindset alone, he always wanted to do things more differently than others.<br><br>In pursuit of this possibility, by making stupid mistakes and learning lessons along the way, he would become fascinated with the concept of turning virtual and abstract frameworks into real-life models. In other words, 3D printing.<br><br>After discovering the potential of 3D printing and it's rising number of use cases along it's evolution, He set out to launch his very first startup, XtrudeInc along with his college benchmate, Surya Sudhanshu.</p>
+            </div>
+            <div class="CMOImgDiv">
+              <img src="./img/SudhanshuCMO.jpg" id="CMOImg" class="founderImg">
+              <p class="CMODescription">Surya Sudhanshu, is the Co-Founder & CMO of XtrudeInc. <br>Fascinated by latest trends in the consumer technology industry, Sudhanshu would spend every waking day during his schooling learning about tech. The idea of spreading information about the things that he was learning grew of interest.<br><br>He would often isolate himself and spend countless hours learning about consumer technology and soon enough, He would begin writing blogs and articles on them. Later on, he began commercializing his writing and marketing skills that led him to establish a self-sustaining lifestyle for his age.<br><br>As a believer in the idea of lifelong learning and as someone who has equally great ambitions as his partner, he found himself on the bandwagon of building XtrudeInc by heading the marketing aspect of the company, officially posing as the CMO.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contactsXtrudeInc" id="contactsContainer">
         <div class="contactsSectionContent">
           <h2 class="contactsHeading">Contact Us &<br> <span id="placeOrders">Place Orders</span></h2>
           <div class="contactsPrompt">
@@ -276,17 +410,11 @@
             <p id="morelinks">More links</p>
           </div>
           <div class="morelinksContainer">
-            <a href="#"
-              ><p id="BlogsAndNews" title="work in progress">
-                Blogs and Newsletters
-              </p></a
-            >
-            <a href="#"
-              ><p id="Resources" title="work in progress">Resources</p></a
-            >
-            <a href="#"
-              ><p id="OrderPlacing" title="work in progress">Place orders</p></a
-            >
+            <p id="BlogsAndNews" title="work in progress">
+              Blogs and Newsletters
+            </p>
+            <p id="Resources" title="work in progress">Resources</p>
+            <p id="OrderPlacing" title="work in progress">Small scale manufacturing</p>
           </div>
         </div>
         <div class="footerServicesContainer">
@@ -294,22 +422,22 @@
             <p id="Services">Services</p>
           </div>
           <div class="footerServicesLinks">
-            <a href="#"><p id="ThreeDPrinting">3D Printing</p></a>
-            <a href="#"><p id="ModellingAndDesign">Modelling & Design</p></a>
-            <a href="#"><p id="Products">Our Products</p></a>
-            <a href="#"><p id="CustomOrders">Custom Orders</p></a>
+            <p id="ThreeDPrinting">3D Printing</p>
+            <p id="ModellingAndDesign">Modelling & Design</p>
+            <p id="Products">Our Products</p>
+            <p id="CustomOrders">Custom Orders</p>
           </div>
         </div>
         <div class="footerNavigationContainer">
           <p class="footerNavigationHeader">Navigation quick links</p>
           <nav class="footer-nav">
             <ul>
-              <li id="HomeNav" class="footernavbtn"><a href="#">Home</a></li>
+              <li id="HomeNav" class="footernavbtn">Home</li>
               <li id="AboutNav" class="footernavbtn">
-                <a href="#">About Us</a>
+                About Us
               </li>
               <li id="ProductsNav" class="footernavbtn">
-                <a href="#">Products</a>
+                Products
               </li>
             </ul>
           </nav>

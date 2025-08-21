@@ -21,7 +21,6 @@ ul {
   padding: 0;
 }
 
-/* CSS from section:header */
 .site-header {
   position: fixed;
   top: 0;
@@ -62,18 +61,19 @@ ul {
 .main-nav ul {
   display: flex;
   align-items: center;
-  gap: 30px; /* Adjusted from 50px for better spacing */
+  gap: 30px;
 }
 
 .main-nav a {
   display: block;
   user-select: none;
   font-size: 17.5px;
-  font-weight: 700;
+  font-weight: 500;
   color: #01204e;
   padding: 10px;
   border-bottom: 4px solid #00000045;
   transition: 0.3s ease;
+  text-decoration: none;
 }
 
 .main-nav a:hover {
@@ -92,11 +92,9 @@ ul {
 }
 
 .main-nav .active a:hover {
-  color: #fff7eb;
   margin-top: 10px;
 }
 
-/* Responsive Styles */
 @media (max-width: 1200px) {
   .header-container {
     padding: 0 30px;

@@ -7,10 +7,12 @@
 
 #modelview2 {
   position: absolute;
+  right: 52%;
+}
+
+#modelview3 {
+  position: absolute;
   left: 52%;
-  top: 130%;
-  border-radius: 50px;
-  z-index: 1000;
 }
 
 model-viewer {

@@ -1,0 +1,60 @@
+.foundersContainer {
+  height: 200vh;
+}
+
+.foundersHeading {
+  font-size: 30px;
+  font-weight: 500;
+  transition: 0.3s ease;
+  width: 18%;
+}
+
+.foundersHeading:hover {
+  margin-left: 10px;
+}
+
+.foundersContent {
+  width: 100%;
+  padding-left: 200px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.founderImg {
+  float: right;
+  height: 350px;
+  margin-right: 200px;
+  box-shadow: 16px 16px 0 #000000e1;
+  transition: 0.3s ease;
+}
+
+.FounderimgDiv {
+  float: left;
+  margin-top: 50px;
+  display: grid;
+}
+
+#CMOImg {
+  margin-top: 100px;
+}
+
+.CEODescription {
+  width: 50%;
+  font-style: italic;
+  transition: 0.3s ease;
+}
+
+.CEODescription:hover {
+  margin-top: 30px;
+}
+
+.CMODescription {
+  margin-top: 120px;
+  width: 50%;
+  font-style: italic;
+  transition: 0.3s ease;
+}
+
+.CMODescription:hover {
+  margin-top: 140px;
+}

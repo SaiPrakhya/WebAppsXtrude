@@ -91,7 +91,7 @@
 }*/
 
 .productsXtrudeInc {
-  height: 300vh;
+  height: 450vh;
 }
 
 .productsHeading {
@@ -123,6 +123,11 @@
 .productsDescription:hover {
   cursor: pointer;
   padding-top: 10px;
+}
+
+.productsShowcaseDescription {
+  font-size: 25px;
+  font-style: italic;
 }
 
 #productsImg {
@@ -181,4 +186,59 @@
   padding-left: 200px;
   padding-top: 10px;
   padding-bottom: 10px;
+}
+
+.modelbox {
+  /*height: 500px;
+  width: 700px;*/
+  height: 400px;
+  width: 600px;
+}
+
+.modelContainers {
+  display: grid;
+  /*grid-template-columns: repeat(2, 0fr);*/
+  gap: 100px;
+  margin-top: 100px;
+}
+
+.boxOneDiv {
+  display: flex;
+}
+
+.boxTwoDiv {
+  display: flex;
+}
+
+.boxThreeDiv {
+  display: flex;
+}
+
+.boxFourDiv {
+  display: flex;
+}
+
+#descriptionHeading {
+  font-weight: 700;
+}
+
+.boxdescription {
+  margin-top: 50px;
+  margin-left: 50px;
+  width: 45%;
+  font-style: italic;
+}
+
+.ModelBtn {
+  padding: 10px;
+  color: #fff7eb;
+  background-color: #0c064e;
+  border: none;
+  font-family: sans-serif;
+  font-size: 18px;
+  transition: 0.3s ease;
+}
+
+.ModelBtn:hover {
+  color: #d1d1d1;
 }
