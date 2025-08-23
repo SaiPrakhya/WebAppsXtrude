@@ -316,3 +316,204 @@
 #visionImg:hover {
   height: 450px;
 }
+
+@media (max-width: 1200px) {
+  .aboutDescription {
+    font-size: 20px;
+    width: 45%;
+  }
+
+  #aboutSectionImg {
+    height: 250px;
+    margin-right: 100px;
+  }
+
+  #aboutSectionImg:hover {
+    height: 300px;
+  }
+
+  .servicesDescription {
+    font-size: 18px;
+  }
+
+  .servicesSectionContent {
+    width: 48%;
+  }
+
+  .moreServicesDescription {
+    font-size: 18px;
+  }
+
+  .moreServicesContent {
+    width: 52%;
+  }
+
+  .missionDescription {
+    font-size: 18px;
+    width: 45%;
+  }
+
+  #missionImg {
+    height: 350px;
+  }
+
+  #missionImg:hover {
+    height: 400px;
+  }
+
+  .visionHeading {
+    margin-left: 500px;
+  }
+
+  .visionHeading:hover {
+    margin-left: 520px;
+  }
+
+  .visionDescription {
+    margin-left: 400px;
+    font-size: 18px;
+    width: 45%;
+  }
+
+  #visionImg {
+    height: 250px;
+  }
+
+  #visionImg:hover {
+    height: 300px;
+  }
+}
+
+@media (max-width: 992px) {
+  .aboutDescription {
+    font-size: 18px;
+    width: 45%;
+  }
+
+  #aboutSectionImg {
+    height: 200px;
+  }
+
+  #aboutSectionImg:hover {
+    height: 250px;
+  }
+
+  #modelview2 {
+    display: none;
+  }
+
+  .servicesSectionContent {
+    width: 100%;
+  }
+
+  .servicesHeading {
+    width: 100%;
+  }
+
+  .servicesDescription {
+    font-size: 18px;
+  }
+
+  #modelview3 {
+    display: none;
+  }
+
+  .moreServicesContent {
+    width: 100%;
+  }
+
+  .moreServicesDescription {
+    font-size: 18px;
+  }
+
+  .missionHeading {
+    width: 100%;
+  }
+
+  .missionDescription {
+    font-size: 18px;
+    width: 50%;
+  }
+
+  #missionImg {
+    height: 300px;
+    margin-right: 100px;
+  }
+
+  #missionImg:hover {
+    height: 350px;
+  }
+
+  .visionHeading {
+    width: 100%;
+  }
+
+  .visionDescription {
+    font-size: 18px;
+    width: 50%;
+    margin-left: 350px;
+  }
+
+  #visionImg {
+    height: 200px;
+  }
+
+  #visionImg:hover {
+    height: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .aboutSectionContent {
+    padding-left: 100px;
+  }
+
+  .aboutHeading {
+    width: 100%;
+  }
+
+  .aboutDescription {
+    font-size: 12px;
+  }
+
+  #aboutSectionImg {
+    height: 182px;
+    margin-right: 50px;
+  }
+
+  #aboutSectionImg:hover {
+    height: 182px;
+  }
+
+  .missionDescription {
+    font-size: 12px;
+  }
+
+  #missionImg {
+    height: 200px;
+  }
+
+  #missionImg:hover {
+    height: 200px;
+  }
+
+  .visionHeading {
+    margin-left: 0px;
+  }
+
+  .visionDescription {
+    font-size: 12px;
+    margin-left: 0px;
+    width: 72%;
+  }
+
+  #visionImg {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  #aboutSectionImg {
+    display: none;
+  }
+}

@@ -1,9 +1,13 @@
 .hero-container {
-  height: 110vh;
+  min-height: 110vh;
   background: linear-gradient(#fff7eb, #ffffff);
+  align-items: center;
 }
 
 .heroContent {
+  /*max-width: 39%;
+  margin-left: 11%;
+  padding: 2rem 0;*/
   top: 18%;
   left: 11%;
   width: 39%;
@@ -12,19 +16,21 @@
 
 .heroText {
   user-select: none;
-  font-size: 52px;
+  font-size: 3.25rem;
+  /*font-size: 52px;*/
   color: #01204e;
   font-weight: 700;
   text-shadow: -3px 0 0 #faaa68, -6px 0 8px rgba(0, 0, 0, 0.2);
   transition: 0.3s ease;
-  line-height: 72px;
+  line-height: 4.5rem;
+  /*line-height: 72px;*/
 }
 
 .heroText:hover {
   cursor: pointer;
 }
 
-#highlightedText {
+.highlightedText {
   user-select: none;
   color: #fff7eb;
   text-shadow: -3px 0 0 #faaa68, -6px 0 8px rgba(0, 0, 0, 0.2);
@@ -33,9 +39,10 @@
   padding-right: 10px;
   box-shadow: 0 8px 0 #028393, 0 16px 0 #f65625, 0 32px 0 #faaa68;
   transition: 0.3s ease;
+  display: inline-block;
 }
 
-#highlightedText:hover {
+.highlightedText:hover {
   margin-left: 10px;
 }
 
@@ -47,9 +54,12 @@
 
 #LearnMoreBtn {
   color: #000000c9;
-  font-size: 18px;
+  font-size: 1.125rem;
+  /*font-size: 18px;*/
   transition: 0.3s ease;
-  width: 25%;
+  margin-top: 1.5rem;
+  display: inline-block;
+  /*width: 25%;*/
 }
 
 #LearnMoreBtn:hover {
@@ -62,4 +72,89 @@
   position: absolute;
   left: 72%;
   top: 25%;
+}
+
+/*#modelview2 {
+  position: absolute;
+  right: 52%;
+}
+
+#modelview3 {
+  position: absolute;
+  left: 52%;
+}
+
+model-viewer {
+  animation: float 4s ease-in-out infinite;
+}*/
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@media (max-width: 1200px) {
+  .heroContent {
+    margin-top: 5%;
+    width: 42%;
+  }
+
+  .heroText {
+    font-size: 2.8rem;
+    line-height: 3.8rem;
+  }
+}
+
+@media (max-width: 992px) {
+  #modelview1 {
+    display: none;
+  }
+
+  .heroContent {
+    width: auto;
+    margin-top: 200px;
+    margin-right: 100px;
+    text-align: center;
+  }
+
+  .heroText {
+    font-size: 2.4rem;
+    line-height: 3.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-container {
+    text-align: center;
+  }
+
+  .heroText {
+    font-size: 2rem;
+    line-height: 2.8rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .heroContent {
+    max-width: auto;
+  }
+
+  .heroText {
+    font-size: 2rem;
+    line-height: 2.4rem;
+    margin-left: 50px;
+  }
+
+  .highlightedText {
+    box-shadow: 0 4px 0 #028393, 0 8px 0 #f65625, 0 16px 0 #faaa68;
+  }
+
+  #LearnMoreBtn {
+    margin-left: 35px;
+  }
 }
