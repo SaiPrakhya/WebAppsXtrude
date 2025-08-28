@@ -1,19 +1,73 @@
 .foundersContainer {
-  height: 200vh;
+  padding: 50px 15px;
+  background-color: #fff;
 }
 
-.foundersHeading {
+.founderImg {
+  max-width: 250px;
+  width: 100%;
+  height: auto;
+  margin: 20px auto;
+  display: block;
+  box-shadow: 8px 8px 0 #000000e1;
+}
+
+.founderRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  margin: 40px 0;
+  flex-wrap: wrap;
+}
+
+.founderRow.reverse {
+  flex-direction: row-reverse;
+}
+
+.founderRow img {
+  max-width: 250px;
+  width: 100%;
+  height: auto;
+  box-shadow: 12px 12px 0 #000000e1;
+  border-radius: 6px;
+}
+
+.founderRow .description {
+  flex: 1;
+  font-size: 8.9rem;
+  line-height: 1.4;
+  color: #002147;
+  font-style: italic;
+  max-width: 500px;
+}
+
+#founderName {
+  font-weight: 700;
+}
+
+.CEODescription,
+.CMODescription {
+  font-size: 16px;
+  max-width: 500px;
+  margin: auto;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/*.foundersHeading {
   font-size: 30px;
   font-weight: 500;
   transition: 0.3s ease;
-  width: 18%;
+  /*width: 18%;
+  display: inline-block;
 }
 
 .foundersHeading:hover {
   margin-left: 10px;
 }
 
-.foundersContent {
+/*.foundersContent {
   width: 100%;
   padding-left: 200px;
   padding-top: 10px;
@@ -21,24 +75,40 @@
 }
 
 .founderImg {
-  float: right;
+  max-height: 350px;
+  box-shadow: 16px 16px 0 #000000e1;
+  transition: 0.3s ease;
+  /*float: right;
   height: 350px;
   margin-right: 200px;
   box-shadow: 16px 16px 0 #000000e1;
   transition: 0.3s ease;
 }
 
-.FounderimgDiv {
+/*.FounderimgDiv {
   float: left;
   margin-top: 50px;
   display: grid;
 }
 
-#CMOImg {
+/*#CMOImg {
   margin-top: 100px;
 }
 
-.CEODescription {
+.CEODescription,
+.CMODescription {
+  transition: 0.3s ease;
+}
+
+.CEODescription:hover {
+  margin-top: 30px;
+}
+
+.CMODescription:hover {
+  margin-top: 20px;
+}
+
+/*.CEODescription {
   width: 50%;
   font-style: italic;
   transition: 0.3s ease;
@@ -57,4 +127,4 @@
 
 .CMODescription:hover {
   margin-top: 140px;
-}
+}*/

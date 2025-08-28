@@ -1,4 +1,62 @@
+/* === FOOTER CUSTOM STYLES === */
+
+/* Footer background and text */
 footer {
+  background-color: #fff7eb; /* Bootstrap light */
+  color: #212529; /* Bootstrap text-dark */
+  font-family: "Poppins", sans-serif;
+}
+
+/* Section headings */
+footer h5,
+footer h6 {
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+/* Links */
+footer a {
+  color: #212529;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #007bff; /* Bootstrap primary */
+  text-decoration: underline;
+}
+
+/* Lists */
+footer ul {
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+footer li {
+  margin-bottom: 0.5rem;
+}
+
+/* Social icons */
+.socialIcon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  cursor: pointer;
+}
+
+.socialIcon:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+/* Copyright */
+footer .border-top {
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+/*footer {
   height: 100vh;
   background-color: #fff7eb;
 }
@@ -7,7 +65,7 @@ footer {
   background-color: #01204e;
   text-align: center;
   font-size: 14px;
-  position: absolute;
+  /*position: absolute;
   bottom: 0;
   width: 100%;
   color: #fff7eb;
@@ -109,7 +167,7 @@ footer {
 }
 
 .footerContacts {
-  position: absolute;
+  /*position: absolute;
   left: 38%;
   margin-top: 38px;
 }
@@ -156,7 +214,7 @@ footer {
 }
 
 .footerServicesContainer {
-  position: absolute;
+  /*position: absolute;
   margin-top: 97px;
   left: 38%;
 }
@@ -214,7 +272,7 @@ footer {
 }
 
 .MoreLinks {
-  position: absolute;
+  /*position: absolute;
   left: 72%;
   margin-top: 100px;
 }
@@ -253,4 +311,4 @@ footer {
 #OrderPlacing:hover {
   padding-top: 5px;
   cursor: not-allowed;
-}
+}*/

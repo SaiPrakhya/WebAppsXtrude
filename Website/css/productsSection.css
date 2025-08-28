@@ -90,7 +90,9 @@
   opacity: 1;
 }*/
 
-.productsXtrudeInc {
+/*----------------------------------------------------------*/
+
+/*.productsXtrudeInc {
   height: 450vh;
 }
 
@@ -190,14 +192,14 @@
 
 .modelbox {
   /*height: 500px;
-  width: 700px;*/
+  width: 700px;
   height: 400px;
   width: 600px;
 }
 
 .modelContainers {
   display: grid;
-  /*grid-template-columns: repeat(2, 0fr);*/
+  /*grid-template-columns: repeat(2, 0fr);
   gap: 100px;
   margin-top: 100px;
 }
@@ -241,4 +243,46 @@
 
 .ModelBtn:hover {
   color: #d1d1d1;
+}*/
+
+/* Brand tweaks for the Bootstrapped layout */
+.bg-cream {
+  background-color: #fff7eb;
+}
+
+.products-img {
+  box-shadow: 16px 16px 0 rgba(0, 0, 0, 0.9);
+  max-width: 68%;
+  display: block;
+  margin: 0 auto;
+}
+
+.link-brand {
+  color: #0c064e;
+  text-decoration: none;
+}
+.link-brand:hover {
+  text-decoration: underline;
+}
+
+/* Brand button */
+.btn-brand {
+  background-color: #0c064e;
+  border-color: #0c064e;
+  color: #fff7eb;
+}
+.btn-brand:hover {
+  color: #d1d1d1;
+  background-color: #08043f;
+  border-color: #08043f;
+}
+
+/* Optional: if old productsSection.css remains, neutralize conflicting rules */
+.productsXtrudeInc {
+  height: auto;
+}
+#productsImg {
+  float: none;
+  margin: 0 auto;
+  display: block;
 }

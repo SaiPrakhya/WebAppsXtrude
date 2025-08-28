@@ -109,11 +109,25 @@
   margin-top: 350px;
 }
 
+#img {
+  height: 400px;
+}
+
 .aboutHeading {
   font-size: 30px;
   font-weight: 500;
   transition: 0.3s ease;
   width: 18%;
+}
+
+#servicesLink {
+  transition: 0.3s ease;
+}
+
+#servicesLink:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  margin-left: 10px;
 }
 
 .aboutHeading:hover {
@@ -317,7 +331,7 @@
   height: 450px;
 }
 
-@media (max-width: 1200px) {
+/*@media (max-width: 1200px) {
   .aboutDescription {
     font-size: 20px;
     width: 45%;
@@ -516,4 +530,4 @@
   #aboutSectionImg {
     display: none;
   }
-}
+}*/
