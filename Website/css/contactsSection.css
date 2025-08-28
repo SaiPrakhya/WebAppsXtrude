@@ -176,14 +176,14 @@
 }*/
 
 .contactsXtrudeInc {
-  height: 150vh;
+  background-color: #f3f3f3;
+  /*height: 150vh;*/
 }
 
 .contactsHeading {
   font-size: 30px;
   font-weight: 500;
   transition: 0.3s ease;
-  width: 15%;
 }
 
 .contactsHeading:hover {
@@ -191,23 +191,23 @@
   margin-left: 10px;
 }
 
-.contactsSectionContent {
+/*.contactsSectionContent {
   background-color: #fff7eb;
   width: 100%;
   padding-left: 200px;
   padding-top: 10px;
   padding-bottom: 10px;
-}
+}*/
 
-#placeOrders {
+/*#placeOrders {
   font-weight: 400;
-}
+}*/
 
 .contactsDescription {
   font-style: italic;
-  width: 40%;
   font-size: 20px;
   transition: 0.3s ease;
+  max-width: 700px;
 }
 
 .contactsDescription:hover {
@@ -215,20 +215,20 @@
   padding-top: 10px;
 }
 
-.promptSelector {
+/*.promptSelector {
   margin-top: 50px;
   margin-bottom: 25px;
-}
+}*/
 
-#promptselectionBtn {
+/*#promptselectionBtn {
   font-weight: 300;
   transition: 0.3s ease;
   width: 30%;
-}
+}*/
 
-#promptselectionBtn:hover {
+/*#promptselectionBtn:hover {
   cursor: pointer;
   color: #01204e;
   text-decoration: underline;
   font-size: 30px;
-}
+}*/

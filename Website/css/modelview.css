@@ -1,7 +1,5 @@
 #modelview1 {
-  position: absolute;
-  left: 52%;
-  top: 20%;
+  position: static;
   width: 43.75rem;
   height: 31.25rem;
   border-radius: 50px;
