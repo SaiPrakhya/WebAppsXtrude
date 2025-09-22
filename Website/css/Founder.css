@@ -46,8 +46,11 @@
   font-weight: 700;
 }
 
-.CEODescription,
-.CMODescription {
+.foundersHeading {
+  margin-bottom: 50px;
+}
+
+.CEODescription {
   font-size: 16px;
   max-width: 500px;
   margin: auto;

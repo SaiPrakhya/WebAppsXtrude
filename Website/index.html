@@ -13,8 +13,13 @@
 
     <!-- Bootstrap Bundle with Popper (JS) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
+    ></script>
 
     <script src="./js/header.js"></script>
+    <script src="./js/imageUploader.js"></script>
 
     <!-- Bootstrap CSS -->
     <link
@@ -31,11 +36,7 @@
     <link rel="stylesheet" href="./css/footer.css" />
     <link rel="stylesheet" href="./css/contactsprompt.css" />
     <link rel="stylesheet" href="./css/Founder.css" />
-
-    <script
-      type="module"
-      src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
-    ></script>
+    <link rel="stylesheet" href="./css/imageUploader.css" />
   </head>
 
   <!--<model-viewer
@@ -207,14 +208,27 @@
               >
             </p>
           </div>
-          <div class="col-md-6 text-center">
+
+          <!--<div class="col-md-6 text-center">
             <img
               src="./img/XtrudeIncAboutPageImg2.jpg"
               alt="Services"
               class="img-fluid shadow-lg rounded"
               id="img"
             />
-          </div>
+          </div>-->
+
+          <model-viewer
+            src="./Models/mini3DBenchy.glb"
+            alt="servicesModel"
+            auto-rotate
+            camera-controls
+            disable-zoom
+            style="width: 600px; height: 400px"
+            shadow-intensity="1"
+            shadow-softness="0.9"
+          >
+          </model-viewer>
         </div>
       </section>
       <br />
@@ -503,8 +517,8 @@
                   <div class="card-body p-3 p-md-4">
                     <div class="ratio ratio-4x3 mb-3">
                       <model-viewer
-                        src="./Models/Products/SingleFrameLithoSample.glb"
-                        alt="Single framed lithophane"
+                        src="./Models/mini3DBenchy.glb"
+                        alt="productViewOne"
                         id="productviewOne"
                         auto-rotate
                         disable-zoom
@@ -853,13 +867,13 @@
         </div>
       </div>-->
       <div class="container foundersContainer">
-        <h2 class="foundersHeading">Our Founders</h2>
+        <h2 class="foundersHeading">The Founder</h2>
 
         <div class="row align-items-center mb-5">
           <!-- CEO -->
           <div class="col-md-6">
             <img
-              src="./img/PrakhyaImg.png"
+              src="./img/founderSaiPrakhya.jpg"
               class="founderImg img-fluid"
               alt="CEO"
             />
@@ -872,14 +886,13 @@
               Since childhood, he has been driven by curiosity and creativity,
               drawing inspiration from movies and video games. Fascinated by
               bringing virtual ideas into reality, he discovered 3D printing
-              and, alongside his college benchmate Surya Sudhanshu, launched
-              XtrudeInc to explore its vast potential.
+              and, has decided to embark on the journey of entrepreneurship on
+              his own and launched XtrudeInc to explore its vast potential.
             </p>
           </div>
         </div>
 
-        <div class="row align-items-center">
-          <!-- CMO -->
+        <!--<div class="row align-items-center">
           <div class="col-md-6 order-md-2">
             <img
               src="./img/SudhanshuCMO.jpg"
@@ -900,7 +913,7 @@
               co-founder.
             </p>
           </div>
-        </div>
+        </div>-->
       </div>
       <br />
       <br />
@@ -1015,6 +1028,7 @@
                         required
                       ></textarea>
                     </div>
+
                     <button type="submit" class="btn sendbtn w-100">
                       Send Message
                     </button>
