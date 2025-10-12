@@ -246,13 +246,27 @@
 }*/
 
 /* Brand tweaks for the Bootstrapped layout */
-.bg-cream {
-  background-color: #fff7eb;
+
+/* Make OurProductsDescription fill the entire viewport width */
+#OurProductsDescription {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  padding-left: 10%;
+  padding-bottom: 2%;
+  background-color: #f3f3f3;
 }
+
+/*.bg-cream {
+  background-color: #fff7eb;
+}*/
 
 .products-img {
   box-shadow: 16px 16px 0 rgba(0, 0, 0, 0.9);
-  max-width: 68%;
+  max-width: 55%;
   display: block;
   margin: 0 auto;
 }
@@ -285,4 +299,59 @@
   float: none;
   margin: 0 auto;
   display: block;
+}
+
+.ShowcaseDialogueBox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /*background: rgba(0, 0, 0, 0.166); /* optional: dim background */
+  /*z-index: 9999;*/
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.dialogueText {
+  display: none;
+  background: #04002a;
+  color: #fff7eb;
+  padding: 30px 40px;
+  border-radius: 16px;
+  box-shadow: 10px 10px 0 0 #028393, 20px 20px 0 0 #faaa68,
+    30px 30px 0 0 #f65524;
+  /*box-shadow: 0 35px 35px rgba(0, 0, 0, 0.3);*/
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.dialogueHeading {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 200;
+}
+
+.dialogueDescription {
+  text-align: center;
+  font-weight: 300;
+}
+
+#emailDialogueText {
+  font-weight: 600;
+}
+
+.closeBtn {
+  color: #d9d9d9;
+  font-size: 32px;
+  position: relative;
+  float: right;
+  font-weight: 300;
+  transition: 0.3s ease;
+}
+
+.closeBtn:hover {
+  cursor: pointer;
+  color: #fff7ebac;
 }

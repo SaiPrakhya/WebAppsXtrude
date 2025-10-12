@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MailingSystem | TestTrial</title>
+  </head>
+  <body>
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Contact Us - Send Your Requests</title>
+        <style>
+          :root {
+            --primary-color: #3498db;
+            --secondary-color: #2980b9;
+            --success-color: #2ecc71;
+            --error-color: #e74c3c;
+            --light-color: #f9f9f9;
+            --dark-color: #333;
+            --gray-color: #ecf0f1;
+          }
+
+          * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+          }
+
+          body {
+            background-color: #f5f7fa;
+            color: var(--dark-color);
+            line-height: 1.6;
+          }
+
+          .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+          }
+
+          header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px 0;
+            border-bottom: 1px solid #ddd;
+          }
+
+          h1 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+          }
+
+          .subtitle {
+            color: #666;
+            font-size: 1.1rem;
+          }
+
+          .contact-form {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+          }
+
+          .form-group {
+            margin-bottom: 20px;
+          }
+
+          label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+          }
+
+          input,
+          textarea,
+          select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: border 0.3s;
+          }
+
+          input:focus,
+          textarea:focus,
+          select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+          }
+
+          textarea {
+            min-height: 150px;
+            resize: vertical;
+          }
+
+          .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: 0.3s;
+          }
+
+          .btn:hover {
+            background: var(--secondary-color);
+          }
+
+          .btn:disabled {
+            background: #95a5a6;
+            cursor: not-allowed;
+          }
+
+          .message {
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            display: none;
+          }
+
+          .success {
+            background-color: rgba(46, 204, 113, 0.2);
+            border-left: 4px solid var(--success-color);
+            color: #27ae60;
+          }
+
+          .error {
+            background-color: rgba(231, 76, 60, 0.2);
+            border-left: 4px solid var(--error-color);
+            color: #c0392b;
+          }
+
+          .required {
+            color: var(--error-color);
+          }
+
+          footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+          }
+
+          @media (max-width: 600px) {
+            .container {
+              padding: 10px;
+            }
+
+            .contact-form {
+              padding: 20px;
+            }
+          }
+        </style>
+      </head>
+      <body>
+        <div class="container">
+          <header>
+            <h1>Contact Us</h1>
+            <p class="subtitle">
+              Send us your custom order requests, complaints, or job
+              applications
+            </p>
+          </header>
+
+          <div id="message" class="message"></div>
+
+          <!--Updated form for php compatability-->
+          <form
+            id="contactForm"
+            class="contact-form"
+            action="process-form.php"
+            method="POST"
+          >
+            <div class="form-group">
+              <label for="name"
+                >Your Name <span class="required">*</span></label
+              >
+              <input type="text" id="name" name="name" required />
+            </div>
+
+            <div class="form-group">
+              <label for="email"
+                >Your Email <span class="required">*</span></label
+              >
+              <input type="email" id="email" name="email" required />
+            </div>
+
+            <div class="form-group">
+              <label for="subject"
+                >Subject <span class="required">*</span></label
+              >
+              <select id="subject" name="subject" required>
+                <option value="">Select a category</option>
+                <option value="custom-order">Custom Order Request</option>
+                <option value="complaint">Complaint</option>
+                <option value="job-application">Job Application</option>
+                <option value="general">General Inquiry</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="messageText"
+                >Your Message <span class="required">*</span></label
+              >
+              <textarea
+                id="messageText"
+                name="message"
+                required
+                placeholder="Please provide details about your request..."
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn" id="submitBtn">
+              Send Message
+            </button>
+          </form>
+
+          <footer>
+            <p>We'll respond to your message within 24 hours.</p>
+          </footer>
+        </div>
+
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            const contactForm = document.getElementById("contactForm");
+            const messageDiv = document.getElementById("message");
+            const submitBtn = document.getElementById("submitBtn");
+
+            contactForm.addEventListener("submit", function (e) {
+              e.preventDefault();
+
+              const formData = new FormData(contactForm);
+              const name = formData.get("name");
+              const email = formData.get("email");
+              const subject = formData.get("subject");
+              const message = formData.get("message");
+
+              if (!name || !email || !subject || !message) {
+                showMessage("Please fill in all required fields.", "error");
+                return;
+              }
+              if (!isValidEmail(email)) {
+                showMessage("Please enter a valid email address.", "error");
+                return;
+              }
+
+              submitBtn.disabled = true;
+              submitBtn.textContent = "Sending...";
+
+              fetch("process-form.php", {
+                method: "POST",
+                body: formData,
+              })
+                .then((response) => response.json())
+                .then((data) => {
+                  if (data.success) {
+                    showMessage(data.message, "success");
+                    contactForm.reset();
+                  } else {
+                    showMessage(data.message, "error");
+                  }
+                  submitBtn.disabled = false;
+                  submitBtn.textContent = "Send Message";
+                })
+                .catch((error) => {
+                  console.error("Error:", error);
+                  showMessage(
+                    "Something went wrong. Please try again later.",
+                    "error"
+                  );
+                  submitBtn.disabled = false;
+                  submitBtn.textContent = "Send Message";
+                });
+            });
+
+            function showMessage(text, type) {
+              messageDiv.textContent = text;
+              messageDiv.className = "message " + type;
+              messageDiv.style.display = "block";
+              setTimeout(() => {
+                messageDiv.style.display = "none";
+              }, 5000);
+            }
+
+            function isValidEmail(email) {
+              const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+              return emailRegex.test(email);
+            }
+
+            function getSubjectText(value) {
+              const subjects = {
+                "custom-order": "Custom Order Request",
+                complaint: "Complaint",
+                "job-application": "Job Application",
+                general: "General Inquiry",
+              };
+              return subjects[value] || "Contact Form Submission";
+            }
+          });
+        </script>
+      </body>
+    </html>
+  </body>
+</html>
