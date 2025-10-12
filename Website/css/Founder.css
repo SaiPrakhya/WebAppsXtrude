@@ -9,7 +9,8 @@
   height: auto;
   margin: 20px auto;
   display: block;
-  box-shadow: 8px 8px 0 #000000e1;
+  box-shadow: 10px 10px 10px #525252cc;
+  border-radius: 250px;
 }
 
 .founderRow {
@@ -43,19 +44,44 @@
 }
 
 #founderName {
-  font-weight: 700;
+  font-weight: 500;
+  font-size: 18px;
 }
 
 .foundersHeading {
   margin-bottom: 50px;
+  transition: 0.3s ease;
+  width: 20%;
+}
+
+#founderSubHeading {
+  background-color: #f3f3f3;
+  width: 72%;
+  font-size: 18px;
+  padding: 9px;
+}
+
+.foundersHeading:hover {
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+#founderHeadingHr {
+  border: 1.5px solid black;
+  border-radius: 10px;
+  width: 20rem;
+}
+
+#founderDescription {
+  font-size: 18px;
 }
 
 .CEODescription {
-  font-size: 16px;
+  font-size: 18px;
   max-width: 500px;
   margin: auto;
   line-height: 1.6;
-  text-align: center;
+  text-align: left;
 }
 
 /*.foundersHeading {

@@ -20,6 +20,7 @@
 
     <script src="./js/header.js"></script>
     <script src="./js/imageUploader.js"></script>
+    <script src="./js/productShowcase.js"></script>
 
     <!-- Bootstrap CSS -->
     <link
@@ -464,16 +465,15 @@
       <section id="productsContainer" class="productsXtrudeInc py-5 bg-cream">
         <div class="container">
           <!-- Intro -->
-          <div class="row align-items-center gy-4">
+          <div class="row align-items-center gy-4" id="OurProductsDescription">
             <div class="col-lg-6">
-              <h2 class="h2 fw-semibold mb-3">Our Products</h2>
+              <h2 class="h2 mb-3">Our Products</h2>
               <p class="lead fst-italic mb-4">
-                Our initial product offerings include framed and enclosure
-                lithophanes. These two product types have been classified under
-                3 different variants allowing you to customize them according to
-                your preferences and requirements.
+                Most of our products include a range of designed, and 3D printed lamps in the form of various contexts. We also take on custom orders for individual customers and businesses alike.
+                <br><br>
+                Under our initial product line, we have a range of personalized products. Some of these include 3D printed Enclosure picture lamps, Figure head lamps, Cute animal lamps, chess-inspired and tower lamps.
                 <br /><br />
-                These variants are allowed to be viewed in 3D down below.
+                Our products can be viewed in 3D down below.
                 <br /><br />
                 <a href="#productsShowcase" class="link-brand"
                   >Click here to view in 3D</a
@@ -504,15 +504,16 @@
           <br />
 
           <!-- Showcase -->
-          <div id="productsShowcase" class="mt-5 pt-2">
-            <h3 class="h3 fw-semibold text-center mb-2">Our Products in 3D</h3>
-            <p class="text-center fst-italic mb-4">
-              Take a look at our products in 3D.
-            </p>
 
+          <div id="productsShowcase" class="mt-5 pt-2">
+            <h3 class="h3 text-center mb-2">Our Products in 3D</h3>
+            <p class="text-center fst-italic mb-4">
+              View our products in 3D.
+            </p>
+            <br><br>
             <div class="row g-5">
               <!-- Product 1 -->
-              <div class="col-12 col-md-6">
+              <div class="col-12 col-md-6"  >
                 <div class="card h-100 shadow-sm border-0">
                   <div class="card-body p-3 p-md-4">
                     <div class="ratio ratio-4x3 mb-3">
@@ -520,6 +521,7 @@
                         src="./Models/mini3DBenchy.glb"
                         alt="productViewOne"
                         id="productviewOne"
+                        class="modelviewProducts"
                         auto-rotate
                         disable-zoom
                         camera-controls
@@ -531,10 +533,10 @@
                     </div>
 
                     <div class="d-flex gap-2 justify-content-center">
-                      <button type="button" class="btn btn-brand px-3">
+                      <button type="button" class="customizeBtn btn-brand px-3" onClick="javascript:showMessageForCustomizeBtn();">
                         Customize
                       </button>
-                      <button type="button" class="btn btn-brand px-3">
+                      <button type="button" class="placeorderBtn btn-brand px-3" onClick="javascript:showMessageForCustomizeBtn();">
                         Place Order
                       </button>
                     </div>
@@ -562,6 +564,7 @@
                         src="./Models/mini3DBenchy.glb"
                         alt="Basic enclosure lithophane"
                         id="productviewTwo"
+                        class="modelviewProducts"
                         auto-rotate
                         disable-zoom
                         camera-controls
@@ -573,10 +576,10 @@
                     </div>
 
                     <div class="d-flex gap-2 justify-content-center">
-                      <button type="button" class="btn btn-brand px-3">
+                      <button type="button" class="customizeBtn btn-brand px-3" id="customizeBtn" onClick="javascript:showMessageForCustomizeBtn();">
                         Customize
                       </button>
-                      <button type="button" class="btn btn-brand px-3">
+                      <button type="button" class="placeorderBtn btn-brand px-3" id="placeorderBtn" onClick="javascript:showMessageForCustomizeBtn();">
                         Place Order
                       </button>
                     </div>
@@ -601,6 +604,7 @@
                         src="./Models/mini3DBenchy.glb"
                         alt="Named enclosure lithophane"
                         id="productviewThree"
+                        class="modelviewProducts"
                         auto-rotate
                         disable-zoom
                         camera-controls
@@ -612,10 +616,10 @@
                     </div>
 
                     <div class="d-flex gap-2 justify-content-center">
-                      <button type="button" class="btn btn-brand px-3">
+                      <button type="button" class="customizeBtn btn-brand px-3" id="customizeBtn" onClick="javascript:showMessageForCustomizeBtn();">
                         Customize
                       </button>
-                      <button type="button" class="btn btn-brand px-3">
+                      <button type="button" class="placeorderBtn btn-brand px-3" id="placeorderBtn" onClick="javascript:showMessageForCustomizeBtn();">
                         Place Order
                       </button>
                     </div>
@@ -640,6 +644,7 @@
                         src="./Models/mini3DBenchy.glb"
                         alt="Full named enclosure lithophane"
                         id="productviewFour"
+                        class="modelviewProducts"
                         auto-rotate
                         disable-zoom
                         camera-controls
@@ -651,10 +656,10 @@
                     </div>
 
                     <div class="d-flex gap-2 justify-content-center">
-                      <button type="button" class="btn btn-brand px-3">
+                      <button type="button" class="customizeBtn btn-brand px-3" id="customizeBtn" onClick="javascript:showMessageForCustomizeBtn();">
                         Customize
                       </button>
-                      <button type="button" class="btn btn-brand px-3">
+                      <button type="button" class="placeorderBtn btn-brand px-3" id="placeorderBtn" onClick="javascript:showMessageForCustomizeBtn();">
                         Place Order
                       </button>
                     </div>
@@ -671,6 +676,15 @@
                 </div>
               </div>
             </div>
+            <div class="ShowcaseDialogueBox">
+                <div class="dialogueText">
+                  <div class="closeBtn">X</div>
+                  <div class="dialogueHeading"><i>Coming soon!</i></div><br>
+                  <p class="dialogueDescription">
+                    We are still working on an easy-to-use order placing platform. <br> Want to order or customize a product?<br><br> contact us at: <span id="emailDialogueText">info@xtrudeinc.com</span> or <br><br> give us a call at: +91 89044 24961
+                  </p>
+                </div>
+              </div>
             <!-- /.row -->
           </div>
           <!-- /#productsShowcase -->
@@ -867,27 +881,40 @@
         </div>
       </div>-->
       <div class="container foundersContainer">
-        <h2 class="foundersHeading">The Founder</h2>
-
+        <h2 class="foundersHeading">
+          The Founder
+          <hr id="founderHeadingHr" />
+        </h2>
         <div class="row align-items-center mb-5">
           <!-- CEO -->
           <div class="col-md-6">
             <img
-              src="./img/founderSaiPrakhya.jpg"
+              src="./img/FounderImgFixed.jpg"
               class="founderImg img-fluid"
               alt="CEO"
             />
           </div>
           <div class="col-md-6">
             <p class="CEODescription">
-              <span id="founderName"
-                >Sai Prakhya is the Co-Founder & CEO of XtrudeInc.</span
-              ><br />
-              Since childhood, he has been driven by curiosity and creativity,
+              <div id="founderName"
+                >Sai Prakhya is the sole founder of XtrudeInc.</div
+              ><br /><br />
+              <div id="founderSubHeading">
+                Sai Prakhya drives XtrudeInc’s growth by fusing digital
+                creativity with hands-on manufacturing.
+              </div>
+              <br /><br />
+              <span id="founderDescription">
+              Driven by a desire to do things differently, he became passionate
+              about 3D printing and design for the freedom it offers. Starting
+              with 3D design services, he expanded his skills through practical
+              challenges and setbacks. Blending art, technology, and business,
+              he launched XtrudeInc to turn creativity into opportunity</span>
+              <!--Since childhood, he has been driven by curiosity and creativity,
               drawing inspiration from movies and video games. Fascinated by
               bringing virtual ideas into reality, he discovered 3D printing
               and, has decided to embark on the journey of entrepreneurship on
-              his own and launched XtrudeInc to explore its vast potential.
+              his own and launched XtrudeInc to explore its vast potential.-->
             </p>
           </div>
         </div>
@@ -976,12 +1003,12 @@
       <section id="contactsContainer" class="contactsXtrudeInc py-5">
         <div class="container">
           <h2 class="contactsHeading mb-4">
-            Contact Us & <br />
+            Contact Us &
             <span id="placeOrders">Place Orders</span>
+            <hr id="contactUsHr">
           </h2>
 
-          <div class="row g-4">
-            <!-- Custom Order -->
+          <!--<div class="row g-4">
             <div class="col-12 col-md-4">
               <div class="card h-100 shadow-sm border-3 border-dark">
                 <div class="card-body">
@@ -1037,7 +1064,7 @@
               </div>
             </div>
 
-            <!-- Query -->
+            
             <div class="col-12 col-md-4">
               <div class="card h-100 shadow-sm border-3 border-dark">
                 <div class="card-body">
@@ -1086,7 +1113,7 @@
               </div>
             </div>
 
-            <!-- Place Order -->
+            
             <div class="col-12 col-md-4">
               <div class="card h-100 shadow-sm border-3 border-dark">
                 <div class="card-body">
@@ -1146,18 +1173,43 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div>-->
 
           <!-- Description -->
+          <h2 class="contactUsComingSoon">Coming soon!</h2>
+
           <p class="contactsDescription mt-5">
-            If you have any queries regarding our products and services, would
-            like to place a custom order of our products or would like to use
-            our services for your business or prototype, please feel free to
-            reach out to us via our customer services prompt.<br /><br />
-            Please enter your details as well as your query in the prompt before
-            sending us a message!<br /><br />
-            You may select any one prompt from the options above.
-          </p>
+            We are working on an easy-to-use order placing platform.<br>
+            Want to place an order or customize a product?<br><br>
+            Contact us at: <br>
+          <div class="text-center mt-4">
+          <div class="d-flex justify-content-center gap-3">
+            <img
+              src="./img/icons/instagram.png"
+              class="socialIcon"
+              title="xtrudeinc_official"
+            />
+            <img
+              src="./img/icons/facebook.png"
+              class="socialIcon"
+              title="xtrudeinc_official"
+            />
+            <img
+              src="./img/icons/twitter.png"
+              class="socialIcon"
+              title="xtrudeinc_official"
+            />
+            <img
+              src="./img/icons/linkedin.png"
+              class="socialIcon"
+              title="xtrudeinc_official"
+            />
+          </div>
+          <div class="contactemail">
+            <p>Email: <span id="email">info@xtrudeinc.com</span></p>
+            <p>Phone: <span id="phone">+91 89044 24961</span></p>
+          </div>
+        </div>
         </div>
       </section>
 
