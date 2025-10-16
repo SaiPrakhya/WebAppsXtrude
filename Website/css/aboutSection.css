@@ -110,7 +110,8 @@
 }
 
 #img {
-  height: 400px;
+  height: 350px;
+  margin-left: 15px;
 }
 
 .aboutHeading {
@@ -202,6 +203,10 @@
   padding-top: 10px;
 }
 
+#servicesModel {
+  margin-right: 50px;
+}
+
 /***********/
 
 .moreServicesContainer {
@@ -274,14 +279,10 @@
 
 #missionImg {
   float: right;
-  height: 450px;
-  margin-right: 200px;
+  height: 350px;
+  margin-right: 100px;
   box-shadow: 16px 16px 0 #000000e1;
   transition: 0.3s ease;
-}
-
-#missionImg:hover {
-  height: 500px;
 }
 
 .VisionContent {
@@ -321,14 +322,10 @@
 
 #visionImg {
   float: left;
-  height: 400px;
-  margin-right: 200px;
+  height: 350px;
+  margin-left: 50px;
   box-shadow: 16px 16px 0 #000000e1;
   transition: 0.3s ease;
-}
-
-#visionImg:hover {
-  height: 450px;
 }
 
 /*@media (max-width: 1200px) {
