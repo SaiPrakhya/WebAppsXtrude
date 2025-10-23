@@ -64,6 +64,12 @@
               title="About XtrudeInc"
             />
           </a>
+          <button id="hamburger" class="hamburger-menu" aria-label="Open menu">
+            <!--<span></span>
+            <span></span>
+            <span></span>-->
+            <img src="./img/icons/hamburger.png" alt="hamburgerMenuicon" id="hamburger" class="hamburger">
+          </button>
           <nav class="main-nav">
             <ul>
               <li><a href="#heroContainer">Home</a></li>
@@ -504,7 +510,7 @@
                 class="img-fluid shadow-lg products-img"
               />-->
               <model-viewer
-            src="./Models/mini3DBenchy.glb"
+            src="./Models/ProductsSetupShowcase.glb"
             alt="servicesModel"
             auto-rotate
             camera-controls
@@ -705,7 +711,7 @@
                 <div class="closeBtn">X</div>
                 <div class="dialogueHeading"><i>Coming soon!</i></div><br>
                 <p class="dialogueDescription">
-                  We are still working on an easy-to-use order placing platform. <br> Want to order or customize a product?<br><br> contact us at: <span id="emailDialogueText">info@xtrudeinc.com</span> or <br><br> give us a call at: +91 89044 24961
+                  We are still working on an easy-to-use order placing platform. <br> Want to order or customize a product?<br><br> contact us at: <span id="emailDialogueText">sai.prakhya@xtrudeinc.com</span> or <br><br> give us a call at: +91 89044 24961
                 </p>
               </div>
             </div>
@@ -1230,7 +1236,7 @@
             />
           </div>
           <div class="contactemail">
-            <p>Email: <span id="email">info@xtrudeinc.com</span></p>
+            <p>Email: <span id="email">sai.prakhya@xtrudeinc.com</span></p>
             <p>Phone: <span id="phone">+91 89044 24961</span></p>
           </div>
         </div>
@@ -1315,7 +1321,7 @@
           <div class="col-12 col-md-6 col-lg-3 mb-4">
             <h5 class="fw-bold">More of our contacts</h5>
             <p><strong>Phone:</strong> +91 89044 24961</p>
-            <p><strong>Email:</strong> info@xtrudeinc.com</p>
+            <p><strong>Email:</strong> sai.prakhya@xtrudeinc.com</p>
           </div>
 
           <!-- Services -->
@@ -1397,6 +1403,22 @@
         </div>
       </div>
     </footer>
+    <script>
+  const hamburger = document.getElementById('hamburger');
+  const navList = document.querySelector('.main-nav ul');
+
+  hamburger.addEventListener('click', function() {
+    navList.classList.toggle('open');
+  });
+
+  // Optionally, close menu if you click outside links
+  document.addEventListener('click', function(e) {
+    if (!hamburger.contains(e.target) && !navList.contains(e.target)) {
+      navList.classList.remove('open');
+    }
+  });
+</script>
+
   </body>
 </html>
 
