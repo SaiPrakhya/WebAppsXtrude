@@ -2,7 +2,7 @@
 
 /* Footer background and text */
 footer {
-  background-color: blue;
+  background-color: #fff7eb; /* Bootstrap light */
   color: #212529; /* Bootstrap text-dark */
   font-family: "Poppins", sans-serif;
 }
