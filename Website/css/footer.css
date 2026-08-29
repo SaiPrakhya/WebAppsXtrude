@@ -2,8 +2,8 @@
 
 /* Footer background and text */
 footer {
-  background-color: #2e7d32; /* Green */
-  color: #ffffff;
+  background-color: #fff7eb; /* Bootstrap light */
+  color: #212529; /* Bootstrap text-dark */
   font-family: "Poppins", sans-serif;
 }
 
@@ -16,7 +16,7 @@ footer h6 {
 
 /* Links */
 footer a {
-  color: #ffffff;
+  color: #212529;
   text-decoration: none;
   transition: color 0.3s ease;
 }
