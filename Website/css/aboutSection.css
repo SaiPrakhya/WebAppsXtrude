@@ -105,13 +105,14 @@
 
 .AboutXtrudeInc {
   background-color: white;
-  height: 600vh;
-  margin-top: 350px;
+  height: auto;
+  margin-top: 0;
 }
 
 #img {
-  height: 350px;
-  margin-left: 15px;
+  height: auto;
+  max-width: 100%;
+  margin-left: 0;
 }
 
 .aboutHeading {
@@ -204,7 +205,7 @@
 }
 
 #servicesModel {
-  margin-right: 50px;
+  margin-right: 0;
 }
 
 /***********/
@@ -278,9 +279,10 @@
 }
 
 #missionImg {
-  float: right;
-  height: 350px;
-  margin-right: 100px;
+  float: none;
+  height: auto;
+  max-width: 100%;
+  margin-right: 0;
   box-shadow: 16px 16px 0 #000000e1;
   transition: 0.3s ease;
 }
@@ -298,21 +300,20 @@
   font-size: 30px;
   font-weight: 500;
   transition: 0.3s ease;
-  width: 18%;
-  margin-left: 750px;
-  transition: 0.3s ease;
+  width: auto;
+  margin-left: 0;
 }
 
 .visionHeading:hover {
-  margin-left: 760px;
+  margin-left: 10px;
 }
 
 .visionDescription {
   font-style: italic;
-  width: 30%;
+  width: auto;
   font-size: 20px;
   transition: 0.3s ease;
-  margin-left: 750px;
+  margin-left: 0;
 }
 
 .visionDescription:hover {
@@ -321,9 +322,10 @@
 }
 
 #visionImg {
-  float: left;
-  height: 350px;
-  margin-left: 50px;
+  float: none;
+  height: auto;
+  max-width: 100%;
+  margin-left: 0;
   box-shadow: 16px 16px 0 #000000e1;
   transition: 0.3s ease;
 }

@@ -3,14 +3,15 @@
   background-color: #fff;
 }
 
+.founder-pop {
+  max-width: 340px;
+  margin: 12px auto 2rem;
+}
+
 .founderImg {
-  max-width: 250px;
   width: 100%;
   height: auto;
-  margin: 20px auto;
   display: block;
-  box-shadow: 10px 10px 10px #525252cc;
-  border-radius: 250px;
 }
 
 .founderRow {
@@ -36,7 +37,7 @@
 
 .founderRow .description {
   flex: 1;
-  font-size: 8.9rem;
+  font-size: 1.125rem;
   line-height: 1.4;
   color: #002147;
   font-style: italic;
@@ -51,12 +52,13 @@
 .foundersHeading {
   margin-bottom: 50px;
   transition: 0.3s ease;
-  width: 20%;
+  width: auto;
 }
 
 #founderSubHeading {
   background-color: #f3f3f3;
-  width: 72%;
+  width: 100%;
+  max-width: 36rem;
   font-size: 18px;
   padding: 9px;
 }
@@ -69,7 +71,7 @@
 #founderHeadingHr {
   border: 1.5px solid black;
   border-radius: 10px;
-  width: 20rem;
+  width: min(20rem, 100%);
 }
 
 #founderDescription {

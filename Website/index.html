@@ -18,9 +18,9 @@
       src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
     ></script>
 
-    <script src="./js/header.js"></script>
-    <script src="./js/imageUploader.js"></script>
-    <script src="./js/productShowcase.js"></script>
+    <script src="./js/header.js?v=nav3" defer></script>
+    <script src="./js/imageUploader.js?v=svc7" defer></script>
+    <script src="./js/productShowcase.js?v=slider1" defer></script>
 
     <!-- Bootstrap CSS -->
     <link
@@ -28,40 +28,17 @@
       rel="stylesheet"
     />
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-          <img src="./img/XtrudeIncLogoUpdated.png" alt="XtrudeInc Logo Tagline" height="32">
-          About XtrudeInc
-        </a>
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="mainNavbar">
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item"><a class="nav-link" href="#heroContainer">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
-        <!-- <li class="nav-item"><a class="nav-link" href="#missionContainer">Our Mission</a></li> -->
-        <li class="nav-item"><a class="nav-link" href="#visionContainer">Our Vision</a></li>
-        <li class="nav-item active"><a class="nav-link" href="#productsContainer">Products</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contactsContainer">Contact Us</a></li>
-      </ul>
-    </div>
-      </div>
-    </nav>
-
-    <link rel="stylesheet" href="./css/header.css" />
-    <link rel="stylesheet" href="./css/herocontent.css" />
-    <link rel="stylesheet" href="./css/modelview.css" />
+    <link rel="stylesheet" href="./css/header.css?v=nav10" />
+    <link rel="stylesheet" href="./css/herocontent.css?v=hero3" />
+    <link rel="stylesheet" href="./css/modelview.css?v=hero3" />
     <link rel="stylesheet" href="./css/aboutSection.css" />
-    <link rel="stylesheet" href="./css/productsSection.css" />
+    <link rel="stylesheet" href="./css/productsSection.css?v=slider1" />
     <link rel="stylesheet" href="./css/contactsSection.css" />
-    <link rel="stylesheet" href="./css/footer.css" />
+    <link rel="stylesheet" href="./css/footer.css?v=cream1" />
     <link rel="stylesheet" href="./css/contactsprompt.css" />
-    <link rel="stylesheet" href="./css/Founder.css" />
-    <link rel="stylesheet" href="./css/imageUploader.css" />
+    <link rel="stylesheet" href="./css/Founder.css?v=pop1" />
+    <link rel="stylesheet" href="./css/imageUploader.css?v=svc7" />
+    <link rel="stylesheet" href="./css/responsive.css?v=hero3" />
   </head>
 
   <!--<model-viewer
@@ -81,31 +58,49 @@
     <section id="header">
       <header class="site-header">
         <div class="header-container">
-          <a href="#" class="logo">
+          <a href="#heroContainer" class="logo">
             <img
               src="./img/XtrudeIncLogoUpdated.png"
-              alt="XtrudeInc Logo Tagline"
+              alt="XtrudeInc, 3D Printing and Design"
               title="About XtrudeInc"
             />
           </a>
-          <button id="hamburger" class="hamburger-menu" aria-label="Open menu">
-            <!--<span></span>
-            <span></span>
-            <span></span>-->
-            <img src="./img/icons/hamburger.png" alt="hamburgerMenuicon" id="hamburger" class="hamburger">
+          <button
+            id="hamburger"
+            class="hamburger-menu"
+            type="button"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="nav-drawer"
+          >
+            <span class="menu-cubes" aria-hidden="true">
+              <span class="menu-cube"></span>
+              <span class="menu-cube"></span>
+              <span class="menu-cube"></span>
+              <span class="menu-cube"></span>
+            </span>
           </button>
-          <nav class="main-nav">
-            <ul>
-              <li><a href="#heroContainer">Home</a></li>
-              <li><a href="#about">About Us</a></li>
-              <!--<li><a href="#missionContainer">Our Mission</a></li>
-              <li><a href="#visionContainer">Our Vision</a></li>-->
-              <li class="active"><a href="#productsContainer">Products</a></li>
-              <li><a href="#contactsContainer">Contact Us</a></li>
-            </ul>
-          </nav>
         </div>
       </header>
+      <div class="nav-overlay" id="nav-overlay"></div>
+      <aside
+        class="nav-drawer"
+        id="nav-drawer"
+        aria-hidden="true"
+        aria-labelledby="nav-drawer-title"
+      >
+        <p class="nav-drawer-kicker" id="nav-drawer-title">What are you looking for?</p>
+        <nav class="main-nav" aria-label="Primary">
+          <ul id="primary-navigation">
+            <li><a href="#heroContainer">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="./ourwork.html">Our Work</a></li>
+            <li><a href="#productsContainer">Products</a></li>
+            <li><a href="#serviceRequest">Services</a></li>
+            <li><a href="#contactsContainer">Contact Us</a></li>
+          </ul>
+        </nav>
+      </aside>
     </section>
 
     <article>
@@ -126,57 +121,17 @@
               <h2 class="learnMoreBtn mt-3"><a href="#about">Learn More</a></h2>
             </div>
 
-            <!-- Model View Box -->
-            <model-viewer
-              src="./Models/BenchyOnBenches.glb"
-              alt="barrelsNtreeModel"
-              id="modelview1"
-              auto-rotate
-              disable-zoom
-              camera-controls
-              background-color="#ffffff"
-              style="width: 700px; height: 500px"
-              shadow-intensity="1"
-              shadow-softness="0.9"
-            >
-            </model-viewer>
-          </div>
-        </div>
-      </section>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-
-      <!--<section
-        class="hero-container d-flex align-items-center"
-        id="heroContainer"
-      >
-        <div class="container">
-          <div class="heroContent d-flex flex-wrap">
-            <div class="heroTextBox flex-grow-1">
-              <h1 class="heroText">
-                Designing your Vision and Building the Future
-                <span class="highlightedText">One Layer at a Time</span>
-              </h1>
-              <h2 class="learnMoreBtn mt-3">Learn More</h2>
-            </div>
-            <div class="modelviewbox shadow rounded ms-lg-5 mt-4 mt-lg-0">
+            <div class="model-stage hero-model-stage">
               <model-viewer
                 src="./Models/BenchyOnBenches.glb"
-                alt="barrelsNtreeModel"
+                alt="3D printed scene with a tree, barrels, and chest"
                 id="modelview1"
+                class="scroll-safe-model"
                 auto-rotate
                 disable-zoom
                 camera-controls
-                background-color="#ffffff"
-                style="width: 700px; height: 500px"
+                touch-action="pan-y"
+                interaction-prompt="none"
                 shadow-intensity="1"
                 shadow-softness="0.9"
               >
@@ -184,7 +139,8 @@
             </div>
           </div>
         </div>
-      </section>-->
+      </section>
+
       <!-- About Section -->
       <section class="container my-5 py-5" id="about">
         <div class="row align-items-center">
@@ -194,13 +150,7 @@
               <!--XtrudeInc is driven by curiosity, creativity, and a passion for
               innovation. Our team thrives on designing solutions that merge
               technology and design to create meaningful impact.-->
-              XtrudeInc is a startup that is associated with the field of 3D
-              printing and 3D design. Based out of Bengaluru in India, XtrudeInc
-              has it's own product line of lifestyle products catering to their
-              clientele's lifestyle accessory needs. On top of that, they also
-              strive to provide services in 3D printing, rapid prototyping as
-              well as 3D design and virtual product rendering services to
-              businesses and individuals alike.
+              XtrudeInc is a design consultancy centered around Design services, 3D Digital Asset modelling and, Product Visualization services for businesses and startups. Based out of Bengaluru, XtrudeInc specializes in delivering Digital assets and 3D renders for businesses catering to a variety of use-cases as well as delivering 3D printed solutions for clients in the gifting/fabrication space.
             </p>
           </div>
           <div class="col-md-6 text-center">
@@ -213,25 +163,14 @@
           </div>
         </div>
       </section>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
 
       <!-- Services Section -->
       <section class="container my-5 py-5" id="services">
         <div class="row align-items-center flex-md-row-reverse">
           <div class="col-md-6">
-            <h2 class="fw-medium mb-3" id="services">Our Services</h2>
+            <h2 class="fw-medium mb-3">Our Services</h2>
             <p class="fst-italic">
-              Our Services include rapid prototyping, custom designs for our
-              products, small-scale product designing as well as virtual product
-              rendering.<br /><br /><a
+              Our services include digital asset modelling for creative and/or marketing agencies and clients, Product visualization for brands, rapid-prototyping, and custom fabrication services for events.<br /><br /><a
                 href="#contactsContainer"
                 id="servicesLink"
                 >Reach out to us via our socials or contact details if you would
@@ -249,29 +188,26 @@
             />
           </div>-->
 
-          <model-viewer
-            src="./Models/mini3DBenchy.glb"
-            alt="servicesModel"
-            auto-rotate
-            camera-controls
-            disable-zoom
-            style="width: 600px; height: 400px"
-            shadow-intensity="1"
-            shadow-softness="0.9"
-            id="servicesModel"
-          >
-          </model-viewer>
+          <div class="col-md-6">
+            <div class="model-stage">
+              <model-viewer
+                src="./Models/mini3DBenchy.glb"
+                alt="Services 3D model"
+                class="scroll-safe-model"
+                auto-rotate
+                camera-controls
+                disable-zoom
+                touch-action="pan-y"
+                interaction-prompt="none"
+                shadow-intensity="1"
+                shadow-softness="0.9"
+                id="servicesModel"
+              >
+              </model-viewer>
+            </div>
+          </div>
         </div>
       </section>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
 
       <!-- More Services Section -->
       <section class="container my-5 py-5" id="more-services">
@@ -280,8 +216,7 @@
             <h2 class="fw-medium mb-3">More Services</h2>
             <p class="fst-italic">
               On top of our primary services, we also take on contracts
-              involving small-scale manufacturing for your business including
-              designing and prototyping. <br /><br />For our product line, we
+              involving small-scale design for manufacturing for your business. <br /><br />For our product line, we
               also accept custom orders in bulk catered to your preferences or
               requirements accordingly.
             </p>
@@ -293,30 +228,25 @@
               class="img-fluid shadow-lg rounded"
               id="img"
             />-->
-            <model-viewer
-            src="./Models/mini3DBenchy.glb"
-            alt="servicesModel"
-            auto-rotate
-            camera-controls
-            disable-zoom
-            style="width: 600px; height: 400px"
-            shadow-intensity="1"
-            shadow-softness="0.9"
-            id="servicesModel"
-          >
-          </model-viewer>
+            <div class="model-stage">
+              <model-viewer
+                src="./Models/mini3DBenchy.glb"
+                alt="More services 3D model"
+                class="scroll-safe-model"
+                auto-rotate
+                camera-controls
+                disable-zoom
+                touch-action="pan-y"
+                interaction-prompt="none"
+                shadow-intensity="1"
+                shadow-softness="0.9"
+                id="moreServicesModel"
+              >
+              </model-viewer>
+            </div>
           </div>
         </div>
       </section>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
 
       <!-- Mission Section -->
       <section class="container my-5 py-5" id="mission">
@@ -324,14 +254,7 @@
           <div class="col-md-6">
             <h2 class="fw-medium mb-3">Our Mission</h2>
             <p class="fst-italic">
-              At XtrudeInc, our mission is to provide high quality 3D
-              printed products that cater to the unique needs and preferences of
-              our customers. On top of that, we also aim to deliver quality
-              prototyping services as well as 3D visual product rendering
-              services for our beloved clientele who are looking to explore the
-              opportunity of bringing their ideas to life. In the long run, we
-              wish to expand our services towards exploring several other use
-              cases in the current rising trend of manufacturing.
+              Our Mission is to deliver the right outcomes for our clients so that their business can grow along with us. By delivering top quality renders within prescribed preferences and timelines thanks to our skill and connections to manufacturing agencies to help your business move forward.
             </p>
           </div>
           <div class="col-md-6 text-center">
@@ -344,15 +267,6 @@
           </div>
         </div>
       </section>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
 
       <!-- Vision Section -->
       <section class="container my-5 py-5" id="vision">
@@ -360,13 +274,7 @@
           <div class="col-md-6">
             <h2 class="fw-medium mb-3">Our Vision</h2>
             <p class="fst-italic">
-              Our vision is to become one of the leading providers of 3D
-              printing & design, prototyping & small-scale manufacturing, as
-              well as providing innovative 3D solutions for our clients in
-              various industries, specifically in the domain of medtech and
-              education. As an extension to our product line, we wish to explore
-              new possibilities in the field of 3D software solutions for
-              businesses.
+              Our vision is to become one of the leading companies in the design consultancy space, earning a name for the company that businesses trust with their products and design direction.
             </p>
           </div>
           <div class="col-md-6 text-center">
@@ -379,18 +287,6 @@
           </div>
         </div>
       </section>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
 
       <!--<div class="AboutXtrudeInc" id="aboutContainer">
         <div class="aboutSectionContent">
@@ -511,11 +407,9 @@
             <div class="col-lg-6">
               <h2 class="h2 mb-3">Our Products</h2>
               <p class="lead fst-italic mb-4">
-                Most of our products include a range of designed, and 3D printed lamps in the form of various contexts. We also take on custom orders for individual customers and businesses alike.
+                Most of our products hosted here are designed in-house and are licensed under the XtrudeInc copyright.
                 <br><br>
-                Under our initial product line, we have a range of personalized products. Some of these include 3D printed Enclosure picture lamps, Figure head lamps, Cute animal lamps, chess-inspired and tower lamps.
-                <br /><br />
-                Our products can be viewed in 3D down below.
+                Under our initial product line, we have a range of personalized products. These include fully 3D printed and customizable lifestyle accessories.
                 <br /><br />
                 <a href="#productsShowcase" class="link-brand"
                   >Click here to view in 3D</a
@@ -527,35 +421,86 @@
               </p>
             </div>
             <div class="col-lg-6 text-center">
-              <!--<img
-                src="./img/ProductImg2.jpg"
-                alt="Lithophane product preview"
-                id="productsImg"
-                class="img-fluid shadow-lg products-img"
-              />-->
-              <model-viewer
-            src="./Models/mini3DBenchy.glb"
-            alt="servicesModel"
-            auto-rotate
-            camera-controls
-            disable-zoom
-            style="width: 600px; height: 400px"
-            shadow-intensity="1"
-            shadow-softness="0.9"
-            id="servicesModel"
-          >
-          </model-viewer>
+              <div
+                class="model-stage products-slider"
+                id="productsSlider"
+                tabindex="0"
+                aria-roledescription="carousel"
+                aria-label="Product photos"
+              >
+                <button
+                  type="button"
+                  class="products-slider-btn products-slider-prev"
+                  aria-label="Previous product photo"
+                >
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path
+                      d="M15.5 5.5 9 12l6.5 6.5"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.4"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </button>
+                <div class="products-slider-viewport">
+                  <ul class="products-slider-track">
+                    <li class="products-slider-slide is-active">
+                      <img
+                        src="./img/ProductSliderDuck.png"
+                        alt="Pencil sketch of a duck"
+                        draggable="false"
+                      />
+                    </li>
+                    <li class="products-slider-slide">
+                      <img
+                        src="./img/ProductSliderDuck.png"
+                        alt="Pencil sketch of a duck"
+                        draggable="false"
+                      />
+                    </li>
+                    <li class="products-slider-slide">
+                      <img
+                        src="./img/ProductSliderDuck.png"
+                        alt="Pencil sketch of a duck"
+                        draggable="false"
+                      />
+                    </li>
+                    <li class="products-slider-slide">
+                      <img
+                        src="./img/ProductSliderDuck.png"
+                        alt="Pencil sketch of a duck"
+                        draggable="false"
+                      />
+                    </li>
+                  </ul>
+                </div>
+                <button
+                  type="button"
+                  class="products-slider-btn products-slider-next"
+                  aria-label="Next product photo"
+                >
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path
+                      d="M8.5 5.5 15 12l-6.5 6.5"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.4"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </button>
+                <div class="products-slider-dots" role="tablist" aria-label="Choose product photo">
+                  <button type="button" class="products-slider-dot is-active" aria-label="Show photo 1 of 4" aria-current="true"></button>
+                  <button type="button" class="products-slider-dot" aria-label="Show photo 2 of 4"></button>
+                  <button type="button" class="products-slider-dot" aria-label="Show photo 3 of 4"></button>
+                  <button type="button" class="products-slider-dot" aria-label="Show photo 4 of 4"></button>
+                </div>
+              </div>
             </div>
           </div>
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
 
           <!-- Showcase -->
 
@@ -564,8 +509,7 @@
             <p class="text-center fst-italic mb-4">
               View our products in 3D.
             </p>
-            <br><br>
-            <div class="row g-5">
+            <div class="row g-4 g-lg-5">
               <!-- Product 1 -->
               <div class="col-12 col-md-6"  >
                 <div class="card h-100 shadow-sm border-0">
@@ -573,12 +517,14 @@
                     <div class="ratio ratio-4x3 mb-3">
                       <model-viewer
                         src="./Models/mini3DBenchy.glb"
-                        alt="productViewOne"
+                        alt="Single framed lithophane"
                         id="productviewOne"
-                        class="modelviewProducts"
+                        class="modelviewProducts scroll-safe-model"
                         auto-rotate
                         disable-zoom
                         camera-controls
+                        touch-action="pan-y"
+                        interaction-prompt="none"
                         style="width: 100%; height: 100%"
                         shadow-intensity="1"
                         shadow-softness="0.9"
@@ -596,14 +542,9 @@
                     </div>
 
                     <p class="mt-3 fst-italic mb-0">
-                      <span class="fw-bold">Single framed lithophane</span
+                      <span class="fw-bold">Coming soon - Product 1</span
                       ><br />
-                      This product consists of a 3D printed single photo frame
-                      lithophane. Upon illuminating it against a backlight of
-                      any source, the caricature lights up to display a
-                      beautiful projection of the image engraved on the surface.
-                      This variant comes with limited customization; the light
-                      source must be arranged by the customer.
+                      This product is currently under development and is due to be launched soon.
                     </p>
                   </div>
                 </div>
@@ -618,10 +559,12 @@
                         src="./Models/mini3DBenchy.glb"
                         alt="Basic enclosure lithophane"
                         id="productviewTwo"
-                        class="modelviewProducts"
+                        class="modelviewProducts scroll-safe-model"
                         auto-rotate
                         disable-zoom
                         camera-controls
+                        touch-action="pan-y"
+                        interaction-prompt="none"
                         style="width: 100%; height: 100%"
                         shadow-intensity="1"
                         shadow-softness="0.9"
@@ -630,20 +573,18 @@
                     </div>
 
                     <div class="d-flex gap-2 justify-content-center">
-                      <button type="button" class="customizeBtn btn-brand px-3" id="customizeBtn" onClick="javascript:showMessageForCustomizeBtn();">
+                      <button type="button" class="customizeBtn btn-brand px-3" onClick="javascript:showMessageForCustomizeBtn();">
                         Customize
                       </button>
-                      <button type="button" class="placeorderBtn btn-brand px-3" id="placeorderBtn" onClick="javascript:showMessageForCustomizeBtn();">
+                      <button type="button" class="placeorderBtn btn-brand px-3" onClick="javascript:showMessageForCustomizeBtn();">
                         Place Order
                       </button>
                     </div>
 
                     <p class="mt-3 fst-italic mb-0">
-                      <span class="fw-bold">Basic enclosure lithophane</span
+                      <span class="fw-bold">Coming soon - Product 2</span
                       ><br />
-                      Offers four frames for up to four pictures. You can choose
-                      the color of the enclosure base from several options. A
-                      light source with batteries is included with delivery.
+                      This product is currently under development and is due to be launched soon.
                     </p>
                   </div>
                 </div>
@@ -658,10 +599,12 @@
                         src="./Models/mini3DBenchy.glb"
                         alt="Named enclosure lithophane"
                         id="productviewThree"
-                        class="modelviewProducts"
+                        class="modelviewProducts scroll-safe-model"
                         auto-rotate
                         disable-zoom
                         camera-controls
+                        touch-action="pan-y"
+                        interaction-prompt="none"
                         style="width: 100%; height: 100%"
                         shadow-intensity="1"
                         shadow-softness="0.9"
@@ -670,20 +613,18 @@
                     </div>
 
                     <div class="d-flex gap-2 justify-content-center">
-                      <button type="button" class="customizeBtn btn-brand px-3" id="customizeBtn" onClick="javascript:showMessageForCustomizeBtn();">
+                      <button type="button" class="customizeBtn btn-brand px-3" onClick="javascript:showMessageForCustomizeBtn();">
                         Customize
                       </button>
-                      <button type="button" class="placeorderBtn btn-brand px-3" id="placeorderBtn" onClick="javascript:showMessageForCustomizeBtn();">
+                      <button type="button" class="placeorderBtn btn-brand px-3" onClick="javascript:showMessageForCustomizeBtn();">
                         Place Order
                       </button>
                     </div>
 
                     <p class="mt-3 fst-italic mb-0">
-                      <span class="fw-bold">Named enclosure lithophane</span
+                      <span class="fw-bold">Coming soon - Product 3</span
                       ><br />
-                      Like the basic enclosure, plus custom name or text
-                      engraved on the top surface (one side only). Light source
-                      with batteries included.
+                      This product is currently under development and is due to be launched soon.
                     </p>
                   </div>
                 </div>
@@ -698,10 +639,12 @@
                         src="./Models/mini3DBenchy.glb"
                         alt="Full named enclosure lithophane"
                         id="productviewFour"
-                        class="modelviewProducts"
+                        class="modelviewProducts scroll-safe-model"
                         auto-rotate
                         disable-zoom
                         camera-controls
+                        touch-action="pan-y"
+                        interaction-prompt="none"
                         style="width: 100%; height: 100%"
                         shadow-intensity="1"
                         shadow-softness="0.9"
@@ -710,21 +653,18 @@
                     </div>
 
                     <div class="d-flex gap-2 justify-content-center">
-                      <button type="button" class="customizeBtn btn-brand px-3" id="customizeBtn" onClick="javascript:showMessageForCustomizeBtn();">
+                      <button type="button" class="customizeBtn btn-brand px-3" onClick="javascript:showMessageForCustomizeBtn();">
                         Customize
                       </button>
-                      <button type="button" class="placeorderBtn btn-brand px-3" id="placeorderBtn" onClick="javascript:showMessageForCustomizeBtn();">
+                      <button type="button" class="placeorderBtn btn-brand px-3" onClick="javascript:showMessageForCustomizeBtn();">
                         Place Order
                       </button>
                     </div>
 
                     <p class="mt-3 fst-italic mb-0">
-                      <span class="fw-bold">Named enclosure lithophane</span
+                      <span class="fw-bold">Coming soon - Product 4</span
                       ><br />
-                      Similar to the previous product but allows text on all
-                      sides of the base. Choose the base color, text color, and
-                      up to four images for the enclosure. Light source with
-                      batteries included.
+                      This product is currently under development and is due to be launched soon.
                     </p>
                   </div>
                 </div>
@@ -744,18 +684,71 @@
           <!-- /#productsShowcase -->
         </div>
       </section>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
+
+      <section id="serviceRequest" class="services-request py-5">
+        <div class="container">
+          <h2 class="services-request-heading">
+            Apply for a service
+          </h2>
+          <p class="services-request-copy">
+            If you would like to send a services application to XtrudeInc,
+            please send us a mail at
+            <a href="mailto:sai.prakhya@xtrudeinc.com"
+              >sai.prakhya@xtrudeinc.com</a
+            >
+          </p>
+          <p class="services-request-or">OR</p>
+          <p class="services-request-now">Send a request now</p>
+          <form
+            class="services-request-form"
+            id="serviceRequestForm"
+            novalidate
+          >
+            <div class="services-field">
+              <label for="serviceName">Name</label>
+              <input
+                type="text"
+                id="serviceName"
+                name="serviceName"
+                autocomplete="name"
+                placeholder="Your name"
+                required
+              />
+            </div>
+            <div class="services-field">
+              <label for="serviceBusiness">Business name (optional)</label>
+              <input
+                type="text"
+                id="serviceBusiness"
+                name="serviceBusiness"
+                autocomplete="organization"
+                placeholder="Your business name"
+              />
+            </div>
+            <p class="services-work-enquire-note" id="serviceWorkEnquireNote" hidden></p>
+            <div class="services-field" id="serviceRequirementField">
+              <label for="serviceRequirement">Requirements</label>
+              <textarea
+                id="serviceRequirement"
+                name="serviceRequirement"
+                rows="6"
+                placeholder="Describe what you need"
+                required
+              ></textarea>
+            </div>
+            <p class="services-whatsapp-note">
+              You may attach reference images directly on whatsApp after
+              filling in your details
+            </p>
+            <div class="services-send-wrap">
+              <button type="submit" class="sendbtn services-send-btn">
+                Send
+              </button>
+            </div>
+            <p class="services-form-status" id="serviceFormStatus" hidden></p>
+          </form>
+        </div>
+      </section>
 
       <!--<div class="productsXtrudeInc" id="productsContainer">
         <div class="productsSectionContent">
@@ -942,20 +935,22 @@
         <div class="row align-items-center mb-5">
           <!-- CEO -->
           <div class="col-md-6">
-            <img
-              src="./img/FounderImgFixed.jpg"
-              class="founderImg img-fluid"
-              alt="CEO"
-            />
+            <div class="founder-pop">
+              <img
+                src="./img/FounderSilhouette.png?v=pop1"
+                class="founderImg img-fluid"
+                alt="Sai Prakhya, founder of XtrudeInc"
+              />
+            </div>
           </div>
           <div class="col-md-6">
-            <p class="CEODescription">
+            <div class="CEODescription">
               <div id="founderName"
-                >Sai Prakhya is the sole founder of XtrudeInc.</div
+                >Sai Prakhya - Founder of XtrudeInc.</div
               ><br /><br />
               <div id="founderSubHeading">
                 Sai Prakhya drives XtrudeInc’s growth by fusing digital
-                creativity with hands-on manufacturing.
+                creativity with hands-on modelling and design techniques.
               </div>
               <br /><br />
               <span id="founderDescription">
@@ -963,13 +958,13 @@
               about 3D printing and design for the freedom it offers. Starting
               with 3D design services, he expanded his skills through practical
               challenges and setbacks. Blending art, technology, and business,
-              he launched XtrudeInc to turn creativity into opportunity</span>
+              he launched XtrudeInc to turn creativity into opportunity.</span>
               <!--Since childhood, he has been driven by curiosity and creativity,
               drawing inspiration from movies and video games. Fascinated by
               bringing virtual ideas into reality, he discovered 3D printing
               and, has decided to embark on the journey of entrepreneurship on
               his own and launched XtrudeInc to explore its vast potential.-->
-            </p>
+            </div>
           </div>
         </div>
 
@@ -996,18 +991,6 @@
           </div>
         </div>-->
       </div>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
 
       <!--<div class="foundersContainer">
         <div class="founderRow">
@@ -1235,27 +1218,32 @@
           <p class="contactsDescription mt-5">
             We are working on an easy-to-use order placing platform.<br>
             Want to place an order or customize a product?<br><br>
-            Contact us at: <br>
+            Contact us at:
+          </p>
           <div class="text-center mt-4">
           <div class="d-flex justify-content-center gap-3">
             <img
               src="./img/icons/instagram.png"
               class="socialIcon"
+              alt="Instagram"
               title="xtrudeinc_official"
             />
             <img
               src="./img/icons/facebook.png"
               class="socialIcon"
+              alt="Facebook"
               title="xtrudeinc_official"
             />
             <img
               src="./img/icons/twitter.png"
               class="socialIcon"
+              alt="X"
               title="xtrudeinc_official"
             />
             <img
               src="./img/icons/linkedin.png"
               class="socialIcon"
+              alt="LinkedIn"
               title="xtrudeinc_official"
             />
           </div>
@@ -1329,7 +1317,7 @@
         </div>-->
     </article>
 
-    <footer class="text-white pt-5">
+    <footer class="text-dark pt-5">
       <div class="container">
         <div class="row text-center text-md-start">
           <!-- Logo -->
@@ -1374,20 +1362,32 @@
             <h5 class="fw-bold">Navigation quick links</h5>
             <ul class="list-unstyled">
               <li>
-                <a href="#heroContainer" class="text-dark text-decoration-none"
+                <a href="#heroContainer" class="text-decoration-none text-dark">
                   >Home</a
                 >
               </li>
               <li>
-                <a href="#about" class="text-dark text-decoration-none"
+                <a href="#about" class="text-decoration-none text-dark">
                   >About Us</a
+                >
+              </li>
+              <li>
+                <a href="./ourwork.html" class="text-decoration-none text-dark">
+                  >Our Work</a
                 >
               </li>
               <li>
                 <a
                   href="#productsContainer"
-                  class="text-dark text-decoration-none"
-                  >Products</a
+                  class="text-decoration-none text-dark"
+                  >Products</a>
+                >
+              </li>
+              <li>
+                <a
+                  href="#contactsContainer"
+                  class="text-decoration-none text-dark"
+                  >Contact Us</a>
                 >
               </li>
             </ul>
@@ -1401,21 +1401,25 @@
             <img
               src="./img/icons/instagram.png"
               class="socialIcon"
+              alt="Instagram"
               title="xtrudeinc_official"
             />
             <img
               src="./img/icons/facebook.png"
               class="socialIcon"
+              alt="Facebook"
               title="xtrudeinc_official"
             />
             <img
               src="./img/icons/twitter.png"
               class="socialIcon"
+              alt="X"
               title="xtrudeinc_official"
             />
             <img
               src="./img/icons/linkedin.png"
               class="socialIcon"
+              alt="LinkedIn"
               title="xtrudeinc_official"
             />
           </div>
@@ -1423,26 +1427,11 @@
 
         <!-- Copyright -->
         <div class="text-center mt-4 pt-3 border-top">
-          <p class="mb-0 small">&copy; 2025 XtrudeInc. All rights reserved.</p>
+          <p class="mb-0 small">&copy; 2026-27 XtrudeInc. All rights reserved.</p>
         </div>
       </div>
     </footer>
-    <script>
-  /*const hamburger = document.getElementById('hamburger');
-  const navList = document.querySelector('.main-nav ul');
-
-  hamburger.addEventListener('click', function() {
-    navList.classList.toggle('open');
-  });
-
-  // Optionally, close menu if you click outside links
-  document.addEventListener('click', function(e) {
-    if (!hamburger.contains(e.target) && !navList.contains(e.target)) {
-      navList.classList.remove('open');
-    }
-  });*/
-</script>
-
+    <script src="./js/modelScroll.js"></script>
   </body>
 </html>
 
@@ -1530,7 +1519,7 @@
           </div>
         </div>
         <div class="copyright">
-          <p>&copy; 2025 XtrudeInc. All rights reserved.</p>
+          <p>&copy; 2026-27 XtrudeInc. All rights reserved.</p>
         </div>
       </footer>
     </div>-->
@@ -1618,6 +1607,6 @@
         </div>
       </div>
       <div class="copyright">
-        <p>&copy; 2025 XtrudeInc. All rights reserved.</p>
+        <p>&copy; 2026-27 XtrudeInc. All rights reserved.</p>
       </div>
     </footer>-->

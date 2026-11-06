@@ -1,1 +1,206 @@
+.services-request {
+  background-color: #ffffff;
+}
 
+.services-request-heading {
+  margin-bottom: 2rem;
+  font-size: 30px;
+  font-weight: 500;
+  color: #01204e;
+  transition: 0.3s ease;
+}
+
+.services-request-heading:hover {
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.services-request-copy {
+  max-width: 40rem;
+  margin: 0 auto 1.5rem;
+  font-size: 18px;
+  line-height: 1.6;
+  font-style: italic;
+  color: #01204e;
+  text-align: center;
+}
+
+.services-request-copy a {
+  color: #01204e;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid #faaa68;
+}
+
+.services-request-copy a:hover {
+  color: #028393;
+}
+
+.services-request-or {
+  text-align: center;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #01204e;
+  margin: 0.5rem 0 0.65rem;
+}
+
+.services-request-now {
+  text-align: center;
+  font-size: 18px;
+  font-style: italic;
+  color: #01204e;
+  margin: 0 0 1.75rem;
+}
+
+.services-request-form {
+  max-width: 36rem;
+  margin: 0 auto 1.5rem;
+  background: #ffffff;
+  padding: 1.75rem 1.5rem 1.5rem;
+  border: 1.5px solid #000000;
+  border-radius: 0;
+  box-shadow: 16px 16px 0 #000000;
+}
+
+.services-field {
+  margin-bottom: 1.15rem;
+}
+
+.services-work-enquire-note {
+  margin: 0 0 1.15rem;
+  font-size: 15px;
+  font-style: italic;
+  line-height: 1.5;
+  color: #01204e;
+}
+
+.services-request-form.is-work-enquire #serviceRequirementField {
+  display: none;
+}
+
+.services-request-form label {
+  display: block;
+  font-size: 16px;
+  font-style: italic;
+  color: #01204e;
+  margin-bottom: 0.4rem;
+}
+
+.services-request-form input[type="text"],
+.services-request-form textarea {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+  font-size: 16px;
+  color: #01204e;
+  background: #e6e6e6;
+  border: 1.5px solid #01204e;
+  border-radius: 8px;
+  padding: 0.65rem 0.8rem;
+}
+
+.services-request-form input[type="text"]::placeholder,
+.services-request-form textarea::placeholder {
+  color: #6f6f6f;
+}
+
+.services-request-form textarea {
+  min-height: 9rem;
+  resize: vertical;
+}
+
+.services-whatsapp-note {
+  margin: 0 0 1.1rem;
+  font-size: 15px;
+  font-style: italic;
+  line-height: 1.5;
+  color: #01204e;
+}
+
+.services-send-wrap {
+  position: relative;
+  overflow: visible;
+}
+
+.services-send-btn {
+  display: block;
+  width: 100%;
+  margin-top: 0.5rem;
+  position: relative;
+  z-index: 1;
+  transition:
+    transform 0.45s ease,
+    background-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.services-request-form .services-send-btn.is-sent,
+.services-request-form .services-send-btn.is-sent:hover {
+  transform: translateY(-22px);
+  background-color: #028393;
+  box-shadow: 8px 8px 0 #01204e;
+  cursor: default;
+}
+
+.services-send-btn:disabled {
+  opacity: 1;
+  cursor: default;
+}
+
+.services-confetti {
+  position: absolute;
+  left: 50%;
+  top: 8px;
+  width: 8px;
+  height: 8px;
+  pointer-events: none;
+  z-index: 2;
+  animation: services-confetti-burst 1s ease-out forwards;
+}
+
+@keyframes services-confetti-burst {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, 0) rotate(0deg) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--dx), var(--dy)) rotate(var(--rot)) scale(0.7);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .services-send-btn,
+  .services-request-form .services-send-btn.is-sent,
+  .services-request-form .services-send-btn.is-sent:hover {
+    transition: none;
+    transform: none;
+  }
+
+  .services-confetti {
+    display: none;
+  }
+}
+
+.services-form-status {
+  margin: 0.85rem 0 0;
+  font-size: 0.95rem;
+  font-style: italic;
+  color: #01204e;
+  text-align: center;
+}
+
+.services-form-status.is-error {
+  color: #f65625;
+}
+
+.services-form-status.is-success {
+  color: #028393;
+}
+
+@media (max-width: 575.98px) {
+  .services-request-form {
+    box-shadow: 10px 10px 0 #000000;
+  }
+}
