@@ -2,8 +2,8 @@
 
 /* Footer background and text */
 footer {
-  background-color: #e31c23;
-  color: #fff7eb;
+  background-color: #2e7d32;
+  color: #ffffff;
   font-family: "Poppins", sans-serif;
   overflow: hidden;
 }
@@ -17,7 +17,7 @@ footer h6 {
 
 /* Links */
 footer a {
-  color: #fff7eb;
+  color: #ffffff;
   text-decoration: none;
   transition: color 0.3s ease;
 }
@@ -54,7 +54,7 @@ footer li {
 
 /* Copyright */
 footer .border-top {
-  border-color: rgba(255, 247, 235, 0.35) !important;
+  border-color: rgba(255, 255, 255, 0.35) !important;
 }
 
 /*footer {
