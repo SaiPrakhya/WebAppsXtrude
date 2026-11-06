@@ -1,0 +1,6 @@
+{
+  "greenApiIdInstance": "1101xxxxxxx",
+  "greenApiToken": "paste-your-token-here",
+  "greenApiUrl": "https://1105.api.green-api.com",
+  "greenApiMediaUrl": "https://1105.media.green-api.com"
+}

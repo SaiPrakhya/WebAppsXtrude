@@ -2,8 +2,8 @@
 
 /* Footer background and text */
 footer {
-  background-color: #fff7eb; /* Bootstrap light */
-  color: #212529; /* Bootstrap text-dark */
+  background-color: #e31c23;
+  color: #fff7eb;
   font-family: "Poppins", sans-serif;
   overflow: hidden;
 }
@@ -17,13 +17,13 @@ footer h6 {
 
 /* Links */
 footer a {
-  color: #212529;
+  color: #fff7eb;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 footer a:hover {
-  color: #007bff; /* Bootstrap primary */
+  color: #ffffff;
   text-decoration: underline;
 }
 
@@ -54,7 +54,7 @@ footer li {
 
 /* Copyright */
 footer .border-top {
-  border-color: rgba(0, 0, 0, 0.1) !important;
+  border-color: rgba(255, 247, 235, 0.35) !important;
 }
 
 /*footer {
