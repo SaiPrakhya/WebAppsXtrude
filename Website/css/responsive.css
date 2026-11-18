@@ -1,7 +1,7 @@
 /* Shared responsive layout + 3D viewer sizing */
 
 html {
-  scroll-padding-top: 6.5rem;
+  scroll-padding-top: 1rem;
 }
 
 img,
@@ -170,14 +170,6 @@ footer img.img-fluid {
 }
 
 @media (max-width: 575.98px) {
-  .header-container {
-    padding: 0 1rem;
-  }
-
-  .logo img {
-    width: min(11.5rem, 62vw);
-  }
-
   .model-stage {
     border-radius: 16px;
     min-height: 200px;

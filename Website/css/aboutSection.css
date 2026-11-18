@@ -530,3 +530,1069 @@
     display: none;
   }
 }*/
+
+body.about-page {
+  background-color: #01204e;
+  color: #ffffff;
+  font-family: "Inter", sans-serif;
+}
+
+body.about-page .site-topbar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1300;
+  overflow: visible;
+  background-color: #ffffff;
+  border-bottom: 1px solid #000000;
+}
+
+body.about-page .site-topbar-actions {
+  display: flex;
+  align-items: stretch;
+  gap: 1.1rem;
+  margin-left: auto;
+  align-self: stretch;
+}
+
+body.about-page .site-top-nav {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  align-self: stretch;
+}
+
+body.about-page .site-top-nav::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: min(38rem, 42vw, calc(100vw - 6rem));
+  height: 0;
+}
+
+body.about-page .site-top-nav:hover::after,
+body.about-page .site-top-nav:focus-within::after,
+body.about-page .site-top-nav.is-open::after {
+  height: 2rem;
+}
+
+body.about-page .site-top-nav-links {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 2;
+  width: min(38rem, 42vw, calc(100vw - 6rem));
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  background-color: #ffffff;
+  border-left: 1px solid #000000;
+  transition:
+    height 0.2s ease-out 0.16s,
+    opacity 0.16s ease-out 0.12s;
+}
+
+body.about-page .site-top-nav-links-inner {
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 2.75rem 3rem 2.5rem;
+}
+
+body.about-page .site-top-nav-primary {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-end;
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+}
+
+body.about-page .site-top-nav-legal {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.55rem;
+  width: 100%;
+  padding-top: 1.5rem;
+}
+
+body.about-page .site-top-nav:hover .site-top-nav-links,
+body.about-page .site-top-nav:focus-within .site-top-nav-links,
+body.about-page .site-top-nav.is-open .site-top-nav-links {
+  height: calc(100svh - 4rem);
+  opacity: 1;
+  pointer-events: auto;
+  transition:
+    height 0.22s ease-in,
+    opacity 0.16s ease-in;
+}
+
+body.about-page .site-top-nav a,
+body.about-page .site-top-nav a:hover,
+body.about-page .site-top-nav a:focus-visible,
+body.about-page .site-top-nav a[aria-current="page"] {
+  font-size: 1.45rem;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1.25;
+  color: #000000;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+body.about-page .site-top-nav-legal a,
+body.about-page .site-top-nav-legal a:hover,
+body.about-page .site-top-nav-legal a:focus-visible,
+body.about-page .site-top-nav-legal a[aria-current="page"] {
+  font-size: 0.95rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+body.about-page .site-top-nav-toggle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  background: none;
+  flex-shrink: 0;
+}
+
+body.about-page .site-top-nav-toggle span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background-color: #000000;
+  transition: transform 0.16s ease-out;
+}
+
+body.about-page .site-top-nav-toggle span:first-child {
+  width: 18px;
+  height: 2px;
+  margin: -1px 0 0 -9px;
+}
+
+body.about-page .site-top-nav-toggle span:last-child {
+  width: 2px;
+  height: 18px;
+  margin: -9px 0 0 -1px;
+}
+
+body.about-page .site-top-nav:hover .site-top-nav-toggle span,
+body.about-page .site-top-nav:focus-within .site-top-nav-toggle span,
+body.about-page .site-top-nav.is-open .site-top-nav-toggle span {
+  transform: rotate(45deg);
+  transition: transform 0.18s ease-in;
+}
+
+@media (max-width: 991.98px) {
+  body.about-page .site-top-nav a {
+    font-size: 1.2rem;
+  }
+
+  body.about-page .site-top-nav-legal a {
+    font-size: 0.88rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.about-page .site-top-nav-links,
+  body.about-page .site-top-nav:hover .site-top-nav-links,
+  body.about-page .site-top-nav:focus-within .site-top-nav-links,
+  body.about-page .site-top-nav-toggle span,
+  body.about-page .site-top-nav:hover .site-top-nav-toggle span,
+  body.about-page .site-top-nav:focus-within .site-top-nav-toggle span {
+    transition: none;
+  }
+}
+
+body.about-page .page-main {
+  background-color: #01204e;
+  color: #ffffff;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  padding: 0;
+}
+
+body.about-page .what-we-do-stage {
+  min-height: calc(100svh - 4rem);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  padding: 4rem 2.5rem 5rem;
+}
+
+body.about-page .experience-close {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.2rem;
+  width: 100%;
+  padding: 5.5rem 2.5rem 6.5rem;
+  background-color: #01204e;
+  color: #ffffff;
+}
+
+body.about-page .experience-close-copy {
+  margin: 0;
+  max-width: 40rem;
+  font-family: "Inter", sans-serif;
+  font-size: clamp(1.05rem, 1.8vw, 1.32rem);
+  font-weight: 400;
+  line-height: 1.55;
+  letter-spacing: 0.01em;
+  text-align: left;
+  color: #d4d4d4;
+  opacity: 0;
+  transform: translateY(0.45rem);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+body.about-page .experience-close.is-typed .experience-close-copy {
+  opacity: 1;
+  transform: none;
+}
+
+body.about-page .experience-close-copy-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  max-width: 46rem;
+}
+
+body.about-page .experience-close-copy-stack .experience-close-copy {
+  max-width: none;
+}
+
+body.about-page .experience-close-copy-stack.is-close-cta {
+  margin-top: 1.35rem;
+  max-width: min(72rem, 100%);
+}
+
+body.about-page .experience-close-cta-title {
+  font-size: clamp(2.55rem, 6.4vw, 4.85rem);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.045em;
+  color: #ffffff;
+}
+
+body.about-page .experience-close-copy-stack.is-close-cta .learn-more-btn.is-inline {
+  display: inline-flex;
+  vertical-align: middle;
+  margin: 0 0.18em;
+  padding: 0.55rem 1.35rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  text-decoration: none;
+  background-color: #000000;
+  color: #ffffff;
+  border-radius: 999px;
+  transition: background-color 0.28s ease, color 0.28s ease;
+}
+
+body.about-page .experience-close-copy-stack.is-close-cta .learn-more-btn.is-inline:hover,
+body.about-page .experience-close-copy-stack.is-close-cta .learn-more-btn.is-inline:focus-visible {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+body.about-page .experience-close-copy-stack.is-close-cta .experience-close-copy:nth-child(1) {
+  transition-delay: 0.28s;
+}
+
+body.about-page .experience-close-copy-stack.is-close-cta .experience-close-copy:nth-child(2) {
+  transition-delay: 0.46s;
+}
+
+body.about-page .experience-close-mark {
+  text-decoration: underline;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.18em;
+  color: inherit;
+  cursor: pointer;
+  transition: color 0.28s ease;
+}
+
+body.about-page .experience-close-mark:hover,
+body.about-page .experience-close-mark:focus-visible {
+  color: #ffffff;
+}
+
+body.about-page .solve-flow {
+  display: grid;
+  align-items: center;
+  column-gap: 0.45rem;
+  row-gap: 1.15rem;
+  width: 100%;
+  margin: 1.75rem auto 0;
+  align-self: center;
+  opacity: 0;
+  transform: translateY(0.45rem);
+  transition: opacity 0.55s ease 0.12s, transform 0.55s ease 0.12s;
+}
+
+body.about-page .solve-flow.is-xtrude {
+  grid-template-columns: minmax(0, 12.5rem) minmax(6.75rem, 8.75rem) minmax(0, 12.5rem) 3.4rem minmax(0, 12.5rem) 3.4rem minmax(0, 13.75rem);
+  grid-template-rows: auto auto;
+  max-width: 72rem;
+  margin-top: 2.85rem;
+}
+
+body.about-page .solve-flow.is-problem {
+  grid-template-columns: minmax(0, 11.25rem) minmax(6.5rem, 8.25rem) minmax(0, 11.25rem) 2.9rem minmax(0, 11.5rem) 2.9rem minmax(0, 11.5rem) 2.9rem minmax(0, 12.25rem);
+  grid-template-rows: 1fr 1fr 1fr;
+  max-width: 84rem;
+}
+
+body.about-page .experience-close.is-typed .solve-flow {
+  opacity: 1;
+  transform: none;
+}
+
+body.about-page .solve-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  min-height: 0;
+  padding: 0;
+  background: none;
+  color: #000000;
+  font-family: "Inter", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+body.about-page .solve-icon {
+  width: 2rem;
+  height: 2rem;
+  flex: 0 0 auto;
+  color: #000000;
+  overflow: visible;
+}
+
+body.about-page .solve-node .solve-icon {
+  padding: 1.35rem;
+  background-color: #ffffff;
+  border-radius: 1.05rem;
+  box-sizing: content-box;
+}
+
+body.about-page .solve-icon circle,
+body.about-page .solve-icon path,
+body.about-page .solve-icon rect {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+}
+
+body.about-page .solve-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+}
+
+body.about-page .solve-link .solve-icon {
+  padding: 0;
+  background: none;
+  border-radius: 0;
+  color: #ffffff;
+}
+
+body.about-page .solve-node .the-experience-brand,
+body.about-page .solve-link .the-experience-brand {
+  max-width: 100%;
+  padding: 0.22em 0.5em 0.28em;
+  box-sizing: border-box;
+}
+
+body.about-page .solve-link-label {
+  max-width: 8.5rem;
+  font-family: "Inter", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.01em;
+  text-align: center;
+}
+
+body.about-page .solve-fork,
+body.about-page .solve-merge {
+  width: 100%;
+  height: 100%;
+  min-height: 9.5rem;
+  align-self: stretch;
+  overflow: visible;
+}
+
+body.about-page .solve-flow.is-problem .solve-node .solve-icon,
+body.about-page .solve-flow.is-xtrude .solve-node .solve-icon {
+  background-color: #ffffff;
+  color: #000000;
+  box-shadow: none;
+}
+
+body.about-page .solve-flow.is-problem .solve-node.is-deadend .solve-icon {
+  background-color: #dc2626;
+  color: #ffffff;
+}
+
+body.about-page .solve-flow.is-xtrude .solve-node.is-out .solve-icon {
+  background-color: #16a34a;
+  color: #ffffff;
+}
+
+body.about-page .solve-flow.is-xtrude .solve-node.is-you {
+  grid-column: 1;
+  grid-row: 1 / 3;
+}
+
+body.about-page .solve-flow.is-xtrude .solve-link.is-need {
+  grid-column: 2;
+  grid-row: 1 / 3;
+}
+
+body.about-page .solve-flow.is-xtrude .solve-node.is-us {
+  grid-column: 3;
+  grid-row: 1 / 3;
+}
+
+body.about-page .solve-flow.is-xtrude .solve-fork {
+  grid-column: 4;
+  grid-row: 1 / 3;
+}
+
+body.about-page .solve-flow.is-xtrude .solve-node.is-design {
+  grid-column: 5;
+  grid-row: 1;
+}
+
+body.about-page .solve-flow.is-xtrude .solve-node.is-mfg {
+  grid-column: 5;
+  grid-row: 2;
+}
+
+body.about-page .solve-flow.is-xtrude .solve-merge {
+  grid-column: 6;
+  grid-row: 1 / 3;
+}
+
+body.about-page .solve-flow.is-xtrude .solve-node.is-out {
+  grid-column: 7;
+  grid-row: 1 / 3;
+}
+
+body.about-page .solve-flow.is-problem .solve-node.is-you {
+  grid-column: 1;
+  grid-row: 1 / 4;
+}
+
+body.about-page .solve-flow.is-problem .solve-link.is-think {
+  grid-column: 2;
+  grid-row: 1 / 4;
+}
+
+body.about-page .solve-flow.is-problem .solve-node.is-ideate {
+  grid-column: 3;
+  grid-row: 1 / 4;
+}
+
+body.about-page .solve-flow.is-problem .solve-fork {
+  grid-column: 4;
+  grid-row: 1 / 4;
+  min-height: 22rem;
+}
+
+body.about-page .solve-flow.is-problem .solve-node.is-outsource-design,
+body.about-page .solve-flow.is-problem .solve-node.is-outsource-eng,
+body.about-page .solve-flow.is-problem .solve-node.is-learn-dfm {
+  grid-column: 5;
+  align-self: stretch;
+  min-height: 7.6rem;
+}
+
+body.about-page .solve-flow.is-problem .solve-node.is-outsource-design {
+  grid-row: 1;
+}
+
+body.about-page .solve-flow.is-problem .solve-node.is-outsource-eng {
+  grid-row: 2;
+}
+
+body.about-page .solve-flow.is-problem .solve-node.is-learn-dfm {
+  grid-row: 3;
+}
+
+body.about-page .solve-flow.is-problem .solve-merge {
+  grid-column: 6;
+  grid-row: 1 / 4;
+  min-height: 22rem;
+}
+
+body.about-page .solve-flow.is-problem .solve-node.is-opaque {
+  grid-column: 7;
+  grid-row: 1 / 4;
+}
+
+body.about-page .solve-flow.is-problem .solve-link.is-end {
+  grid-column: 8;
+  grid-row: 1 / 4;
+  overflow: visible;
+}
+
+body.about-page .solve-flow.is-problem .solve-link.is-end .solve-arrow > path {
+  stroke-width: 4;
+}
+
+body.about-page .solve-flow.is-problem .solve-node.is-deadend {
+  grid-column: 9;
+  grid-row: 1 / 4;
+}
+
+body.about-page .solve-arrow.is-across {
+  width: 100%;
+  max-width: 6.5rem;
+  height: auto;
+  overflow: visible;
+}
+
+body.about-page .solve-arrow > path,
+body.about-page .solve-fork > path,
+body.about-page .solve-merge > path {
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+body.about-page .solve-arrow marker path,
+body.about-page .solve-fork marker path,
+body.about-page .solve-merge marker path {
+  fill: #ffffff;
+  stroke: none;
+}
+
+body.about-page .what-we-do-title,
+body.about-page .experience-close-title,
+body.about-page .the-experience-title {
+  text-decoration: none;
+}
+
+body.about-page .what-we-do-title::after,
+body.about-page .experience-close-title::after,
+body.about-page .the-experience-title::after,
+body.about-page .the-experience-subtitle::after {
+  content: none;
+  display: none;
+}
+
+body.about-page .what-we-do-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.2rem;
+  max-width: 46rem;
+}
+
+body.about-page .what-we-do-title,
+body.about-page .experience-close-title {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  font-size: clamp(2.55rem, 6.4vw, 4.85rem);
+  font-weight: 500;
+  line-height: 1.04;
+  letter-spacing: -0.045em;
+  text-align: left;
+  color: #ffffff;
+}
+
+body.about-page .what-we-do-sub {
+  margin: 0;
+  max-width: 28rem;
+  font-family: "Inter", sans-serif;
+  font-size: clamp(1.05rem, 1.8vw, 1.32rem);
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  text-align: left;
+  color: #d4d4d4;
+  opacity: 0;
+  transform: translateY(0.45rem);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+body.about-page .what-we-do-stage.is-typed .what-we-do-sub {
+  opacity: 1;
+  transform: none;
+}
+
+body.about-page .what-we-do-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.2rem;
+  opacity: 0;
+  transform: translateY(0.45rem);
+  transition: opacity 0.55s ease 0.12s, transform 0.55s ease 0.12s;
+}
+
+body.about-page .what-we-do-stage.is-typed .what-we-do-actions {
+  opacity: 1;
+  transform: none;
+}
+
+body.about-page .what-we-do-actions .learn-more-btn {
+  background-color: #000000;
+  color: #ffffff;
+  border-radius: 999px;
+}
+
+body.about-page .what-we-do-caret {
+  display: inline-block;
+  width: 0.085em;
+  height: 0.92em;
+  margin-left: 0.14em;
+  background-color: #ffffff;
+  vertical-align: -0.04em;
+  animation: what-we-do-caret 0.92s step-end infinite;
+}
+
+body.about-page .what-we-do-title.is-typed .what-we-do-caret,
+body.about-page .experience-close-title.is-typed .what-we-do-caret {
+  animation: none;
+  opacity: 0;
+}
+
+@keyframes what-we-do-caret {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+body.about-page h2 {
+  color: #ffffff;
+}
+
+body.about-page .the-experience {
+  width: 100%;
+  margin: 0;
+  padding: 5.75rem 1.5rem 6.5rem;
+  background-color: #000000;
+  color: #ffffff;
+  isolation: isolate;
+  scroll-margin-top: 0.75rem;
+}
+
+body.about-page .xtrude-experience {
+  width: 100%;
+  margin: 0;
+  padding: 5.5rem 1.5rem 7rem;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+body.about-page .the-experience-title {
+  margin: 0 auto 4.25rem;
+  width: fit-content;
+  font-family: "Comic Sans MS", "Comic Neue", cursive;
+  font-size: clamp(1.85rem, 4vw, 2.75rem);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  text-align: center;
+  color: #000000;
+  background-color: #ffffff;
+  border-radius: 1.05rem;
+  padding: 0.32em 0.72em 0.38em;
+}
+
+body.about-page .the-experience .experience-shot {
+  filter: grayscale(1) contrast(1.35) brightness(1.55);
+  mix-blend-mode: screen;
+}
+
+body.about-page .the-experience .experience-panel-copy {
+  font-family: "Comic Sans MS", "Comic Neue", cursive;
+  background-color: #ffffff;
+  color: #000000;
+  border-radius: 1.05rem;
+  padding: 0.85rem 1.15rem 0.95rem;
+  box-sizing: border-box;
+}
+
+body.about-page .the-experience-subtitle {
+  margin: 0 0 4.25rem;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  column-gap: 0.45em;
+  row-gap: 0.35em;
+  font-family: "Inter", sans-serif;
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+  text-align: center;
+  color: #000000;
+}
+
+body.about-page .the-experience-subtitle span:first-of-type {
+  justify-self: end;
+  text-align: right;
+}
+
+body.about-page .the-experience-subtitle span:last-of-type {
+  justify-self: start;
+  text-align: left;
+}
+
+body.about-page .the-experience-brand {
+  justify-self: center;
+  display: inline-block;
+  background-color: #000000;
+  color: #ffffff;
+  padding: 0.12em 0.48em 0.16em;
+  border-radius: 0.38em;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1.25;
+}
+
+body.about-page .xtrude-experience .experience-panel-copy {
+  color: #ffffff;
+  font-family: "Comic Sans MS", "Comic Neue", cursive;
+  background-color: #000000;
+  border-radius: 1.05rem;
+  padding: 0.85rem 1.15rem 0.95rem;
+  box-sizing: border-box;
+}
+
+body.about-page .xtrude-experience .experience-shot {
+  filter: invert(1) grayscale(1) contrast(1.55);
+  mix-blend-mode: multiply;
+  background-color: transparent;
+}
+
+body.about-page .xtrude-experience .experience-flow-arrow > path {
+  stroke: #000000;
+}
+
+body.about-page .xtrude-experience .experience-flow-arrow marker path {
+  fill: #000000;
+}
+
+body.about-page .xtrude-experience .the-experience-story {
+  width: min(64rem, 100%);
+  gap: 0;
+}
+
+body.about-page .xtrude-experience .experience-layer {
+  width: 100%;
+  padding: 2.15rem 1.65rem 2.25rem;
+  box-sizing: border-box;
+  isolation: isolate;
+}
+
+body.about-page .xtrude-experience .experience-layer.is-teal .experience-shot,
+body.about-page .xtrude-experience .experience-layer.is-navy .experience-shot {
+  filter: grayscale(1) contrast(1.35) brightness(1.55);
+  mix-blend-mode: screen;
+}
+
+body.about-page .xtrude-experience .experience-layer.is-orange {
+  background-color: #fb4f1a;
+}
+
+body.about-page .xtrude-experience .experience-layer.is-beige {
+  background-color: #ffa564;
+}
+
+body.about-page .xtrude-experience .experience-layer.is-teal {
+  background-color: #037e92;
+}
+
+body.about-page .xtrude-experience .experience-layer.is-navy {
+  background-color: #01224e;
+}
+
+body.about-page .xtrude-experience .experience-layer.is-teal .experience-panel-copy,
+body.about-page .xtrude-experience .experience-layer.is-navy .experience-panel-copy {
+  color: #ffffff;
+}
+
+body.about-page .xtrude-experience .experience-layer.is-teal .experience-flow-arrow > path,
+body.about-page .xtrude-experience .experience-layer.is-navy .experience-flow-arrow > path {
+  stroke: #ffffff;
+}
+
+body.about-page .xtrude-experience .experience-layer.is-teal .experience-flow-arrow marker path,
+body.about-page .xtrude-experience .experience-layer.is-navy .experience-flow-arrow marker path {
+  fill: #ffffff;
+}
+
+body.about-page .the-experience-story {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.75rem;
+  width: min(58rem, 100%);
+  margin: 0 auto;
+}
+
+body.about-page .experience-level {
+  display: grid;
+  grid-template-columns: minmax(0, 22rem) 3.25rem minmax(0, 22rem);
+  grid-template-rows: auto auto;
+  justify-content: center;
+  column-gap: 1.75rem;
+  row-gap: 1.15rem;
+  align-items: start;
+  width: 100%;
+}
+
+body.about-page .experience-shot.is-a {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+body.about-page .experience-level > .experience-flow-arrow.is-across {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+body.about-page .experience-shot.is-b {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+body.about-page .experience-level.is-finale {
+  grid-template-columns: minmax(0, 22rem);
+}
+
+body.about-page .experience-panel-copy.is-a {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+body.about-page .experience-panel-copy.is-b {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+body.about-page .experience-shot {
+  display: block;
+  width: 100%;
+  height: 13.75rem;
+  max-width: 100%;
+  object-fit: contain;
+  justify-self: stretch;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
+}
+
+body.about-page .experience-panel-copy {
+  margin: 0;
+  max-width: 100%;
+  justify-self: stretch;
+  align-self: start;
+  font-family: "Inter", sans-serif;
+  font-size: 0.92rem;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  color: #e6e6e6;
+  text-align: left;
+}
+
+body.about-page .experience-level.is-finale .experience-panel-copy {
+  text-align: center;
+}
+
+body.about-page .experience-flow-arrow {
+  overflow: visible;
+  justify-self: center;
+}
+
+body.about-page .experience-level > .experience-flow-arrow.is-across {
+  align-self: center;
+}
+
+body.about-page .experience-flow-arrow.is-across {
+  width: 3.25rem;
+  height: auto;
+}
+
+body.about-page .the-experience-story > .experience-flow-arrow.is-down {
+  width: auto;
+  height: 3.75rem;
+}
+
+body.about-page .experience-flow-arrow > path {
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 1.75;
+  stroke-linecap: square;
+}
+
+body.about-page .experience-flow-arrow marker path {
+  fill: #ffffff;
+  stroke: none;
+}
+
+@media (max-width: 575.98px) {
+  body.about-page .what-we-do-stage,
+  body.about-page .experience-close {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media (max-width: 700px) {
+  body.about-page .the-experience-subtitle {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  body.about-page .the-experience-subtitle span:first-of-type,
+  body.about-page .the-experience-subtitle span:last-of-type {
+    justify-self: unset;
+    text-align: center;
+  }
+}
+
+@media (max-width: 1100px) {
+  body.about-page .solve-flow,
+  body.about-page .solve-flow.is-xtrude,
+  body.about-page .solve-flow.is-problem {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto;
+    justify-items: stretch;
+    max-width: 22rem;
+  }
+
+  body.about-page .solve-flow.is-xtrude .solve-node.is-you,
+  body.about-page .solve-flow.is-xtrude .solve-link.is-need,
+  body.about-page .solve-flow.is-xtrude .solve-node.is-us,
+  body.about-page .solve-flow.is-xtrude .solve-fork,
+  body.about-page .solve-flow.is-xtrude .solve-node.is-design,
+  body.about-page .solve-flow.is-xtrude .solve-node.is-mfg,
+  body.about-page .solve-flow.is-xtrude .solve-merge,
+  body.about-page .solve-flow.is-xtrude .solve-node.is-out,
+  body.about-page .solve-flow.is-problem .solve-node.is-you,
+  body.about-page .solve-flow.is-problem .solve-link.is-think,
+  body.about-page .solve-flow.is-problem .solve-node.is-ideate,
+  body.about-page .solve-flow.is-problem .solve-fork,
+  body.about-page .solve-flow.is-problem .solve-node.is-outsource-design,
+  body.about-page .solve-flow.is-problem .solve-node.is-outsource-eng,
+  body.about-page .solve-flow.is-problem .solve-node.is-learn-dfm,
+  body.about-page .solve-flow.is-problem .solve-merge,
+  body.about-page .solve-flow.is-problem .solve-node.is-opaque,
+  body.about-page .solve-flow.is-problem .solve-link.is-end,
+  body.about-page .solve-flow.is-problem .solve-node.is-deadend {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  body.about-page .solve-link.is-need,
+  body.about-page .solve-link.is-think,
+  body.about-page .solve-link.is-end {
+    min-height: 4.25rem;
+  }
+
+  body.about-page .solve-fork,
+  body.about-page .solve-merge {
+    display: none;
+  }
+
+  body.about-page .solve-arrow.is-across {
+    transform: rotate(90deg);
+    width: 4.25rem;
+    max-width: none;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 900px) {
+  body.about-page .experience-level {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    row-gap: 1rem;
+  }
+
+  body.about-page .experience-shot.is-a,
+  body.about-page .experience-panel-copy.is-a,
+  body.about-page .experience-level > .experience-flow-arrow.is-across,
+  body.about-page .experience-shot.is-b,
+  body.about-page .experience-panel-copy.is-b {
+    grid-column: 1;
+  }
+
+  body.about-page .experience-shot.is-a {
+    grid-row: 1;
+  }
+
+  body.about-page .experience-panel-copy.is-a {
+    grid-row: 2;
+  }
+
+  body.about-page .experience-level > .experience-flow-arrow.is-across {
+    grid-row: 3;
+    width: auto;
+    height: 4.2rem;
+    transform: rotate(90deg);
+  }
+
+  body.about-page .experience-shot.is-b {
+    grid-row: 4;
+  }
+
+  body.about-page .experience-panel-copy.is-b {
+    grid-row: 5;
+  }
+
+  body.about-page .the-experience-story > .experience-flow-arrow.is-down {
+    display: none;
+  }
+}
+

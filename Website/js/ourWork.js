@@ -12,177 +12,135 @@
   onScroll();
 })();
 
-(function initOurWorkPieces() {
-  function initSlider(root) {
-    const track = root.querySelector(".work-piece-slider-track");
-    const viewport = root.querySelector(".work-piece-slider-viewport");
-    const slides = Array.from(root.querySelectorAll(".work-piece-slide"));
-    const prevBtn = root.querySelector(".work-piece-slider-btn.is-prev");
-    const nextBtn = root.querySelector(".work-piece-slider-btn.is-next");
-    const total = slides.length;
-    let index = 0;
-    let startX = 0;
-    let trackingSwipe = false;
+(function initOurWorkStage() {
+  const stage = document.querySelector(".our-work-stage");
+  const title = document.querySelector(".our-work-title");
+  const intro = document.querySelector(".our-work-intro");
+  const typed = intro && intro.querySelector(".our-work-typed");
+  const fullText = intro && intro.getAttribute("data-type-text");
+  const viewLink = document.querySelector('.our-work-actions a[href="#portfolio"]');
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  let typeTimer = 0;
+  let started = false;
 
-    if (!track || total === 0) {
-      return;
-    }
-
-    function goTo(nextIndex) {
-      index = ((nextIndex % total) + total) % total;
-      const width = viewport ? viewport.clientWidth : root.clientWidth;
-      track.style.transform = "translateX(" + -index * width + "px)";
-      slides.forEach(function (slide, i) {
-        slide.classList.toggle("is-active", i === index);
-      });
-    }
-
-    window.addEventListener("resize", function () {
-      goTo(index);
-    });
-
-    if (prevBtn) {
-      prevBtn.addEventListener("click", function () {
-        goTo(index - 1);
-      });
-    }
-
-    if (nextBtn) {
-      nextBtn.addEventListener("click", function () {
-        goTo(index + 1);
-      });
-    }
-
-    root.addEventListener("pointerdown", function (event) {
-      if (event.target.closest(".work-piece-slider-btn")) {
-        return;
-      }
-      trackingSwipe = true;
-      startX = event.clientX;
-    });
-
-    root.addEventListener("pointerup", function (event) {
-      if (!trackingSwipe) {
-        return;
-      }
-      trackingSwipe = false;
-      const delta = event.clientX - startX;
-      if (Math.abs(delta) < 40) {
-        return;
-      }
-      goTo(index + (delta < 0 ? 1 : -1));
-    });
-
-    root.addEventListener("pointerleave", function () {
-      trackingSwipe = false;
-    });
+  if (!stage || !title || !intro) {
+    return;
   }
 
-  document.querySelectorAll("[data-work-slider]").forEach(initSlider);
-
-  document.querySelectorAll(".work-piece").forEach(function (piece) {
-    const expand = piece.querySelector(".work-piece-expand");
-    const entry = piece.closest(".work-entry");
-    const enquire = entry && entry.querySelector(".work-piece-enquire");
-    const titleEl = piece.querySelector(".work-piece-title");
-
-    if (
-      enquire &&
-      enquire.classList.contains("work-piece-enquire") &&
-      titleEl
-    ) {
-      const title = titleEl.textContent.trim();
-      enquire.href =
-        "./index.html?enquire=post&title=" +
-        encodeURIComponent(title) +
-        "#serviceRequest";
+  function finishType() {
+    if (typed) {
+      typed.textContent = fullText || "";
     }
+    intro.classList.add("is-typed");
+    stage.classList.add("is-typed");
+  }
 
-    if (!expand) {
+  function startType() {
+    if (started) {
+      return;
+    }
+    started = true;
+    window.clearTimeout(typeTimer);
+    intro.classList.remove("is-typed");
+    stage.classList.remove("is-typed");
+
+    if (!typed || !fullText) {
+      finishType();
       return;
     }
 
-    let animating = false;
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-
-    function collapsedHeight() {
-      const raw = getComputedStyle(piece)
-        .getPropertyValue("--work-collapsed")
-        .trim();
-      const value = parseFloat(raw);
-      if (raw.indexOf("rem") !== -1) {
-        return (
-          value *
-          parseFloat(getComputedStyle(document.documentElement).fontSize)
-        );
-      }
-      return value || piece.offsetHeight;
+    if (reduceMotion.matches) {
+      finishType();
+      return;
     }
 
-    function finishHeight() {
-      animating = false;
-      if (piece.classList.contains("is-expanded")) {
-        piece.style.height = "auto";
+    typed.textContent = "";
+    let index = 0;
+
+    function step() {
+      if (index < fullText.length) {
+        typed.textContent = fullText.slice(0, index + 1);
+        index += 1;
+        typeTimer = window.setTimeout(step, 56);
       } else {
-        piece.style.height = "";
+        typeTimer = window.setTimeout(finishType, 280);
       }
     }
 
-    function onHeightEnd(event) {
-      if (event.propertyName !== "height") {
-        return;
-      }
-      finishHeight();
+    typeTimer = window.setTimeout(step, 180);
+  }
+
+  function showTitle() {
+    if (reduceMotion.matches) {
+      stage.classList.add("is-title-in");
+      startType();
+      return;
     }
 
-    piece.addEventListener("transitionend", onHeightEnd);
-
-    expand.addEventListener("click", function () {
-      if (animating) {
-        return;
-      }
-
-      const open = !piece.classList.contains("is-expanded");
-      expand.setAttribute("aria-expanded", String(open));
-      expand.setAttribute(
-        "aria-label",
-        open ? "Collapse this work" : "Expand this work"
-      );
-
-      if (reduceMotion.matches) {
-        piece.classList.toggle("is-expanded", open);
-        piece.style.height = "";
-        return;
-      }
-
-      animating = true;
-
-      if (open) {
-        const start = piece.offsetHeight;
-        piece.classList.add("is-expanded");
-        piece.style.height = "auto";
-        const end = piece.offsetHeight;
-        piece.style.height = start + "px";
-        piece.offsetHeight;
-        piece.style.height = end + "px";
-        window.setTimeout(function () {
-          if (animating) {
-            finishHeight();
-          }
-        }, 700);
-        return;
-      }
-
-      const start = piece.offsetHeight;
-      piece.style.height = start + "px";
-      piece.offsetHeight;
-      piece.classList.remove("is-expanded");
-      piece.style.height = collapsedHeight() + "px";
-      window.setTimeout(function () {
-        if (animating) {
-          finishHeight();
-        }
-      }, 700);
+    window.requestAnimationFrame(function () {
+      stage.classList.add("is-title-in");
     });
-  });
+    window.setTimeout(startType, 620);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", showTitle);
+  } else {
+    showTitle();
+  }
+
+  if (viewLink) {
+    viewLink.addEventListener("click", function (event) {
+      event.preventDefault();
+      const target = document.getElementById("portfolio");
+      if (!target) {
+        return;
+      }
+      target.scrollIntoView({
+        behavior: reduceMotion.matches ? "auto" : "smooth",
+        block: "start"
+      });
+      if (history.replaceState) {
+        history.replaceState(null, "", "#portfolio");
+      }
+    });
+  }
+})();
+
+(function initPortfolioHeading() {
+  const portfolio = document.querySelector(".our-work-portfolio");
+  const heading = document.querySelector(".portfolio-heading");
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  if (!portfolio || !heading) {
+    return;
+  }
+
+  function reveal() {
+    portfolio.classList.add("is-heading-in");
+  }
+
+  if (reduceMotion.matches) {
+    reveal();
+    return;
+  }
+
+  if (!("IntersectionObserver" in window)) {
+    reveal();
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          reveal();
+          observer.disconnect();
+        }
+      });
+    },
+    { threshold: 0.18, rootMargin: "0px 0px -8% 0px" }
+  );
+
+  observer.observe(heading);
 })();

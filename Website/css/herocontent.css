@@ -1,74 +1,91 @@
 .hero-container {
-  min-height: 100svh;
-  background: linear-gradient(#fff7eb, #ffffff);
+  background: #ffffff;
   display: flex;
   align-items: center;
-  padding: 8rem 0 4rem;
+  justify-content: center;
 }
 
-.heroContent {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
-}
-
-.heroTextBox {
-  flex: 1 1 280px;
-  min-width: 0;
-}
-
-.heroText {
-  user-select: none;
-  font-size: clamp(1.85rem, 4vw, 3.25rem);
+.heroTagline {
+  margin: 0;
+  padding: 0 1.5rem;
+  text-align: center;
+  font-size: clamp(2.6rem, 6.8vw, 5.5rem);
   font-weight: 700;
-  color: #01204e;
-  line-height: 1.3;
-  text-shadow: -3px 0 0 #faaa68, -6px 0 8px rgba(0, 0, 0, 0.2);
-}
-
-.highlightedText {
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+  color: #000000;
   user-select: none;
-  color: #fff7eb;
-  background-color: #01204e;
-  padding: 0 0.5rem;
-  text-shadow: -3px 0 0 #faaa68, -6px 0 8px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 8px 0 #028393, 0 16px 0 #f65625, 0 32px 0 #faaa68;
-  display: inline-block;
 }
 
-.learnMoreBtn {
-  font-size: 1.125rem;
-  color: #000000c9;
-  font-weight: 500;
-  display: inline-block;
-  transition: all 0.3s ease;
-  padding-top: 25px;
+body.home-page {
+  position: relative;
+  height: 100svh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
-.learnMoreBtn:hover {
-  cursor: pointer;
-  transform: translateX(10px);
-  text-decoration: underline;
+body.home-page .heroTagline {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+  width: max-content;
+  max-width: calc(100% - 3rem);
 }
 
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-5px);
-  }
+body.home-page .site-topbar {
+  flex: 0 0 auto;
 }
 
-.hero-model-stage {
-  animation: float 4s ease-in-out infinite;
+body.home-page .site-logo img {
+  width: min(13.25rem, 52vw);
 }
 
-@media (max-width: 768px) {
-  .learnMoreBtn:hover {
-    transform: none;
+body.home-page > article {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+}
+
+body.home-page .hero-container {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  margin-bottom: 1.5rem;
+  overflow: visible;
+}
+
+body.home-page .hero-model-backdrop {
+  position: absolute;
+  inset: -8% -4%;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0rem, 0.5vw, 0.5rem);
+  overflow: visible;
+  pointer-events: none;
+}
+
+body.home-page .hero-benchy {
+  width: min(640px, 50vw);
+  height: min(620px, 76vh);
+  background: transparent;
+  overflow: visible;
+}
+
+body.home-page footer.site-footer {
+  flex: 0 0 auto;
+  margin-top: auto;
+  margin-bottom: 0.85rem;
+  padding: 1.5rem 2.5rem 0.75rem;
+}
+
+@media (max-width: 575.98px) {
+  body.home-page footer.site-footer {
+    padding: 1.35rem 1rem 0.75rem;
   }
 }
