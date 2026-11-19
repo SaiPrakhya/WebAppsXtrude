@@ -26,12 +26,12 @@
       rel="stylesheet"
     />
     <script src="./js/header.js?v=nav27" defer></script>
-    <script src="./js/services.js?v=svc4" defer></script>
+    <script src="./js/services.js?v=svc12" defer></script>
     <link rel="stylesheet" href="./css/header.css?v=nav50" />
     <link rel="stylesheet" href="./css/imageUploader.css?v=svc7" />
-    <link rel="stylesheet" href="./css/services.css?v=svc11" />
+    <link rel="stylesheet" href="./css/services.css?v=svc23" />
     <link rel="stylesheet" href="./css/footer.css?v=site7" />
-    <link rel="stylesheet" href="./css/responsive.css?v=hero8" />
+    <link rel="stylesheet" href="./css/responsive.css?v=hero9" />
   </head>
   <body class="services-page">
     <div class="site-topbar">
@@ -82,13 +82,236 @@
           </div>
         </div>
       </section>
-      <section id="serviceRequest" class="services-request py-5">
-        <div class="container">
+      <section id="serviceRequest" class="services-request">
+        <div class="services-request-intro">
           <h2 class="services-request-heading">Services</h2>
           <p class="services-request-copy">
             Let us understand what you want to see.<br />
             Please enter your details down below before proceeding further
           </p>
+        </div>
+        <div class="services-dropdowns">
+          <div class="services-dropdown">
+            <button class="services-dropdown-toggle" type="button" aria-expanded="false">
+              Product Conceptualization
+              <span class="services-dropdown-mark" aria-hidden="true">
+                <span></span>
+                <span></span>
+              </span>
+            </button>
+            <div class="services-dropdown-panel">
+              <div class="services-dropdown-panel-inner">
+                <p class="services-dropdown-copy">Turning an abstract idea into a defined product concept.</p>
+                <a href="./contact.html" class="learn-more-btn">Get Started</a>
+              </div>
+            </div>
+          </div>
+          <div class="services-dropdown">
+            <button class="services-dropdown-toggle" type="button" aria-expanded="false">
+              Industrial Design &amp; CAD
+              <span class="services-dropdown-mark" aria-hidden="true">
+                <span></span>
+                <span></span>
+              </span>
+            </button>
+            <div class="services-dropdown-panel">
+              <div class="services-dropdown-panel-inner">
+                <p class="services-dropdown-copy">Developing product forms, dimensions, geometry and technical models</p>
+                <a href="./contact.html" class="learn-more-btn">Get Started</a>
+              </div>
+            </div>
+          </div>
+          <div class="services-dropdown">
+            <button class="services-dropdown-toggle" type="button" aria-expanded="false">
+              Prototyping
+              <span class="services-dropdown-mark" aria-hidden="true">
+                <span></span>
+                <span></span>
+              </span>
+            </button>
+            <div class="services-dropdown-panel">
+              <div class="services-dropdown-panel-inner">
+                <p class="services-dropdown-copy">Developing physical prototypes to evaluate and refine products</p>
+                <a href="./contact.html" class="learn-more-btn">Get Started</a>
+              </div>
+            </div>
+          </div>
+          <div class="services-dropdown">
+            <button class="services-dropdown-toggle" type="button" aria-expanded="false">
+              DFM &amp; Engineering
+              <span class="services-dropdown-mark" aria-hidden="true">
+                <span></span>
+                <span></span>
+              </span>
+            </button>
+            <div class="services-dropdown-panel">
+              <div class="services-dropdown-panel-inner">
+                <p class="services-dropdown-copy">Refining designs for manufacturing feasibility</p>
+                <a href="./contact.html" class="learn-more-btn">Get Started</a>
+              </div>
+            </div>
+          </div>
+          <div class="services-dropdown">
+            <button class="services-dropdown-toggle" type="button" aria-expanded="false">
+              End-to-end product development
+              <span class="services-dropdown-mark" aria-hidden="true">
+                <span></span>
+                <span></span>
+              </span>
+            </button>
+            <div class="services-dropdown-panel">
+              <div class="services-dropdown-panel-inner">
+                <p class="services-dropdown-copy">Elicitating requirements, refining product concept, identifying suitable manufacturing needs and delivering prototype.</p>
+                <a href="./contact.html" class="learn-more-btn">Get Started</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="services-enquiry">
+          <h2 class="services-enquiry-title">Sign up for a service</h2>
+          <p class="services-enquiry-sub">
+            Tell us what you need. We'll get back to you shortly.
+          </p>
+          <form id="serviceEnquiryForm" class="services-enquiry-form">
+            <div class="services-enquiry-row">
+              <label>
+                <span>Name</span>
+                <input type="text" name="name" autocomplete="name" maxlength="120" required />
+              </label>
+              <label>
+                <span>Email</span>
+                <input type="email" name="email" autocomplete="email" maxlength="160" required />
+              </label>
+            </div>
+            <div class="services-enquiry-row">
+              <label>
+                <span>WhatsApp number</span>
+                <input type="tel" name="phone" autocomplete="tel" maxlength="40" required />
+              </label>
+              <label>
+                <span>Service</span>
+                <select name="service" required>
+                  <option value="" selected disabled>Select a service</option>
+                  <option value="Product Conceptualization">Product Conceptualization</option>
+                  <option value="Industrial Design &amp; CAD">Industrial Design &amp; CAD</option>
+                  <option value="Prototyping">Prototyping</option>
+                  <option value="DFM &amp; Engineering">DFM &amp; Engineering</option>
+                  <option value="End-to-end product development">End-to-end product development</option>
+                  <option value="Lithophane Lamps">Lithophane Lamps</option>
+                  <option value="Lithophane keychains">Lithophane keychains</option>
+                  <option value="Other">Other</option>
+                </select>
+              </label>
+            </div>
+            <label class="services-enquiry-full">
+              <span>What do you need?</span>
+              <textarea name="requirement" rows="5" maxlength="4000" required></textarea>
+            </label>
+            <button class="learn-more-btn" type="submit">Send enquiry</button>
+            <p class="services-enquiry-status" role="status" aria-live="polite" hidden></p>
+          </form>
+        </div>
+      </section>
+      <section
+        class="services-closer"
+        id="services-help"
+        aria-label="Not sure how to bring your product to life?"
+      >
+        <h2
+          class="services-closer-title"
+          data-type-text="Not sure how to bring your product to life?"
+          aria-label="Not sure how to bring your product to life?"
+        >
+          <span class="services-closer-typed"></span><span class="services-closer-caret" aria-hidden="true"></span>
+        </h2>
+        <div class="services-closer-copy">
+          <p>You don't need to have everything figured out before approaching us.</p>
+          <p>
+            Tell us about your idea, requirements and expectations. Our team will help determine the appropriate design approach, identify suitable manufacturing processes and connect with relevant manufacturing sources to develop your prototype.
+          </p>
+          <p>From initial concepts to a physical prototype, we'll help you navigate the process.</p>
+        </div>
+      </section>
+      <section class="services-products" id="products" aria-label="Products - Discover our collection">
+        <h2 class="services-products-title">Products - Discover our collection</h2>
+        <p class="services-products-sub">Explore what we have to offer as part of our product collection.</p>
+        <div class="work-grid">
+          <article class="work-card">
+            <div class="work-card-frame">
+              <div
+                class="product-slideshow"
+                data-interval="4200"
+                role="img"
+                aria-label="Personalized lithophane lamp with photo portraits"
+              >
+                <img
+                  class="is-active"
+                  src="./img/products/lithophane-lamp-1.jpg"
+                  alt=""
+                />
+                <img
+                  src="./img/products/lithophane-lamp-2.jpg"
+                  alt=""
+                />
+              </div>
+              <div class="work-card-bar">
+                <div class="work-card-copy">
+                  <h3 class="work-card-title">Lithophane Lamps</h3>
+                  <div class="work-card-meta">
+                    <p class="work-card-sub">Night Lamp accessories</p>
+                    <p class="work-card-brand">XtrudeInc</p>
+                  </div>
+                </div>
+                <button class="work-card-more" type="button">
+                  Read more
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M5 12 H18" />
+                    <path d="M12 6 L18 12 L12 18" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </article>
+          <article class="work-card">
+            <div class="work-card-frame">
+              <div
+                class="product-slideshow"
+                data-interval="4600"
+                role="img"
+                aria-label="Personalized lithophane keychains"
+              >
+                <img
+                  class="is-active"
+                  src="./img/products/lithophane-keychain-1.jpg"
+                  alt=""
+                />
+                <img
+                  src="./img/products/lithophane-keychain-2.jpg"
+                  alt=""
+                />
+                <img
+                  src="./img/products/lithophane-keychain-3.jpg"
+                  alt=""
+                />
+              </div>
+              <div class="work-card-bar">
+                <div class="work-card-copy">
+                  <h3 class="work-card-title">Lithophane keychains</h3>
+                  <div class="work-card-meta">
+                    <p class="work-card-sub">Memorable accessories</p>
+                    <p class="work-card-brand">XtrudeInc</p>
+                  </div>
+                </div>
+                <button class="work-card-more" type="button">
+                  Read more
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M5 12 H18" />
+                    <path d="M12 6 L18 12 L12 18" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </article>
         </div>
       </section>
     </main>

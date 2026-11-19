@@ -359,6 +359,13 @@
   position: relative;
   z-index: 0;
   min-width: 0;
+  overflow: visible;
+}
+
+a.work-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
 }
 
 .work-card-frame {
@@ -407,7 +414,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 0.18rem;
+  gap: 0.7rem;
   min-width: 0;
 }
 
@@ -428,7 +435,24 @@
   overflow-wrap: break-word;
 }
 
-.work-card-sub {
+.work-card-kicker {
+  display: inline-block;
+  background-color: #000000;
+  color: #ffffff;
+  margin-top: 0.18em;
+  padding: 0.08em 0.32em;
+  white-space: nowrap;
+}
+
+.work-card-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.12rem;
+}
+
+.work-card-sub,
+.work-card-brand {
   margin: 0;
   color: #000000;
   font-family: "Inter", sans-serif;
@@ -514,16 +538,401 @@
     transform: none;
   }
 
-  .our-work-caret {
+  .our-work-caret,
+  .case-study-caret {
     animation: none;
     opacity: 0;
+  }
+
+  .case-study-back {
+    opacity: 1;
+    transition: none;
+  }
+}
+
+.case-study-main {
+  min-height: calc(100svh - 4rem);
+  padding: 3.5rem 2.5rem 7rem;
+  overflow-x: clip;
+  background-color: #ffffff;
+}
+
+.case-study-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  max-width: 100%;
+  font-family: "Inter", sans-serif;
+  font-size: clamp(2.55rem, 6.4vw, 4.85rem);
+  font-weight: 500;
+  line-height: 1.04;
+  letter-spacing: -0.045em;
+  color: #000000;
+  text-decoration: none;
+  opacity: 0;
+  transition: opacity 0.55s ease;
+}
+
+.case-study-back.is-in {
+  opacity: 1;
+}
+
+.case-study-back-arrow {
+  display: block;
+  flex: 0 0 auto;
+  width: 1.05em;
+  height: auto;
+  overflow: visible;
+}
+
+.case-study-back-arrow path {
+  fill: none;
+  stroke: #000000;
+  stroke-width: 12;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+  stroke-miterlimit: 2;
+}
+
+.case-study-title {
+  margin: 0;
+  min-height: 1.04em;
+  color: #000000;
+  font-family: "Inter", sans-serif;
+  font-size: clamp(2.55rem, 6.4vw, 4.85rem);
+  font-weight: 500;
+  line-height: 1.04;
+  letter-spacing: -0.045em;
+}
+
+.case-study-caret {
+  display: inline-block;
+  width: 0.085em;
+  height: 0.92em;
+  margin-left: 0.14em;
+  background-color: #000000;
+  vertical-align: -0.04em;
+  animation: case-study-caret 0.92s step-end infinite;
+}
+
+.case-study-title.is-typed .case-study-caret {
+  animation: none;
+  opacity: 0;
+}
+
+@keyframes case-study-caret {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.case-study-scatter {
+  position: relative;
+  width: 100%;
+  min-height: 158vh;
+  margin-top: 3.75rem;
+}
+
+.scatter-item {
+  position: absolute;
+  margin: 0;
+}
+
+.scatter-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.scatter-item.has-note {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.15rem;
+}
+
+.scatter-item.has-note img {
+  flex: none;
+  width: 100%;
+}
+
+.scatter-note {
+  flex: 1 1 18rem;
+  margin: 0;
+  max-width: 34rem;
+  padding-top: 0.15rem;
+  color: #000000;
+  font-family: "Inter", sans-serif;
+  font-size: clamp(1.65rem, 3.2vw, 2.55rem);
+  font-weight: 300;
+  line-height: 1.28;
+  letter-spacing: -0.035em;
+}
+
+.case-study-scatter.is-vivo {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  gap: clamp(5.75rem, 12vh, 10rem);
+}
+
+.case-study-scatter.is-vivo .scatter-item {
+  position: relative;
+  top: auto;
+  left: auto;
+  right: auto;
+}
+
+.case-study-scatter.is-vivo .case-study-title {
+  align-self: flex-start;
+  width: 100%;
+}
+
+.case-study-scatter.is-vivo .case-study-title + .scatter-item {
+  margin-top: 0.35rem;
+}
+
+.case-study-scatter.is-vivo .scatter-item + .case-study-title {
+  margin-top: clamp(1.5rem, 4vh, 3rem);
+}
+
+.case-study-scatter.is-vivo .scatter-item-1 {
+  align-self: flex-start;
+  width: 76%;
+}
+
+.case-study-scatter.is-vivo .scatter-item-2 {
+  align-self: flex-end;
+  width: 64%;
+  margin-right: 0;
+}
+
+.case-study-scatter.is-vivo .scatter-item-3 {
+  align-self: flex-start;
+  flex-direction: column;
+  width: 70%;
+  margin-left: 10%;
+}
+
+.case-study-scatter.is-vivo .scatter-item-4 {
+  align-self: flex-end;
+  width: 68%;
+  margin-right: 3%;
+}
+
+.case-study-scatter.is-vivo .scatter-item-5 {
+  align-self: flex-start;
+  width: 74%;
+  margin-left: 0;
+}
+
+.case-study-scatter.is-vivo .scatter-item-6 {
+  align-self: flex-end;
+  width: 62%;
+}
+
+.case-study-scatter.is-vivo .scatter-item-7 {
+  align-self: flex-start;
+  flex-direction: column;
+  width: 71%;
+  margin-left: 8%;
+}
+
+.case-study-scatter.is-vivo .scatter-item-8 {
+  align-self: flex-end;
+  width: 66%;
+  margin-right: 5%;
+}
+
+.scatter-item-1 {
+  top: 0;
+  left: 0;
+  width: 46%;
+}
+
+.scatter-item-2 {
+  top: 7%;
+  right: 0;
+  width: 36%;
+}
+
+.scatter-item-3 {
+  top: 46%;
+  left: 16%;
+  width: 34%;
+}
+
+.scatter-item-4 {
+  top: 58%;
+  right: 5%;
+  width: 42%;
+}
+
+.case-study-scatter.is-perfume {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  gap: clamp(5.75rem, 12vh, 10rem);
+}
+
+.case-study-scatter.is-perfume .scatter-item {
+  position: relative;
+  top: auto;
+  left: auto;
+  right: auto;
+}
+
+.case-study-scatter.is-perfume .scatter-item-1 {
+  align-self: flex-end;
+  width: 68%;
+}
+
+.case-study-scatter.is-perfume .scatter-item-2 {
+  align-self: flex-start;
+  width: 62%;
+}
+
+.case-study-scatter.is-perfume .scatter-item-3 {
+  align-self: flex-start;
+  width: 74%;
+  margin-left: 6%;
+}
+
+.case-study-scatter.is-perfume .scatter-item-4 {
+  align-self: flex-end;
+  width: 66%;
+  margin-right: 8%;
+}
+
+.case-study-scatter.is-stagger {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  gap: clamp(5.75rem, 12vh, 10rem);
+}
+
+.case-study-scatter.is-stagger .scatter-item {
+  position: relative;
+  top: auto;
+  left: auto;
+  right: auto;
+}
+
+.case-study-scatter.is-stagger .scatter-item-1 {
+  align-self: flex-start;
+  width: 74%;
+}
+
+.case-study-scatter.is-stagger .scatter-item-2 {
+  align-self: flex-end;
+  width: 66%;
+}
+
+.case-study-scatter.is-stagger .scatter-item-3 {
+  align-self: flex-start;
+  width: 72%;
+  margin-left: 8%;
+}
+
+@media (max-width: 800px) {
+  .case-study-scatter,
+  .case-study-scatter.is-perfume,
+  .case-study-scatter.is-stagger,
+  .case-study-scatter.is-vivo {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    gap: 2.2rem;
+  }
+
+  .scatter-item,
+  .case-study-scatter.is-perfume .scatter-item-1,
+  .case-study-scatter.is-perfume .scatter-item-2,
+  .case-study-scatter.is-perfume .scatter-item-3,
+  .case-study-scatter.is-perfume .scatter-item-4 {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+  }
+
+  .scatter-item-1,
+  .case-study-scatter.is-perfume .scatter-item-2 {
+    align-self: flex-start;
+    width: 92%;
+  }
+
+  .scatter-item-2,
+  .case-study-scatter.is-perfume .scatter-item-1 {
+    align-self: flex-end;
+    width: 80%;
+  }
+
+  .scatter-item-3,
+  .case-study-scatter.is-perfume .scatter-item-3 {
+    align-self: center;
+    width: 88%;
+  }
+
+  .scatter-item-4,
+  .case-study-scatter.is-perfume .scatter-item-4 {
+    align-self: flex-end;
+    width: 86%;
+  }
+
+  .case-study-scatter.is-vivo .scatter-item-1,
+  .case-study-scatter.is-vivo .scatter-item-2,
+  .case-study-scatter.is-vivo .scatter-item-3,
+  .case-study-scatter.is-vivo .scatter-item-4,
+  .case-study-scatter.is-vivo .scatter-item-5,
+  .case-study-scatter.is-vivo .scatter-item-6,
+  .case-study-scatter.is-vivo .scatter-item-7,
+  .case-study-scatter.is-vivo .scatter-item-8 {
+    width: 92%;
+    margin: 0;
+    flex-direction: column;
+  }
+
+  .case-study-scatter.is-vivo .scatter-item-2,
+  .case-study-scatter.is-vivo .scatter-item-4,
+  .case-study-scatter.is-vivo .scatter-item-6,
+  .case-study-scatter.is-vivo .scatter-item-8 {
+    align-self: flex-end;
+    width: 84%;
+  }
+
+  .case-study-scatter.is-stagger .scatter-item-1,
+  .case-study-scatter.is-stagger .scatter-item-2,
+  .case-study-scatter.is-stagger .scatter-item-3 {
+    width: 92%;
+    margin: 0;
+  }
+
+  .case-study-scatter.is-stagger .scatter-item-2 {
+    align-self: flex-end;
+    width: 84%;
+  }
+
+  .scatter-item.has-note img {
+    flex: none;
+    width: 100%;
+  }
+
+  .scatter-note {
+    max-width: none;
   }
 }
 
 @media (max-width: 575.98px) {
   .our-work-header-inner,
   .our-work-stage,
-  .our-work-portfolio {
+  .our-work-portfolio,
+  .case-study-main {
     padding-left: 1rem;
     padding-right: 1rem;
   }

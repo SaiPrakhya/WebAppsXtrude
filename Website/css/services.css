@@ -277,6 +277,14 @@
   scroll-margin-top: 5rem;
 }
 
+.services-page .services-request {
+  background-color: #ffffff;
+}
+
+.services-request-intro {
+  padding: 3.5rem 2.5rem 2.5rem;
+}
+
 .services-page .services-request-heading,
 .services-page .services-request-heading:hover {
   margin: 0 0 1.2rem;
@@ -304,19 +312,580 @@
   color: #01204e;
 }
 
+.services-dropdowns {
+  width: 100%;
+  border-top: 1px solid #000000;
+}
+
+.services-dropdown {
+  width: 100%;
+  border-bottom: 1px solid #000000;
+}
+
+.services-dropdown-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  width: 100%;
+  padding: 1.35rem 2.5rem;
+  border: none;
+  background: none;
+  box-shadow: none;
+  font-family: "Inter", sans-serif;
+  font-size: clamp(2.55rem, 6.4vw, 4.85rem);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.045em;
+  text-align: left;
+  color: #000000;
+  cursor: pointer;
+  user-select: none;
+}
+
+.services-dropdown-toggle:focus,
+.services-dropdown-toggle:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+.services-dropdown-mark {
+  position: relative;
+  flex: 0 0 auto;
+  width: 1.15em;
+  height: 1.15em;
+}
+
+.services-dropdown-mark span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background-color: #000000;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.services-dropdown-mark span:first-child {
+  width: 0.72em;
+  height: 0.08em;
+  margin: -0.04em 0 0 -0.36em;
+}
+
+.services-dropdown-mark span:last-child {
+  width: 0.08em;
+  height: 0.72em;
+  margin: -0.36em 0 0 -0.04em;
+}
+
+.services-dropdown.is-open .services-dropdown-mark span {
+  transform: rotate(45deg);
+}
+
+.services-dropdown-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  min-height: 0;
+  transition: grid-template-rows 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.services-dropdown.is-open .services-dropdown-panel {
+  grid-template-rows: 1fr;
+}
+
+.services-dropdown-panel-inner {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.services-dropdown-copy {
+  margin: 0;
+  padding: 0 2.5rem 1.15rem;
+  max-width: 44rem;
+  font-family: "Inter", sans-serif;
+  font-size: clamp(1.05rem, 1.8vw, 1.32rem);
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  color: #01204e;
+}
+
+.services-dropdown-panel-inner .learn-more-btn {
+  margin: 0 2.5rem 2rem;
+  background-color: #000000;
+  color: #ffffff;
+  border-radius: 999px;
+  text-decoration: none;
+}
+
+.services-closer {
+  min-height: calc(100svh - 4rem);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1.2rem;
+  width: 100%;
+  padding: 4rem 2.5rem 5rem;
+  background-color: #ffa564;
+  color: #01204e;
+}
+
+.services-closer-title {
+  margin: 0;
+  max-width: min(52rem, 100%);
+  font-family: "Inter", sans-serif;
+  font-size: clamp(2.55rem, 6.4vw, 4.85rem);
+  font-weight: 500;
+  line-height: 1.04;
+  letter-spacing: -0.045em;
+  text-align: left;
+  color: #000000;
+}
+
+.services-closer-caret {
+  display: inline-block;
+  width: 0.085em;
+  height: 0.92em;
+  margin-left: 0.14em;
+  background-color: #000000;
+  vertical-align: -0.04em;
+  animation: services-closer-caret 0.92s step-end infinite;
+}
+
+.services-closer-title.is-typed .services-closer-caret {
+  animation: none;
+  opacity: 0;
+}
+
+@keyframes services-closer-caret {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.services-closer-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  max-width: 46rem;
+  opacity: 0;
+  transform: translateY(0.45rem);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.services-closer.is-typed .services-closer-copy {
+  opacity: 1;
+  transform: none;
+}
+
+.services-closer-copy p {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  font-size: clamp(1.05rem, 1.8vw, 1.32rem);
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  text-align: left;
+  color: #01204e;
+}
+
+.services-products {
+  width: 100%;
+  padding: 3.5rem 2.5rem 5rem;
+  background-color: #ffffff;
+  color: #01204e;
+  scroll-margin-top: 5rem;
+}
+
+.services-products-title {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  font-size: clamp(2.55rem, 6.4vw, 4.85rem);
+  font-weight: 500;
+  line-height: 1.04;
+  letter-spacing: -0.045em;
+  text-align: left;
+  color: #000000;
+  opacity: 0;
+  transform: translateY(0.45rem);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.services-products-sub {
+  margin: 1.15rem 0 2.75rem;
+  max-width: 36rem;
+  font-family: "Inter", sans-serif;
+  font-size: clamp(1.05rem, 1.8vw, 1.32rem);
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  text-align: left;
+  color: #01204e;
+  opacity: 0;
+  transform: translateY(0.45rem);
+  transition: opacity 0.55s ease 0.12s, transform 0.55s ease 0.12s;
+}
+
+.services-products.is-in .services-products-title,
+.services-products.is-in .services-products-sub {
+  opacity: 1;
+  transform: none;
+}
+
+.services-products .work-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  width: 100%;
+  align-content: start;
+}
+
+.services-products .work-card {
+  position: relative;
+  z-index: 0;
+  min-width: 0;
+  overflow: visible;
+}
+
+.services-products .work-card-frame {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid transparent;
+  transform-origin: center center;
+  transition:
+    transform 0.5s ease,
+    border-color 0.5s ease;
+}
+
+.services-products .work-card:hover,
+.services-products .work-card:focus-within {
+  z-index: 2;
+}
+
+.services-products .work-card:hover .work-card-frame,
+.services-products .work-card:focus-within .work-card-frame {
+  border-color: #000000;
+  transform: scale(1.045);
+}
+
+.services-products .work-card-frame img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  user-select: none;
+  pointer-events: none;
+}
+
+.services-products .product-slideshow {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+
+.services-products .product-slideshow img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.9s ease;
+}
+
+.services-products .product-slideshow img.is-active {
+  opacity: 1;
+}
+
+.services-products .work-card-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  padding: 0.7rem 1rem 0.8rem;
+}
+
+.services-products .work-card-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.7rem;
+  min-width: 0;
+}
+
+.services-products .work-card-title {
+  margin: 0;
+  min-width: 0;
+  width: fit-content;
+  max-width: 100%;
+  background-color: #ffffff;
+  color: #000000;
+  font-family: "Inter", sans-serif;
+  font-size: clamp(1.05rem, 1.7vw, 1.35rem);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.035em;
+  text-align: left;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+.services-products .work-card-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.12rem;
+}
+
+.services-products .work-card-sub,
+.services-products .work-card-brand {
+  margin: 0;
+  color: #000000;
+  font-family: "Inter", sans-serif;
+  font-size: clamp(0.82rem, 1.2vw, 0.95rem);
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: 0.01em;
+}
+
+.services-products .work-card-more {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  flex: 0 0 auto;
+  margin-left: auto;
+  padding: 0.5rem 1.15rem 0.5rem 1.2rem;
+  border: 0;
+  border-radius: 999px;
+  background-color: #000000;
+  color: #ffffff;
+  font-family: "Inter", sans-serif;
+  font-size: 0.92rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.services-products .work-card-more svg {
+  display: block;
+  width: 0.95rem;
+  height: 0.95rem;
+}
+
+.services-products .work-card-more path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.85;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.services-products .work-card-more:hover,
+.services-products .work-card-more:focus-visible {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.services-enquiry {
+  max-width: 46rem;
+  padding: 3.5rem 2.5rem 4.5rem;
+}
+
+.services-enquiry-title {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  font-size: clamp(2.1rem, 4.6vw, 3.4rem);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.045em;
+  text-align: left;
+  color: #000000;
+}
+
+.services-enquiry-sub {
+  margin: 0.9rem 0 2.1rem;
+  max-width: 36rem;
+  font-family: "Inter", sans-serif;
+  font-size: clamp(1.05rem, 1.8vw, 1.32rem);
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  text-align: left;
+  color: #01204e;
+}
+
+.services-enquiry-form {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1.15rem;
+}
+
+.services-enquiry-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.15rem;
+}
+
+.services-enquiry-form label {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.45rem;
+  min-width: 0;
+}
+
+.services-enquiry-form span {
+  color: #000000;
+  font-family: "Inter", sans-serif;
+  font-size: 0.92rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.services-enquiry-form input,
+.services-enquiry-form select,
+.services-enquiry-form textarea {
+  width: 100%;
+  margin: 0;
+  padding: 0.78rem 0.95rem;
+  border: 1px solid #000000;
+  border-radius: 0;
+  background-color: #ffffff;
+  color: #000000;
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+}
+
+.services-enquiry-form select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='%23000000' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.85rem center;
+  background-size: 0.95rem;
+  padding-right: 2.4rem;
+}
+
+.services-enquiry-form textarea {
+  min-height: 8.5rem;
+  resize: vertical;
+}
+
+.services-enquiry-form input:focus,
+.services-enquiry-form select:focus,
+.services-enquiry-form textarea:focus {
+  outline: 2px solid #000000;
+  outline-offset: 2px;
+}
+
+.services-enquiry-form .learn-more-btn {
+  align-self: flex-start;
+  margin-top: 0.25rem;
+  border: 0;
+  cursor: pointer;
+}
+
+.services-enquiry-form .learn-more-btn:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+
+.services-enquiry-status {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.45;
+  color: #000000;
+}
+
+.services-enquiry-status.is-ok {
+  color: #000000;
+}
+
+.services-enquiry-status.is-err {
+  color: #8a1f1f;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .services-title,
   .services-sub,
-  .services-actions {
+  .services-actions,
+  .services-dropdown-mark span,
+  .services-dropdown-panel,
+  .services-closer-copy,
+  .services-products-title,
+  .services-products-sub,
+  .services-products .work-card-frame {
     transition: none;
+  }
+
+  .services-title,
+  .services-sub,
+  .services-actions,
+  .services-closer-copy,
+  .services-products-title,
+  .services-products-sub {
     opacity: 1;
     transform: none;
+  }
+
+  .services-closer-caret {
+    animation: none;
+    opacity: 0;
+  }
+
+  .services-products .work-card:hover .work-card-frame,
+  .services-products .work-card:focus-within .work-card-frame {
+    transform: none;
+  }
+
+  .services-products .product-slideshow img {
+    transition: none;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .services-products .work-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .services-enquiry-row {
+    grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 575.98px) {
-  .services-stage {
+  .services-stage,
+  .services-request-intro,
+  .services-dropdown-toggle,
+  .services-dropdown-copy,
+  .services-enquiry,
+  .services-closer,
+  .services-products {
     padding-left: 1rem;
     padding-right: 1rem;
+  }
+
+  .services-dropdown-panel-inner .learn-more-btn {
+    margin-left: 1rem;
+    margin-right: 1rem;
   }
 }

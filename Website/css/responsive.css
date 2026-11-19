@@ -16,7 +16,7 @@ body > article {
   padding-top: 0;
 }
 
-article {
+body > article {
   overflow-x: hidden;
 }
 

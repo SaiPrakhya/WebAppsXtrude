@@ -1,6 +1,10 @@
 {
   "whatsappTo": "918904424961",
   "adminEmail": "sai.prakhya@xtrudeinc.com",
+  "smtpHost": "smtp.mail.us-east-1.awsapps.com",
+  "smtpPort": 465,
+  "smtpUser": "sai.prakhya@xtrudeinc.com",
+  "smtpFrom": "sai.prakhya@xtrudeinc.com",
   "greenApiIdInstance": "",
   "greenApiToken": "",
   "greenApiUrl": "https://1105.api.green-api.com",

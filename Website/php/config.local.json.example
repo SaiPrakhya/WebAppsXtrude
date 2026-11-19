@@ -2,5 +2,10 @@
   "greenApiIdInstance": "1101xxxxxxx",
   "greenApiToken": "paste-your-token-here",
   "greenApiUrl": "https://1105.api.green-api.com",
-  "greenApiMediaUrl": "https://1105.media.green-api.com"
+  "greenApiMediaUrl": "https://1105.media.green-api.com",
+  "smtpHost": "smtp.mail.us-east-1.awsapps.com",
+  "smtpPort": 465,
+  "smtpUser": "sai.prakhya@xtrudeinc.com",
+  "smtpFrom": "sai.prakhya@xtrudeinc.com",
+  "smtpPassword": "paste-your-workmail-password-here"
 }

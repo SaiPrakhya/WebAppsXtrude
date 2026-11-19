@@ -157,22 +157,142 @@ function send_whatsapp_image($config, $chatId, $image, $caption = "") {
   return [$status, $body, $error];
 }
 
-function whatsapp_configured($config) {
+function green_api_configured($config) {
   return !empty($config["greenApiIdInstance"])
     && !empty($config["greenApiToken"])
     && !empty($config["greenApiUrl"])
-    && !empty($config["greenApiMediaUrl"])
-    && !empty($config["whatsappTo"]);
+    && !empty($config["greenApiMediaUrl"]);
 }
 
-function send_email_copy($config, $subject, $message, $images) {
+function whatsapp_configured($config) {
+  return green_api_configured($config) && !empty($config["whatsappTo"]);
+}
+
+function normalize_whatsapp_phone($value) {
+  $digits = preg_replace("/\D+/", "", (string) $value);
+  if (strpos($digits, "00") === 0) {
+    $digits = substr($digits, 2);
+  }
+  if (strlen($digits) === 11 && strpos($digits, "0") === 0) {
+    $digits = substr($digits, 1);
+  }
+  if (strlen($digits) === 10) {
+    $digits = "91" . $digits;
+  }
+  $length = strlen($digits);
+  if ($length >= 11 && $length <= 15) {
+    return $digits;
+  }
+  return "";
+}
+
+function smtp_configured($config) {
+  return !empty($config["smtpHost"])
+    && !empty($config["smtpUser"])
+    && !empty($config["smtpPassword"])
+    && !empty($config["adminEmail"]);
+}
+
+function smtp_read($fp) {
+  $data = "";
+  while (($line = fgets($fp, 515)) !== false) {
+    $data .= $line;
+    if (isset($line[3]) && $line[3] === " ") {
+      break;
+    }
+  }
+  return $data;
+}
+
+function smtp_cmd($fp, $cmd) {
+  fwrite($fp, $cmd . "\r\n");
+  return smtp_read($fp);
+}
+
+function send_smtp_email($config, $subject, $message, $replyTo = "") {
+  $host = trim((string) ($config["smtpHost"] ?? ""));
+  $user = trim((string) ($config["smtpUser"] ?? ""));
+  $pass = (string) ($config["smtpPassword"] ?? "");
+  $port = (int) ($config["smtpPort"] ?? 587);
+  $from = trim((string) ($config["smtpFrom"] ?? $config["adminEmail"] ?? ""));
+  $to = trim((string) ($config["adminEmail"] ?? ""));
+  if ($host === "" || $user === "" || $pass === "" || $from === "" || $to === "") {
+    return false;
+  }
+
+  $encodedSubject = "=?UTF-8?B?" . base64_encode($subject) . "?=";
+  $headers = "From: XtrudeInc <$from>\r\n";
+  $headers .= "To: <$to>\r\n";
+  if ($replyTo !== "" && filter_var($replyTo, FILTER_VALIDATE_EMAIL)) {
+    $headers .= "Reply-To: <$replyTo>\r\n";
+  }
+  $headers .= "Date: " . gmdate("D, d M Y H:i:s") . " +0000\r\n";
+  $headers .= "MIME-Version: 1.0\r\n";
+  $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+  $headers .= "Content-Transfer-Encoding: 8bit\r\n";
+  $payload = $headers . "Subject: $encodedSubject\r\n\r\n" . $message . "\r\n";
+
+  $remote = ($port === 465 ? "ssl://" : "tcp://") . $host . ":" . $port;
+  $fp = @stream_socket_client($remote, $errno, $errstr, 30, STREAM_CLIENT_CONNECT);
+  if (!$fp) {
+    return false;
+  }
+
+  stream_set_timeout($fp, 30);
+  smtp_read($fp);
+  smtp_cmd($fp, "EHLO xtrudeinc.com");
+  if ($port !== 465) {
+    $tls = smtp_cmd($fp, "STARTTLS");
+    if (strpos($tls, "220") !== 0) {
+      fclose($fp);
+      return false;
+    }
+    if (!@stream_socket_enable_crypto($fp, true, STREAM_CRYPTO_METHOD_TLS_CLIENT)) {
+      fclose($fp);
+      return false;
+    }
+    smtp_cmd($fp, "EHLO xtrudeinc.com");
+  }
+
+  smtp_cmd($fp, "AUTH LOGIN");
+  smtp_cmd($fp, base64_encode($user));
+  $auth = smtp_cmd($fp, base64_encode($pass));
+  if (strpos($auth, "235") !== 0) {
+    fclose($fp);
+    return false;
+  }
+
+  smtp_cmd($fp, "MAIL FROM:<$from>");
+  smtp_cmd($fp, "RCPT TO:<$to>");
+  $data = smtp_cmd($fp, "DATA");
+  if (strpos($data, "354") !== 0) {
+    fclose($fp);
+    return false;
+  }
+
+  fwrite($fp, str_replace("\n.", "\n..", $payload) . ".\r\n");
+  $ok = smtp_read($fp);
+  smtp_cmd($fp, "QUIT");
+  fclose($fp);
+  return strpos($ok, "250") === 0;
+}
+
+function send_email_copy($config, $subject, $message, $images, $replyTo = "") {
   $to = $config["adminEmail"] ?? "";
+  $from = trim((string) ($config["smtpFrom"] ?? $to));
   if ($to === "" || !filter_var($to, FILTER_VALIDATE_EMAIL)) {
     return false;
   }
 
+  if (smtp_configured($config) && send_smtp_email($config, $subject, $message, $replyTo)) {
+    return true;
+  }
+
   $boundary = "=_xtrude_" . bin2hex(random_bytes(12));
-  $headers = "From: XtrudeInc Services <noreply@xtrudeinc.com>\r\n";
+  $headers = "From: XtrudeInc <$from>\r\n";
+  if ($replyTo !== "" && filter_var($replyTo, FILTER_VALIDATE_EMAIL)) {
+    $headers .= "Reply-To: <$replyTo>\r\n";
+  }
   $headers .= "MIME-Version: 1.0\r\n";
   $headers .= "Content-Type: multipart/mixed; boundary=\"$boundary\"\r\n";
 
@@ -203,14 +323,27 @@ if (!rate_limit_ok()) {
 
 $config = service_request_config();
 $name = sanitize_line($_POST["name"] ?? "");
+$email = sanitize_line($_POST["email"] ?? "");
+$phone = sanitize_line($_POST["phone"] ?? "");
+$service = sanitize_line($_POST["service"] ?? "");
 $business = sanitize_line($_POST["business"] ?? "");
 $requirement = trim((string) ($_POST["requirement"] ?? ""));
 
-if ($name === "" || $requirement === "") {
-  json_exit(false, "Please fill in your name and requirements.", 400);
+$visitorPhone = normalize_whatsapp_phone($phone);
+
+if ($name === "" || $email === "" || $requirement === "") {
+  json_exit(false, "Please fill in your name, email, and requirements.", 400);
 }
 
-if (strlen($name) > 120 || strlen($business) > 160 || strlen($requirement) > 4000) {
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+  json_exit(false, "Please enter a valid email address.", 400);
+}
+
+if ($visitorPhone === "") {
+  json_exit(false, "Please enter a valid WhatsApp number.", 400);
+}
+
+if (strlen($name) > 120 || strlen($email) > 160 || strlen($phone) > 40 || strlen($service) > 160 || strlen($business) > 160 || strlen($requirement) > 4000) {
   json_exit(false, "Please shorten your request and try again.", 400);
 }
 
@@ -221,41 +354,53 @@ $imageNames = count($images)
 $businessLabel = $business !== "" ? $business : "None";
 $date = (new DateTime("now", new DateTimeZone("Asia/Kolkata")))->format("j F Y");
 
-$message = "Name: $name\n"
-  . "Business name: $businessLabel\n"
-  . "Requirement: $requirement\n"
-  . "Images: $imageNames\n"
+$emailBody = "A visitor submitted a service enquiry.\n\n"
+  . "Name: $name\n"
+  . "Email: $email\n"
+  . "Phone / WhatsApp: $phone\n"
+  . "Service: " . ($service !== "" ? $service : "Not specified") . "\n\n"
+  . "Requirements:\n"
+  . "$requirement\n\n"
   . "Date: $date";
 
+$whatsappMessage = "New service enquiry from $name.\n"
+  . "Service: " . ($service !== "" ? $service : "Not specified") . "\n"
+  . "Please check your email for the full details.";
+$visitorMessage = "Thank you! We've received your message.\n\n"
+  . "Here's what you sent us:\n"
+  . $requirement;
+
 $whatsappOk = false;
-$emailOk = send_email_copy($config, "XtrudeInc services application from $name", $message, $images);
+$visitorOk = false;
+$emailOk = send_email_copy(
+  $config,
+  "New service enquiry from $name",
+  $emailBody,
+  $images,
+  $email
+);
 
-if (whatsapp_configured($config)) {
-  $phone = preg_replace("/\D+/", "", (string) $config["whatsappTo"]);
-  $chatId = $phone . "@c.us";
-  list($status, $body, $error) = send_whatsapp_text($config, $chatId, $message);
-  $whatsappOk = $status >= 200 && $status < 300 && $error === "";
-
-  if ($whatsappOk) {
-    foreach ($images as $image) {
-      list($imgStatus, $imgBody, $imgError) = send_whatsapp_image($config, $chatId, $image);
-      if ($imgStatus < 200 || $imgStatus >= 300 || $imgError !== "") {
-        $whatsappOk = false;
-        break;
-      }
+if (green_api_configured($config)) {
+  if (whatsapp_configured($config)) {
+    $whatsappTo = normalize_whatsapp_phone((string) $config["whatsappTo"]);
+    if ($whatsappTo !== "") {
+      list($status, $body, $error) = send_whatsapp_text($config, $whatsappTo . "@c.us", $whatsappMessage);
+      $whatsappOk = $status >= 200 && $status < 300 && $error === "";
     }
   }
+  list($visitorStatus, $visitorBody, $visitorError) = send_whatsapp_text(
+    $config,
+    $visitorPhone . "@c.us",
+    $visitorMessage
+  );
+  $visitorOk = $visitorStatus >= 200 && $visitorStatus < 300 && $visitorError === "";
 }
 
-if ($whatsappOk) {
-  json_exit(true, "Request sent.");
+if ($whatsappOk || $emailOk || $visitorOk) {
+  json_exit(true, "Request sent. Check your email for the full enquiry.");
 }
 
-if ($emailOk) {
-  json_exit(true, "Request sent.");
-}
-
-if (!whatsapp_configured($config)) {
+if (!green_api_configured($config) && !smtp_configured($config)) {
   json_exit(false, "The services form is not connected yet. Please email sai.prakhya@xtrudeinc.com.", 503);
 }
 
