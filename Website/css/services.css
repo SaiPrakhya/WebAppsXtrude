@@ -273,7 +273,8 @@
   border-radius: 999px;
 }
 
-#serviceRequest {
+#serviceRequest,
+#serviceEnquiry {
   scroll-margin-top: 5rem;
 }
 

@@ -148,6 +148,48 @@ document.addEventListener("DOMContentLoaded", function () {
     window.scrollTo({ top: top, behavior: "smooth" });
   }
 
+  if (window.location.hash) {
+    window.requestAnimationFrame(function () {
+      scrollToHash(window.location.hash);
+    });
+  }
+  window.addEventListener("hashchange", function () {
+    scrollToHash(window.location.hash);
+  });
+
+  document.addEventListener("click", function (event) {
+    if (event.defaultPrevented || event.button !== 0) {
+      return;
+    }
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
+      return;
+    }
+    const link = event.target.closest("a");
+    if (!link || !link.href) {
+      return;
+    }
+    let url;
+    try {
+      url = new URL(link.href, window.location.href);
+    } catch (error) {
+      return;
+    }
+    if (url.origin !== window.location.origin) {
+      return;
+    }
+    if (url.pathname !== window.location.pathname || url.search !== window.location.search) {
+      return;
+    }
+    if (!url.hash || url.hash === "#") {
+      return;
+    }
+    event.preventDefault();
+    if (history.replaceState) {
+      history.replaceState(null, "", url.hash);
+    }
+    scrollToHash(url.hash);
+  });
+
   function setMenuOpen(isOpen) {
     if (!hamburger || !drawer || !overlay) {
       return;

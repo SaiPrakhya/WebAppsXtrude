@@ -352,13 +352,25 @@
 
   form.setAttribute("novalidate", "");
   syncOther();
-  if (applyServiceFromQuery() && stage && stage.scrollIntoView) {
-    window.requestAnimationFrame(function () {
+
+  function scrollToEnquiry() {
+    if (!stage || !stage.scrollIntoView) {
+      return;
+    }
+    function go() {
       stage.scrollIntoView({
         behavior: reduceMotion.matches ? "auto" : "smooth",
         block: "start",
       });
-    });
+    }
+    window.requestAnimationFrame(go);
+    window.setTimeout(go, 320);
+  }
+
+  const fromQuery = applyServiceFromQuery();
+  const fromHash = window.location.hash === "#serviceEnquiry";
+  if (fromQuery || fromHash) {
+    scrollToEnquiry();
   }
 
   form.addEventListener("submit", function (event) {
