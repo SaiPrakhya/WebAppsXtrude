@@ -25,11 +25,11 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-    <script src="./js/header.js?v=nav27" defer></script>
-    <script src="./js/services.js?v=svc12" defer></script>
+    <script src="./js/header.js?v=nav28" defer></script>
+    <script src="./js/services.js?v=svc13" defer></script>
     <link rel="stylesheet" href="./css/header.css?v=nav50" />
     <link rel="stylesheet" href="./css/imageUploader.css?v=svc7" />
-    <link rel="stylesheet" href="./css/services.css?v=svc23" />
+    <link rel="stylesheet" href="./css/services.css?v=svc24" />
     <link rel="stylesheet" href="./css/footer.css?v=site7" />
     <link rel="stylesheet" href="./css/responsive.css?v=hero9" />
   </head>
@@ -44,6 +44,7 @@
       </a>
       <div class="site-topbar-actions">
         <a href="./about.html" class="learn-more-btn">About Us</a>
+        <a href="./contact.html" class="learn-more-btn">Contact</a>
         <a href="./contact.html" class="learn-more-btn">Get Started</a>
         <nav class="site-top-nav" aria-label="Header">
           <button
@@ -78,7 +79,7 @@
           <h1 class="services-title">From Ideation to Prototyping, we've got you covered</h1>
           <p class="services-sub">Let's begin your journey with us!</p>
           <div class="services-actions">
-            <a href="#serviceRequest" class="learn-more-btn">Yes, let's do it!</a>
+            <a href="#serviceEnquiry" class="learn-more-btn">Yes, let's do it!</a>
           </div>
         </div>
       </section>
@@ -102,7 +103,7 @@
             <div class="services-dropdown-panel">
               <div class="services-dropdown-panel-inner">
                 <p class="services-dropdown-copy">Turning an abstract idea into a defined product concept.</p>
-                <a href="./contact.html" class="learn-more-btn">Get Started</a>
+                <a href="./products.html?service=product-conceptualization#serviceEnquiry" class="learn-more-btn">Get Started</a>
               </div>
             </div>
           </div>
@@ -117,7 +118,7 @@
             <div class="services-dropdown-panel">
               <div class="services-dropdown-panel-inner">
                 <p class="services-dropdown-copy">Developing product forms, dimensions, geometry and technical models</p>
-                <a href="./contact.html" class="learn-more-btn">Get Started</a>
+                <a href="./products.html?service=industrial-design-cad#serviceEnquiry" class="learn-more-btn">Get Started</a>
               </div>
             </div>
           </div>
@@ -132,7 +133,7 @@
             <div class="services-dropdown-panel">
               <div class="services-dropdown-panel-inner">
                 <p class="services-dropdown-copy">Developing physical prototypes to evaluate and refine products</p>
-                <a href="./contact.html" class="learn-more-btn">Get Started</a>
+                <a href="./products.html?service=prototyping#serviceEnquiry" class="learn-more-btn">Get Started</a>
               </div>
             </div>
           </div>
@@ -147,7 +148,7 @@
             <div class="services-dropdown-panel">
               <div class="services-dropdown-panel-inner">
                 <p class="services-dropdown-copy">Refining designs for manufacturing feasibility</p>
-                <a href="./contact.html" class="learn-more-btn">Get Started</a>
+                <a href="./products.html?service=dfm-engineering#serviceEnquiry" class="learn-more-btn">Get Started</a>
               </div>
             </div>
           </div>
@@ -162,12 +163,12 @@
             <div class="services-dropdown-panel">
               <div class="services-dropdown-panel-inner">
                 <p class="services-dropdown-copy">Elicitating requirements, refining product concept, identifying suitable manufacturing needs and delivering prototype.</p>
-                <a href="./contact.html" class="learn-more-btn">Get Started</a>
+                <a href="./products.html?service=end-to-end-product-development#serviceEnquiry" class="learn-more-btn">Get Started</a>
               </div>
             </div>
           </div>
         </div>
-        <div class="services-enquiry">
+        <div class="services-enquiry" id="serviceEnquiry">
           <h2 class="services-enquiry-title">Sign up for a service</h2>
           <p class="services-enquiry-sub">
             Tell us what you need. We'll get back to you shortly.
@@ -185,28 +186,68 @@
             </div>
             <div class="services-enquiry-row">
               <label>
-                <span>WhatsApp number</span>
-                <input type="tel" name="phone" autocomplete="tel" maxlength="40" required />
+                <span>Contact Number</span>
+                <input type="tel" name="phone" autocomplete="tel" maxlength="40" />
               </label>
               <label>
-                <span>Service</span>
-                <select name="service" required>
-                  <option value="" selected disabled>Select a service</option>
-                  <option value="Product Conceptualization">Product Conceptualization</option>
-                  <option value="Industrial Design &amp; CAD">Industrial Design &amp; CAD</option>
-                  <option value="Prototyping">Prototyping</option>
-                  <option value="DFM &amp; Engineering">DFM &amp; Engineering</option>
-                  <option value="End-to-end product development">End-to-end product development</option>
-                  <option value="Lithophane Lamps">Lithophane Lamps</option>
-                  <option value="Lithophane keychains">Lithophane keychains</option>
-                  <option value="Other">Other</option>
-                </select>
+                <span>Organisation or Company Name</span>
+                <input type="text" name="organization" autocomplete="organization" maxlength="160" />
               </label>
             </div>
-            <label class="services-enquiry-full">
-              <span>What do you need?</span>
-              <textarea name="requirement" rows="5" maxlength="4000" required></textarea>
+            <label>
+              <span>Website Link</span>
+              <input type="text" name="website" inputmode="url" autocomplete="url" maxlength="200" />
             </label>
+            <label>
+              <span>LinkedIn</span>
+              <input type="text" name="linkedin" inputmode="url" maxlength="200" />
+            </label>
+            <label>
+              <span>Other socials</span>
+              <input type="text" name="socials" maxlength="400" />
+            </label>
+            <fieldset class="services-enquiry-services">
+              <legend><span>Service requested</span></legend>
+              <label class="services-enquiry-check">
+                <input type="checkbox" name="services" value="Product Conceptualization" />
+                <span>Product Conceptualization</span>
+              </label>
+              <label class="services-enquiry-check">
+                <input type="checkbox" name="services" value="Industrial Design &amp; CAD" />
+                <span>Industrial Design &amp; CAD</span>
+              </label>
+              <label class="services-enquiry-check">
+                <input type="checkbox" name="services" value="Prototyping" />
+                <span>Prototyping</span>
+              </label>
+              <label class="services-enquiry-check">
+                <input type="checkbox" name="services" value="DFM &amp; Engineering" />
+                <span>DFM &amp; Engineering</span>
+              </label>
+              <label class="services-enquiry-check">
+                <input type="checkbox" name="services" value="End-to-end product development" />
+                <span>End-to-end product development</span>
+              </label>
+              <label class="services-enquiry-check">
+                <input type="checkbox" name="services" value="Other" data-service-other />
+                <span>Other</span>
+              </label>
+            </fieldset>
+            <label class="services-enquiry-other" hidden>
+              <span>Describe the service</span>
+              <input type="text" name="serviceOther" maxlength="160" />
+            </label>
+            <label class="services-enquiry-full">
+              <span>Project description</span>
+              <textarea name="message" rows="7" maxlength="4000" required></textarea>
+            </label>
+            <label>
+              <span>Expected timeline</span>
+              <input type="text" name="timeline" maxlength="160" placeholder="To be discussed" />
+            </label>
+            <p class="services-enquiry-file-note">
+              Please add reference images in the email you will be redirected to
+            </p>
             <button class="learn-more-btn" type="submit">Send enquiry</button>
             <p class="services-enquiry-status" role="status" aria-live="polite" hidden></p>
           </form>

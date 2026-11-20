@@ -19,13 +19,25 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
-    <script src="./js/header.js?v=nav20" defer></script>
-    <link rel="stylesheet" href="./css/header.css?v=nav45" />
-    <link rel="stylesheet" href="./css/contactsSection.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      type="module"
+      src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
+    ></script>
+    <script src="./js/header.js?v=nav28" defer></script>
+    <script src="./js/contacts.js?v=c10" defer></script>
+    <link rel="stylesheet" href="./css/header.css?v=nav51" />
+    <link rel="stylesheet" href="./css/contactsSection.css?v=c11" />
+    <link rel="stylesheet" href="./css/modelview.css?v=hero3" />
     <link rel="stylesheet" href="./css/footer.css?v=site6" />
     <link rel="stylesheet" href="./css/responsive.css?v=hero8" />
   </head>
-  <body>
+  <body class="contact-page">
     <div class="site-topbar">
       <a href="./index.html" class="site-logo">
         <img
@@ -36,225 +48,186 @@
       </a>
       <div class="site-topbar-actions">
         <a href="./about.html" class="learn-more-btn">About Us</a>
-        <a href="./contact.html" class="learn-more-btn" aria-current="page">Get Started</a>
+        <a href="./contact.html" class="learn-more-btn" aria-current="page">Contact</a>
+        <a href="./contact.html" class="learn-more-btn">Get Started</a>
+        <nav class="site-top-nav" aria-label="Header">
+          <button
+            class="site-top-nav-toggle"
+            type="button"
+            aria-label="Open navigation"
+            aria-expanded="false"
+          >
+            <span></span>
+            <span></span>
+          </button>
+          <div class="site-top-nav-links">
+            <div class="site-top-nav-links-inner">
+              <div class="site-top-nav-primary">
+                <a href="./index.html">Home</a>
+                <a href="./about.html">What we do</a>
+                <a href="./ourwork.html">Our Work</a>
+                <a href="./products.html">Products &amp; Services</a>
+                <a href="./contact.html" aria-current="page">Contact</a>
+              </div>
+              <div class="site-top-nav-legal">
+                <a href="./privacy.html">Privacy Policy</a>
+                <a href="./terms.html">Terms of Service</a>
+              </div>
+            </div>
+          </div>
+        </nav>
       </div>
     </div>
     <main class="page-main">
-      <section id="contactsContainer" class="contactsXtrudeInc py-5">
-        <div class="container">
-          <h2 class="contactsHeading mb-4">
-            Contact Us &
-            <span id="placeOrders">Place Orders</span>
-            <hr id="contactUsHr">
-          </h2>
-
-          <!--<div class="row g-4">
-            <div class="col-12 col-md-4">
-              <div class="card h-100 shadow-sm border-3 border-dark">
-                <div class="card-body">
-                  <h2 class="customorderHeading">
-                    Custom Order<br />
-                    <span class="customorderSubHeading"
-                      >Please enter the necessary details</span
-                    >
-                  </h2>
-                  <form id="customorderform" class="mt-3">
-                    <div class="mb-3">
-                      <label for="customOrderName" class="form-label"
-                        >Name</label
-                      >
-                      <input
-                        type="text"
-                        id="customOrderName"
-                        name="customOrderName"
-                        class="form-control"
-                        required
-                      />
-                    </div>
-                    <div class="mb-3">
-                      <label for="customOrderEmail" class="form-label"
-                        >Email</label
-                      >
-                      <input
-                        type="email"
-                        id="customOrderEmail"
-                        name="customOrderEmail"
-                        class="form-control"
-                        required
-                      />
-                    </div>
-                    <div class="mb-3">
-                      <label for="customOrderDetails" class="form-label"
-                        >Order details</label
-                      >
-                      <textarea
-                        id="customOrderDetails"
-                        name="customOrderDetails"
-                        rows="4"
-                        class="form-control"
-                        required
-                      ></textarea>
-                    </div>
-
-                    <button type="submit" class="btn sendbtn w-100">
-                      Send Message
-                    </button>
-                  </form>
-                </div>
-              </div>
-            </div>
-
-            
-            <div class="col-12 col-md-4">
-              <div class="card h-100 shadow-sm border-3 border-dark">
-                <div class="card-body">
-                  <h2 class="queryHeading">
-                    Ask a Question<br />
-                    <span class="querySubHeading"
-                      >We'd love to hear from you</span
-                    >
-                  </h2>
-                  <form id="queryForm" class="mt-3">
-                    <div class="mb-3">
-                      <label for="queryName" class="form-label">Name</label>
-                      <input
-                        type="text"
-                        id="queryName"
-                        name="queryName"
-                        class="form-control"
-                        required
-                      />
-                    </div>
-                    <div class="mb-3">
-                      <label for="queryEmail" class="form-label">Email</label>
-                      <input
-                        type="email"
-                        id="queryEmail"
-                        name="queryEmail"
-                        class="form-control"
-                        required
-                      />
-                    </div>
-                    <div class="mb-3">
-                      <label for="query" class="form-label">Query</label>
-                      <textarea
-                        id="query"
-                        name="query"
-                        rows="4"
-                        class="form-control"
-                        required
-                      ></textarea>
-                    </div>
-                    <button type="submit" class="btn sendbtn w-100">
-                      Send Message
-                    </button>
-                  </form>
-                </div>
-              </div>
-            </div>
-
-            
-            <div class="col-12 col-md-4">
-              <div class="card h-100 shadow-sm border-3 border-dark">
-                <div class="card-body">
-                  <h2 class="placeOrderHeading">
-                    Place Order<br />
-                    <span class="placeOrderSubHeading"
-                      >Please enter the necessary details</span
-                    >
-                  </h2>
-                  <form id="orderForm" class="mt-3">
-                    <div class="mb-3">
-                      <label for="name" class="form-label">Name</label>
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        class="form-control"
-                        required
-                      />
-                    </div>
-                    <div class="mb-3">
-                      <label for="email" class="form-label">Email</label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        class="form-control"
-                        required
-                      />
-                    </div>
-                    <div class="mb-3">
-                      <label for="phone" class="form-label">Phone</label>
-                      <input
-                        type="tel"
-                        id="phone"
-                        name="phone"
-                        class="form-control"
-                        required
-                      />
-                    </div>
-                    <div class="mb-3">
-                      <label for="orderDetails" class="form-label"
-                        >Order details</label
-                      >
-                      <textarea
-                        id="orderDetails"
-                        name="orderDetails"
-                        rows="4"
-                        class="form-control"
-                        required
-                      ></textarea>
-                    </div>
-                    <button type="submit" class="btn sendbtn w-100">
-                      Send Message
-                    </button>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>-->
-
-          <!-- Description -->
-          <h2 class="contactUsComingSoon">Coming soon!</h2>
-
-          <p class="contactsDescription mt-5">
-            We are working on an easy-to-use order placing platform.<br>
-            Want to place an order or customize a product?<br><br>
-            Contact us at:
-          </p>
-          <div class="text-center mt-4">
-          <div class="d-flex justify-content-center gap-3">
-            <img
-              src="./img/icons/instagram.png"
-              class="socialIcon"
-              alt="Instagram"
-              title="xtrudeinc_official"
-            />
-            <img
-              src="./img/icons/facebook.png"
-              class="socialIcon"
-              alt="Facebook"
-              title="xtrudeinc_official"
-            />
-            <img
-              src="./img/icons/twitter.png"
-              class="socialIcon"
-              alt="X"
-              title="xtrudeinc_official"
-            />
-            <img
-              src="./img/icons/linkedin.png"
-              class="socialIcon"
-              alt="LinkedIn"
-              title="xtrudeinc_official"
-            />
-          </div>
-          <div class="contactemail">
-            <p>Email: <span id="email">sai.prakhya@xtrudeinc.com</span></p>
-            <p>Phone: <span id="phone">+91 89044 24961</span></p>
-          </div>
+      <section
+        id="contactsContainer"
+        class="contacts-stage contactsXtrudeInc"
+        aria-label="Contact Us"
+      >
+        <div class="contacts-copy">
+          <h1 class="contacts-title">Contact Us</h1>
+          <p class="contacts-sub">You can find us on</p>
+          <ul class="contacts-channels">
+            <li>
+              <a
+                href="https://www.instagram.com/xtrudeinc_official/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5" />
+                  <circle cx="12" cy="12" r="4.05" />
+                  <circle cx="17.15" cy="6.85" r="1.05" />
+                </svg>
+                <span>Instagram: @xtrudeinc_official</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://wa.me/918904424961"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 3.4 A8.6 8.6 0 0 0 4.7 16.6 L3.6 20.6 L7.7 19.5 A8.6 8.6 0 1 0 12 3.4 Z" />
+                  <path d="M9.2 8.6 C9.4 8.2 9.8 8.2 10 8.5 L10.8 9.9 C10.9 10.2 10.8 10.5 10.6 10.7 C10.4 10.9 10.4 11.2 10.6 11.4 C11.1 12.1 11.9 12.9 12.6 13.4 C12.8 13.6 13.1 13.6 13.3 13.4 C13.5 13.2 13.8 13.1 14.1 13.2 L15.5 14 C15.8 14.2 15.8 14.6 15.4 14.8 C14.7 15.2 13.7 15.4 12.5 14.4 C11 13.3 9.7 11.7 8.9 10.2 C8.4 9.2 8.6 8.3 9.2 8.6 Z" />
+                </svg>
+                <span>Contact: +91 8904424961</span>
+              </a>
+            </li>
+            <li>
+              <a href="mailto:sai.prakhya@xtrudeinc.com">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3.2" y="5.4" width="17.6" height="13.2" rx="1.6" />
+                  <path d="M4.2 7.1 L12 13.1 L19.8 7.1" />
+                </svg>
+                <span>Email: sai.prakhya@xtrudeinc.com</span>
+              </a>
+            </li>
+          </ul>
         </div>
+        <div class="contacts-model">
+          <model-viewer
+            src="./Models/telephone.glb"
+            alt="A rotating 3D telephone"
+            auto-rotate
+            camera-orbit="-22deg 72deg auto"
+            field-of-view="34deg"
+            disable-zoom
+            disable-pan
+            disable-tap
+            interaction-prompt="none"
+            shadow-intensity="0.7"
+            shadow-softness="0.85"
+            exposure="1.05"
+          ></model-viewer>
+        </div>
+      </section>
+      <section
+        class="collaborations-stage"
+        id="collaborations"
+        aria-label="For Collaborations"
+      >
+        <div class="collaborations-copy">
+          <h2 class="collaborations-title">For Collaborations</h2>
+          <form id="collaborationEnquiryForm" class="collaborations-form">
+            <div class="collaborations-row">
+              <label>
+                <span>Name</span>
+                <input type="text" name="name" autocomplete="name" maxlength="120" required />
+              </label>
+              <label>
+                <span>Email</span>
+                <input type="email" name="email" autocomplete="email" maxlength="160" required />
+              </label>
+            </div>
+            <div class="collaborations-row">
+              <label>
+                <span>Contact Number</span>
+                <input type="tel" name="phone" autocomplete="tel" maxlength="40" required />
+              </label>
+              <label>
+                <span>Organisation or Company Name</span>
+                <input type="text" name="organization" autocomplete="organization" maxlength="160" />
+              </label>
+            </div>
+            <label>
+              <span>Website Link</span>
+              <input type="text" name="website" inputmode="url" autocomplete="url" maxlength="200" />
+            </label>
+            <label>
+              <span>LinkedIn</span>
+              <input type="text" name="linkedin" inputmode="url" maxlength="200" />
+            </label>
+            <label>
+              <span>Other socials</span>
+              <input type="text" name="socials" maxlength="400" />
+            </label>
+            <fieldset class="collaborations-services">
+              <legend><span>Service requested</span></legend>
+              <label class="collaborations-check">
+                <input type="checkbox" name="services" value="Product Conceptualization" />
+                <span>Product Conceptualization</span>
+              </label>
+              <label class="collaborations-check">
+                <input type="checkbox" name="services" value="Industrial Design &amp; CAD" />
+                <span>Industrial Design &amp; CAD</span>
+              </label>
+              <label class="collaborations-check">
+                <input type="checkbox" name="services" value="Prototyping" />
+                <span>Prototyping</span>
+              </label>
+              <label class="collaborations-check">
+                <input type="checkbox" name="services" value="DFM &amp; Engineering" />
+                <span>DFM &amp; Engineering</span>
+              </label>
+              <label class="collaborations-check">
+                <input type="checkbox" name="services" value="End-to-end product development" />
+                <span>End-to-end product development</span>
+              </label>
+              <label class="collaborations-check">
+                <input type="checkbox" name="services" value="Other" data-service-other />
+                <span>Other</span>
+              </label>
+            </fieldset>
+            <label class="collaborations-other" hidden>
+              <span>Describe the service</span>
+              <input type="text" name="serviceOther" maxlength="160" />
+            </label>
+            <label>
+              <span>Project description</span>
+              <textarea name="message" rows="7" maxlength="4000" required></textarea>
+            </label>
+            <label>
+              <span>Expected timeline</span>
+              <input type="text" name="timeline" maxlength="160" placeholder="To be discussed" />
+            </label>
+            <p class="collaborations-file-note">
+              Please add reference images in the email you will be redirected to
+            </p>
+            <button class="learn-more-btn" type="submit">Send enquiry</button>
+            <p class="collaborations-status" role="status" aria-live="polite" hidden></p>
+          </form>
         </div>
       </section>
     </main>

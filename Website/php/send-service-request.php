@@ -26,6 +26,104 @@ function sanitize_line($value) {
   return $value;
 }
 
+function combine_services($service, $serviceOther) {
+  $other = trim((string) $serviceOther);
+  $labels = [];
+  $parts = array_map("trim", explode(",", (string) $service));
+  foreach ($parts as $choice) {
+    if ($choice === "") {
+      continue;
+    }
+    if (strcasecmp($choice, "Other") === 0) {
+      $labels[] = $other !== "" ? $other : "Other";
+    } else if (!in_array($choice, $labels, true)) {
+      $labels[] = $choice;
+    }
+  }
+  if ($other !== "" && !in_array($other, $labels, true) && !in_array("Other", $parts, true)) {
+    $labels[] = $other;
+  }
+  return implode(", ", $labels);
+}
+
+function project_enquiry_subject($service, $organization) {
+  $company = $organization !== "" ? $organization : "Not specified";
+  $services = array_values(array_filter(array_map("trim", explode(",", (string) $service))));
+  $kind = count($services) === 1 ? $services[0] : "New Project Enquiry";
+  return "$kind | XtrudeInc | $company";
+}
+
+function html_text($value) {
+  return nl2br(htmlspecialchars((string) $value, ENT_QUOTES | ENT_SUBSTITUTE, "UTF-8"), false);
+}
+
+function visitor_whatsapp_message() {
+  return "Your message has been sent!\n"
+    . "\n"
+    . "Thank you for contacting XtrudeInc, we will reach out to you once we are available.";
+}
+
+function specified($value, $empty = "Not specified") {
+  $value = trim((string) $value);
+  return $value !== "" ? $value : $empty;
+}
+
+function project_enquiry_plain($name, $email, $phone, $organization, $website, $linkedin, $socials, $service, $description, $timeline, $fileNames) {
+  $company = specified($organization);
+  $serviceLabel = specified($service);
+  $when = specified($timeline, "To be discussed.");
+  $phoneLabel = specified($phone);
+  $websiteLabel = specified($website);
+  $linkedinLabel = specified($linkedin);
+  $socialsLabel = specified($socials);
+  return "New Project Enquiry\n"
+    . "Website Submission\n"
+    . "\n"
+    . "Contact information\n"
+    . "Name: $name\n"
+    . "Email: $email\n"
+    . "Contact Number: $phoneLabel\n"
+    . "Organisation or Company Name: $company\n"
+    . "Website Link: $websiteLabel\n"
+    . "LinkedIn: $linkedinLabel\n"
+    . "Other socials: $socialsLabel\n"
+    . "\n"
+    . "Project information:\n"
+    . "Service requested: $serviceLabel\n"
+    . "Project description: $description\n"
+    . "Expected timeline: $when\n"
+    . "\n"
+    . "Additional information\n"
+    . "Reference files: $fileNames\n"
+    . "Reply directly to the sender to initiate discussions.";
+}
+
+function project_enquiry_html($name, $email, $phone, $organization, $website, $linkedin, $socials, $service, $description, $timeline, $fileNames) {
+  $safeName = html_text($name);
+  $safeEmail = html_text($email);
+  $safeDescription = html_text($description);
+  $safeFiles = html_text($fileNames);
+  return '<div style="font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.45;color:#111111;">'
+    . '<p style="margin:0;"><strong>New Project Enquiry</strong></p>'
+    . '<p style="margin:0;"><strong>Website Submission</strong></p>'
+    . '<p style="margin:16px 0 0 0;"><strong>Contact information</strong></p>'
+    . '<p style="margin:0;">Name: ' . $safeName . "</p>"
+    . '<p style="margin:0;">Email: ' . $safeEmail . "</p>"
+    . '<p style="margin:0;">Contact Number: ' . html_text(specified($phone)) . "</p>"
+    . '<p style="margin:0;">Organisation or Company Name: ' . html_text(specified($organization)) . "</p>"
+    . '<p style="margin:0;">Website Link: ' . html_text(specified($website)) . "</p>"
+    . '<p style="margin:0;">LinkedIn: ' . html_text(specified($linkedin)) . "</p>"
+    . '<p style="margin:0;">Other socials: ' . html_text(specified($socials)) . "</p>"
+    . '<p style="margin:16px 0 0 0;"><strong>Project information:</strong></p>'
+    . '<p style="margin:0;">Service requested: ' . html_text(specified($service)) . "</p>"
+    . '<p style="margin:0;"><strong>Project description:</strong> ' . $safeDescription . "</p>"
+    . '<p style="margin:0;"><strong>Expected timeline:</strong> ' . html_text(specified($timeline, "To be discussed.")) . "</p>"
+    . '<p style="margin:16px 0 0 0;"><strong>Additional information</strong></p>'
+    . '<p style="margin:0;">Reference files: ' . $safeFiles . "</p>"
+    . '<p style="margin:0;">Reply directly to the sender to initiate discussions.</p>'
+    . "</div>";
+}
+
 function client_ip() {
   return $_SERVER["REMOTE_ADDR"] ?? "unknown";
 }
@@ -209,7 +307,7 @@ function smtp_cmd($fp, $cmd) {
   return smtp_read($fp);
 }
 
-function send_smtp_email($config, $subject, $message, $replyTo = "") {
+function send_smtp_email($config, $subject, $message, $replyTo = "", $html = "") {
   $host = trim((string) ($config["smtpHost"] ?? ""));
   $user = trim((string) ($config["smtpUser"] ?? ""));
   $pass = (string) ($config["smtpPassword"] ?? "");
@@ -228,9 +326,18 @@ function send_smtp_email($config, $subject, $message, $replyTo = "") {
   }
   $headers .= "Date: " . gmdate("D, d M Y H:i:s") . " +0000\r\n";
   $headers .= "MIME-Version: 1.0\r\n";
-  $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
-  $headers .= "Content-Transfer-Encoding: 8bit\r\n";
-  $payload = $headers . "Subject: $encodedSubject\r\n\r\n" . $message . "\r\n";
+  if ($html !== "") {
+    $boundary = "=_xtrude_alt_" . bin2hex(random_bytes(8));
+    $headers .= "Content-Type: multipart/alternative; boundary=\"$boundary\"\r\n";
+    $payload = $headers . "Subject: $encodedSubject\r\n\r\n";
+    $payload .= "--$boundary\r\nContent-Type: text/plain; charset=UTF-8\r\n\r\n$message\r\n";
+    $payload .= "--$boundary\r\nContent-Type: text/html; charset=UTF-8\r\n\r\n$html\r\n";
+    $payload .= "--$boundary--\r\n";
+  } else {
+    $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+    $headers .= "Content-Transfer-Encoding: 8bit\r\n";
+    $payload = $headers . "Subject: $encodedSubject\r\n\r\n" . $message . "\r\n";
+  }
 
   $remote = ($port === 465 ? "ssl://" : "tcp://") . $host . ":" . $port;
   $fp = @stream_socket_client($remote, $errno, $errstr, 30, STREAM_CLIENT_CONNECT);
@@ -277,14 +384,14 @@ function send_smtp_email($config, $subject, $message, $replyTo = "") {
   return strpos($ok, "250") === 0;
 }
 
-function send_email_copy($config, $subject, $message, $images, $replyTo = "") {
+function send_email_copy($config, $subject, $message, $images, $replyTo = "", $html = "") {
   $to = $config["adminEmail"] ?? "";
   $from = trim((string) ($config["smtpFrom"] ?? $to));
   if ($to === "" || !filter_var($to, FILTER_VALIDATE_EMAIL)) {
     return false;
   }
 
-  if (smtp_configured($config) && send_smtp_email($config, $subject, $message, $replyTo)) {
+  if (smtp_configured($config) && send_smtp_email($config, $subject, $message, $replyTo, $html)) {
     return true;
   }
 
@@ -328,6 +435,88 @@ $phone = sanitize_line($_POST["phone"] ?? "");
 $service = sanitize_line($_POST["service"] ?? "");
 $business = sanitize_line($_POST["business"] ?? "");
 $requirement = trim((string) ($_POST["requirement"] ?? ""));
+$kind = sanitize_line($_POST["kind"] ?? "");
+
+if ($kind === "collaboration") {
+  $organization = sanitize_line($_POST["organization"] ?? "");
+  $website = sanitize_line($_POST["website"] ?? "");
+  $linkedin = sanitize_line($_POST["linkedin"] ?? "");
+  $socials = sanitize_line($_POST["socials"] ?? "");
+  $collabMessage = trim((string) ($_POST["message"] ?? ""));
+  $timeline = sanitize_line($_POST["timeline"] ?? "");
+  $serviceOther = sanitize_line($_POST["serviceOther"] ?? "");
+  $service = combine_services($service, $serviceOther);
+  $images = collected_images();
+  $fileNames = count($images)
+    ? implode(", ", array_column($images, "name"))
+    : "Please add reference images in the redirected email.";
+
+  if ($name === "" || $email === "" || $collabMessage === "") {
+    json_exit(false, "Please fill in your name, email, and project description.", 400);
+  }
+  if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    json_exit(false, "Please enter a valid email address.", 400);
+  }
+  if ($service === "") {
+    json_exit(false, "Please choose a service, or describe it under Other.", 400);
+  }
+  if (
+    strlen($name) > 120
+    || strlen($email) > 160
+    || strlen($phone) > 40
+    || strlen($organization) > 160
+    || strlen($website) > 200
+    || strlen($linkedin) > 200
+    || strlen($socials) > 400
+    || strlen($service) > 400
+    || strlen($serviceOther) > 160
+    || strlen($timeline) > 160
+    || strlen($collabMessage) > 4000
+  ) {
+    json_exit(false, "Please shorten your request and try again.", 400);
+  }
+
+  $emailArgs = [
+    $name,
+    $email,
+    $phone,
+    $organization,
+    $website,
+    $linkedin,
+    $socials,
+    $service,
+    $collabMessage,
+    $timeline,
+    $fileNames,
+  ];
+  $emailOk = send_email_copy(
+    $config,
+    project_enquiry_subject($service, $organization),
+    project_enquiry_plain(...$emailArgs),
+    $images,
+    $email,
+    project_enquiry_html(...$emailArgs)
+  );
+
+  $visitorOk = false;
+  $visitorPhone = normalize_whatsapp_phone($phone);
+  if ($emailOk && green_api_configured($config) && $visitorPhone !== "") {
+    list($visitorStatus, $visitorBody, $visitorError) = send_whatsapp_text(
+      $config,
+      $visitorPhone . "@c.us",
+      visitor_whatsapp_message()
+    );
+    $visitorOk = $visitorStatus >= 200 && $visitorStatus < 300 && $visitorError === "";
+  }
+
+  if ($emailOk) {
+    json_exit(true, "Enquiry sent.");
+  }
+  if (!smtp_configured($config)) {
+    json_exit(false, "The contact form is not connected yet. Please email sai.prakhya@xtrudeinc.com.", 503);
+  }
+  json_exit(false, "Could not send your enquiry. Please try again or email sai.prakhya@xtrudeinc.com.", 502);
+}
 
 $visitorPhone = normalize_whatsapp_phone($phone);
 

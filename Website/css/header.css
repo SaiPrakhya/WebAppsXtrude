@@ -120,7 +120,8 @@ ul {
   gap: 1rem;
   padding: 0.5rem 2.5rem 0.4rem;
   position: relative;
-  z-index: 2;
+  z-index: 1300;
+  overflow: visible;
 }
 
 .site-logo {
@@ -131,10 +132,175 @@ ul {
 
 .site-topbar-actions {
   display: flex;
-  align-items: center;
-  gap: 0.75rem;
+  align-items: stretch;
+  gap: 1.1rem;
   margin-left: auto;
   flex: 0 0 auto;
+  align-self: stretch;
+}
+
+.site-top-nav {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  align-self: stretch;
+}
+
+.site-top-nav::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: min(38rem, 42vw, calc(100vw - 6rem));
+  height: 0;
+}
+
+.site-top-nav:hover::after,
+.site-top-nav:focus-within::after,
+.site-top-nav.is-open::after {
+  height: 2rem;
+}
+
+.site-top-nav-links {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 2;
+  width: min(38rem, 42vw, calc(100vw - 6rem));
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  background-color: #ffffff;
+  border-left: 1px solid #000000;
+  transition:
+    height 0.2s ease-out 0.16s,
+    opacity 0.16s ease-out 0.12s;
+}
+
+.site-top-nav-links-inner {
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 2.75rem 3rem 2.5rem;
+}
+
+.site-top-nav-primary {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-end;
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+}
+
+.site-top-nav-legal {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.55rem;
+  width: 100%;
+  padding-top: 1.5rem;
+}
+
+.site-top-nav:hover .site-top-nav-links,
+.site-top-nav:focus-within .site-top-nav-links,
+.site-top-nav.is-open .site-top-nav-links {
+  height: calc(100svh - 4rem);
+  opacity: 1;
+  pointer-events: auto;
+  transition:
+    height 0.22s ease-in,
+    opacity 0.16s ease-in;
+}
+
+.site-top-nav a,
+.site-top-nav a:hover,
+.site-top-nav a:focus-visible,
+.site-top-nav a[aria-current="page"] {
+  font-size: 1.45rem;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1.25;
+  color: #000000;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.site-top-nav-legal a,
+.site-top-nav-legal a:hover,
+.site-top-nav-legal a:focus-visible,
+.site-top-nav-legal a[aria-current="page"] {
+  font-size: 0.95rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+.site-top-nav-toggle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  background: none;
+  flex-shrink: 0;
+}
+
+.site-top-nav-toggle span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background-color: #000000;
+  transition: transform 0.16s ease-out;
+}
+
+.site-top-nav-toggle span:first-child {
+  width: 18px;
+  height: 2px;
+  margin: -1px 0 0 -9px;
+}
+
+.site-top-nav-toggle span:last-child {
+  width: 2px;
+  height: 18px;
+  margin: -9px 0 0 -1px;
+}
+
+.site-top-nav:hover .site-top-nav-toggle span,
+.site-top-nav:focus-within .site-top-nav-toggle span,
+.site-top-nav.is-open .site-top-nav-toggle span {
+  transform: rotate(45deg);
+  transition: transform 0.18s ease-in;
+}
+
+@media (max-width: 991.98px) {
+  .site-top-nav a {
+    font-size: 1.2rem;
+  }
+
+  .site-top-nav-legal a {
+    font-size: 0.88rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-top-nav-links,
+  .site-top-nav:hover .site-top-nav-links,
+  .site-top-nav:focus-within .site-top-nav-links,
+  .site-top-nav-toggle span,
+  .site-top-nav:hover .site-top-nav-toggle span,
+  .site-top-nav:focus-within .site-top-nav-toggle span {
+    transition: none;
+  }
 }
 
 .learn-more-btn {

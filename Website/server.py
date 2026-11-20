@@ -15,6 +15,7 @@ import urllib.error
 import urllib.request
 from datetime import datetime, timedelta, timezone
 from email.message import EmailMessage
+from html import escape
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import parse_qs
@@ -34,6 +35,11 @@ ALLOWED_TYPES = {
 RATE_FILE = Path(tempfile.gettempdir()) / "xtrude-service-request-rate.json"
 CTX = ssl.create_default_context()
 EMAIL_RE = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
+VISITOR_WHATSAPP = (
+    "Your message has been sent!\n"
+    "\n"
+    "Thank you for contacting XtrudeInc, we will reach out to you once we are available."
+)
 ENV_KEYS = {
     "SMTP_HOST": "smtpHost",
     "SMTP_PORT": "smtpPort",
@@ -262,6 +268,7 @@ def send_email(
     body: str,
     reply_to: str = "",
     images: list[dict] | None = None,
+    html_body: str = "",
 ) -> bool:
     to_addr = str(config.get("adminEmail", "")).strip()
     from_addr = str(config.get("smtpFrom") or to_addr).strip()
@@ -280,6 +287,8 @@ def send_email(
     if reply_to and EMAIL_RE.match(reply_to):
         message["Reply-To"] = reply_to
     message.set_content(body)
+    if html_body:
+        message.add_alternative(html_body, subtype="html")
 
     for image in images or []:
         mime = image.get("mime") or "application/octet-stream"
@@ -304,6 +313,131 @@ def send_email(
         smtp.login(user, password)
         smtp.send_message(message)
     return True
+
+
+def combine_services(service: str, service_other: str) -> str:
+    other = service_other.strip()
+    labels: list[str] = []
+    for part in service.split(","):
+        choice = part.strip()
+        if not choice:
+            continue
+        if choice.lower() == "other":
+            labels.append(other or "Other")
+        elif choice not in labels:
+            labels.append(choice)
+    if other and other not in labels and "Other" not in [part.strip() for part in service.split(",")]:
+        labels.append(other)
+    return ", ".join(labels)
+
+
+def project_enquiry_subject(service: str, organization: str) -> str:
+    company = organization or "Not specified"
+    services = [part.strip() for part in service.split(",") if part.strip()]
+    kind = services[0] if len(services) == 1 else "New Project Enquiry"
+    return f"{kind} | XtrudeInc | {company}"
+
+
+def specified(value: str, empty: str = "Not specified") -> str:
+    return value.strip() or empty
+
+
+def project_enquiry_plain(
+    name: str,
+    email: str,
+    phone: str,
+    organization: str,
+    website: str,
+    linkedin: str,
+    socials: str,
+    service: str,
+    description: str,
+    timeline: str,
+    file_names: str,
+) -> str:
+    company = specified(organization)
+    when = specified(timeline, "To be discussed.")
+    return (
+        "New Project Enquiry\n"
+        "Website Submission\n"
+        "\n"
+        "Contact information\n"
+        f"Name: {name}\n"
+        f"Email: {email}\n"
+        f"Contact Number: {specified(phone)}\n"
+        f"Organisation or Company Name: {company}\n"
+        f"Website Link: {specified(website)}\n"
+        f"LinkedIn: {specified(linkedin)}\n"
+        f"Other socials: {specified(socials)}\n"
+        "\n"
+        "Project information:\n"
+        f"Service requested: {specified(service)}\n"
+        f"Project description: {description}\n"
+        f"Expected timeline: {when}\n"
+        "\n"
+        "Additional information\n"
+        f"Reference files: {file_names}\n"
+        "Reply directly to the sender to initiate discussions."
+    )
+
+
+def project_enquiry_html(
+    name: str,
+    email: str,
+    phone: str,
+    organization: str,
+    website: str,
+    linkedin: str,
+    socials: str,
+    service: str,
+    description: str,
+    timeline: str,
+    file_names: str,
+) -> str:
+    desc = escape(description).replace("\n", "<br>")
+    return (
+        '<div style="font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.45;color:#111111;">'
+        '<p style="margin:0;"><strong>New Project Enquiry</strong></p>'
+        '<p style="margin:0;"><strong>Website Submission</strong></p>'
+        '<p style="margin:16px 0 0 0;"><strong>Contact information</strong></p>'
+        f'<p style="margin:0;">Name: {escape(name)}</p>'
+        f'<p style="margin:0;">Email: {escape(email)}</p>'
+        f'<p style="margin:0;">Contact Number: {escape(specified(phone))}</p>'
+        f'<p style="margin:0;">Organisation or Company Name: {escape(specified(organization))}</p>'
+        f'<p style="margin:0;">Website Link: {escape(specified(website))}</p>'
+        f'<p style="margin:0;">LinkedIn: {escape(specified(linkedin))}</p>'
+        f'<p style="margin:0;">Other socials: {escape(specified(socials))}</p>'
+        '<p style="margin:16px 0 0 0;"><strong>Project information:</strong></p>'
+        f'<p style="margin:0;">Service requested: {escape(specified(service))}</p>'
+        f'<p style="margin:0;"><strong>Project description:</strong> {desc}</p>'
+        f'<p style="margin:0;"><strong>Expected timeline:</strong> {escape(specified(timeline, "To be discussed."))}</p>'
+        '<p style="margin:16px 0 0 0;"><strong>Additional information</strong></p>'
+        f'<p style="margin:0;">Reference files: {escape(file_names)}</p>'
+        '<p style="margin:0;">Reply directly to the sender to initiate discussions.</p>'
+        "</div>"
+    )
+
+
+def prepare_images(images: list[dict]) -> tuple[list[dict] | None, str]:
+    if len(images) > MAX_IMAGES:
+        return None, "You can attach up to 5 images."
+    cleaned = []
+    for image in images:
+        mime = image["mime"]
+        guessed, _ = mimetypes.guess_type(image["name"])
+        if mime not in ALLOWED_TYPES:
+            mime = guessed or ""
+        if mime not in ALLOWED_TYPES:
+            return None, "Please attach JPG, PNG, WEBP, or GIF images only."
+        if len(image["data"]) > MAX_IMAGE_BYTES:
+            return None, "Please keep each image under 8 MB."
+        safe = "".join(ch if ch.isalnum() or ch in "._-" else "_" for ch in os.path.basename(image["name"]))
+        if "." not in safe:
+            safe = f"reference.{ALLOWED_TYPES[mime]}"
+        image["name"] = safe
+        image["mime"] = mime
+        cleaned.append(image)
+    return cleaned, ""
 
 
 class Handler(SimpleHTTPRequestHandler):
@@ -331,6 +465,124 @@ class Handler(SimpleHTTPRequestHandler):
             except Exception:
                 traceback.print_exc()
 
+    def handle_collaboration_request(self, fields: dict[str, str], images: list[dict]) -> None:
+        name = (fields.get("name") or "").replace("\r", " ").replace("\n", " ").strip()
+        email = (fields.get("email") or "").replace("\r", " ").replace("\n", " ").strip()
+        phone = (fields.get("phone") or "").replace("\r", " ").replace("\n", " ").strip()
+        organization = (fields.get("organization") or "").replace("\r", " ").replace("\n", " ").strip()
+        website = (fields.get("website") or "").replace("\r", " ").replace("\n", " ").strip()
+        linkedin = (fields.get("linkedin") or "").replace("\r", " ").replace("\n", " ").strip()
+        socials = (fields.get("socials") or "").replace("\r", " ").replace("\n", " ").strip()
+        message = (fields.get("message") or "").strip()
+        timeline = (fields.get("timeline") or "").replace("\r", " ").replace("\n", " ").strip()
+        service_other = (fields.get("serviceOther") or "").replace("\r", " ").replace("\n", " ").strip()
+        service = combine_services(
+            (fields.get("service") or "").replace("\r", " ").replace("\n", " ").strip(),
+            service_other,
+        )
+
+        if not name or not email or not message:
+            self.json_response(400, False, "Please fill in your name, email, and project description.")
+            return
+        if not EMAIL_RE.match(email):
+            self.json_response(400, False, "Please enter a valid email address.")
+            return
+        if not service:
+            self.json_response(400, False, "Please choose a service, or describe it under Other.")
+            return
+        if (
+            len(name) > 120
+            or len(email) > 160
+            or len(phone) > 40
+            or len(organization) > 160
+            or len(website) > 200
+            or len(linkedin) > 200
+            or len(socials) > 400
+            or len(service) > 400
+            or len(service_other) > 160
+            or len(timeline) > 160
+            or len(message) > 4000
+        ):
+            self.json_response(400, False, "Please shorten your request and try again.")
+            return
+
+        cleaned, image_error = prepare_images(images)
+        if image_error:
+            self.json_response(400, False, image_error)
+            return
+
+        file_names = (
+            ", ".join(item["name"] for item in cleaned)
+            if cleaned
+            else "Please add reference images in the redirected email."
+        )
+        subject = project_enquiry_subject(service, organization)
+        email_args = (
+            name,
+            email,
+            phone,
+            organization,
+            website,
+            linkedin,
+            socials,
+            service,
+            message,
+            timeline,
+            file_names,
+        )
+        email_body = project_enquiry_plain(*email_args)
+        email_html = project_enquiry_html(*email_args)
+
+        config = load_config()
+        email_ok = False
+        visitor_ok = False
+        visitor_phone = normalize_whatsapp_phone(phone)
+        if smtp_configured(config):
+            try:
+                email_ok = send_email(
+                    config,
+                    subject,
+                    email_body,
+                    reply_to=email,
+                    images=cleaned,
+                    html_body=email_html,
+                )
+            except Exception:
+                import traceback
+                traceback.print_exc()
+                email_ok = False
+
+        if email_ok and green_api_configured(config) and visitor_phone:
+            try:
+                visitor_ok = send_whatsapp_to(config, visitor_phone, VISITOR_WHATSAPP)
+            except Exception:
+                import traceback
+                traceback.print_exc()
+                visitor_ok = False
+
+        print(
+            f"collaboration-request name={name!r} subject={subject!r} "
+            f"email_ok={email_ok} visitor_ok={visitor_ok} "
+            f"smtp={smtp_configured(config)} green={green_api_configured(config)}",
+            flush=True,
+        )
+
+        if email_ok:
+            self.json_response(200, True, "Enquiry sent.")
+            return
+        if not smtp_configured(config):
+            self.json_response(
+                503,
+                False,
+                "The contact form is not connected yet. Please email sai.prakhya@xtrudeinc.com.",
+            )
+            return
+        self.json_response(
+            502,
+            False,
+            "Could not send your enquiry. Please try again or email sai.prakhya@xtrudeinc.com.",
+        )
+
     def handle_service_request(self):
         path = self.path.split("?", 1)[0]
         if path not in ("/php/send-service-request.php", "/api/service-request"):
@@ -343,6 +595,11 @@ class Handler(SimpleHTTPRequestHandler):
             return
 
         fields, images = parse_multipart(self)
+        kind = (fields.get("kind") or "").replace("\r", " ").replace("\n", " ").strip()
+        if kind == "collaboration":
+            self.handle_collaboration_request(fields, images)
+            return
+
         name = (fields.get("name") or "").replace("\r", " ").replace("\n", " ").strip()
         email = (fields.get("email") or "").replace("\r", " ").replace("\n", " ").strip()
         phone = (fields.get("phone") or "").replace("\r", " ").replace("\n", " ").strip()
@@ -364,28 +621,10 @@ class Handler(SimpleHTTPRequestHandler):
         if len(name) > 120 or len(email) > 160 or len(phone) > 40 or len(service) > 160 or len(business) > 160 or len(requirement) > 4000:
             self.json_response(400, False, "Please shorten your request and try again.")
             return
-        if len(images) > MAX_IMAGES:
-            self.json_response(400, False, "You can attach up to 5 images.")
+        cleaned, image_error = prepare_images(images)
+        if image_error:
+            self.json_response(400, False, image_error)
             return
-
-        cleaned = []
-        for image in images:
-            mime = image["mime"]
-            guessed, _ = mimetypes.guess_type(image["name"])
-            if mime not in ALLOWED_TYPES:
-                mime = guessed or ""
-            if mime not in ALLOWED_TYPES:
-                self.json_response(400, False, "Please attach JPG, PNG, WEBP, or GIF images only.")
-                return
-            if len(image["data"]) > MAX_IMAGE_BYTES:
-                self.json_response(400, False, "Please keep each image under 8 MB.")
-                return
-            safe = "".join(ch if ch.isalnum() or ch in "._-" else "_" for ch in os.path.basename(image["name"]))
-            if "." not in safe:
-                safe = f"reference.{ALLOWED_TYPES[mime]}"
-            image["name"] = safe
-            image["mime"] = mime
-            cleaned.append(image)
 
         image_names = ", ".join(item["name"] for item in cleaned) if cleaned else "None"
         india = timezone(timedelta(hours=5, minutes=30))

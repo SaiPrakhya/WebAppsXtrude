@@ -199,17 +199,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const aboutNav = document.querySelector(".site-top-nav");
   if (aboutNav) {
+    const toggle = aboutNav.querySelector(".site-top-nav-toggle");
+    const canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
     let closeTimer = 0;
+
+    function setAboutNav(open) {
+      aboutNav.classList.toggle("is-open", open);
+      if (toggle) {
+        toggle.setAttribute("aria-expanded", String(open));
+        toggle.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
+      }
+    }
 
     function openAboutNav() {
       window.clearTimeout(closeTimer);
-      aboutNav.classList.add("is-open");
+      setAboutNav(true);
     }
 
     function closeAboutNav() {
       window.clearTimeout(closeTimer);
       closeTimer = window.setTimeout(function () {
-        aboutNav.classList.remove("is-open");
+        setAboutNav(false);
       }, 180);
     }
 
@@ -221,6 +231,17 @@ document.addEventListener("DOMContentLoaded", function () {
         closeAboutNav();
       }
     });
+
+    if (toggle) {
+      toggle.addEventListener("click", function (event) {
+        if (canHover) {
+          return;
+        }
+        event.preventDefault();
+        window.clearTimeout(closeTimer);
+        setAboutNav(!aboutNav.classList.contains("is-open"));
+      });
+    }
   }
 
   function setupTypeTitle(title, startMode) {
